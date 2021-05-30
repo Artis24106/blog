@@ -1,0 +1,9 @@
+/* Make image align left */
+.single .content figure img {
+	margin: unset;
+}
+
+/* Increase line height */
+.single .content p {
+	margin: 1rem 0;
+}
