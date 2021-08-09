@@ -1,6 +1,108 @@
-<!doctype html><html dir=ltr lang=en data-theme=light><head><title>artis24106
-|
-2021 RaRCTF - Writeup</title><meta charset=utf-8><meta name=generator content="Hugo 0.68.3"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name=description content="真白な夢 羽ばたかせよう"><link rel=stylesheet href=/blog/css/main.min.f08dfd6292604273495f670c5af67081690e166c26708b1dda2d9147b11b7fd9.css integrity="sha256-8I39YpJgQnNJX2cMWvZwgWkOFmwmcIsd2i2RR7Ebf9k=" crossorigin=anonymous type=text/css><link rel=stylesheet href=/blog/css/markupHighlight.min.cc84ed683057cc175ddfa738ea6ba2d5c882b95cb64f50bf9be918cb3791887b.css integrity="sha256-zITtaDBXzBdd36c46mui1ciCuVy2T1C/m+kYyzeRiHs=" crossorigin=anonymous type=text/css><link rel=stylesheet href=/blog/css/custom.min.ae09061c29831033104df6e4f6f49b5434f39e3174c70963c58463b1a8b4caf4.css integrity="sha256-rgkGHCmDEDMQTfbk9vSbVDTznjF0xwljxYRjsai0yvQ=" crossorigin=anonymous media=screen><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin=anonymous><link rel="shortcut icon" href=/blogfavicon.ico type=image/x-icon><link rel=apple-touch-icon sizes=180x180 href=/blogapple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/blogfavicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/blogfavicon-16x16.png><link rel=canonical href=/blog/posts/2021-rarctf/><script type=text/javascript src=/blog/js/anatole-header.min.413f798d8aa82610bef17a5ca1d7e962ec185be395f1aeb3f45d1891af568b65.js integrity="sha256-QT95jYqoJhC+8XpcodfpYuwYW+OV8a6z9F0Yka9Wi2U=" crossorigin=anonymous></script><meta name=twitter:card content="summary"><meta name=twitter:title content="2021 RaRCTF - Writeup"><meta name=twitter:description content="題目：verybabyrev, Dotty, RaRPG, Infinite Free Trial, Very TriVial ReVersing, Jammy's Old Infra, boring flag checker, Down The Rabbit Hole"><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","articleSection":"posts","name":"2021 RaRCTF - Writeup","headline":"2021 RaRCTF - Writeup","alternativeHeadline":"","description":"
+<!DOCTYPE html>
+<html
+  dir="ltr"
+  lang="en"
+  data-theme="light"
+><head>
+  <title>
+    artis24106
+      |
+      2021 RaRCTF - Writeup
+
+
+    
+
+  </title>
+
+  
+  <meta charset="utf-8" /><meta name="generator" content="Hugo 0.68.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta
+    name="description"
+    content="
+      真白な夢 羽ばたかせよう
+
+
+    "
+  />
+  
+  
+  
+  <link
+    rel="stylesheet"
+    href="/blog/css/main.min.f08dfd6292604273495f670c5af67081690e166c26708b1dda2d9147b11b7fd9.css"
+    integrity="sha256-8I39YpJgQnNJX2cMWvZwgWkOFmwmcIsd2i2RR7Ebf9k="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  
+  <link
+    rel="stylesheet"
+    href="/blog/css/markupHighlight.min.cc84ed683057cc175ddfa738ea6ba2d5c882b95cb64f50bf9be918cb3791887b.css"
+    integrity="sha256-zITtaDBXzBdd36c46mui1ciCuVy2T1C/m&#43;kYyzeRiHs="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+    
+    
+    <link
+      rel="stylesheet"
+      href="/blog/css/custom.min.ae09061c29831033104df6e4f6f49b5434f39e3174c70963c58463b1a8b4caf4.css"
+      integrity="sha256-rgkGHCmDEDMQTfbk9vSbVDTznjF0xwljxYRjsai0yvQ="
+      crossorigin="anonymous"
+      media="screen"
+    />
+
+  
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+    crossorigin="anonymous"
+  />
+  
+  <link rel="shortcut icon" href="/blogfavicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/blogapple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/blogfavicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/blogfavicon-16x16.png" />
+
+  <link rel="canonical" href="/blog/posts/2021-rarctf/" />
+
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/blog/js/anatole-header.min.413f798d8aa82610bef17a5ca1d7e962ec185be395f1aeb3f45d1891af568b65.js"
+    integrity="sha256-QT95jYqoJhC&#43;8XpcodfpYuwYW&#43;OV8a6z9F0Yka9Wi2U="
+    crossorigin="anonymous"
+  ></script>
+
+  
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="2021 RaRCTF - Writeup"/>
+<meta name="twitter:description" content="題目：verybabyrev, Dotty, RaRPG, Infinite Free Trial, Very TriVial ReVersing, Jammy&#39;s Old Infra, boring flag checker, Down The Rabbit Hole"/>
+
+
+
+  
+
+
+  
+  
+  
+  
+  <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "articleSection": "posts",
+        "name": "2021 RaRCTF - Writeup",
+        "headline": "2021 RaRCTF - Writeup",
+        "alternativeHeadline": "",
+        "description": "
       
         \x3cp\x3e題目：\x3ccode\x3everybabyrev\x3c\/code\x3e, \x3ccode\x3eDotty\x3c\/code\x3e, \x3ccode\x3eRaRPG\x3c\/code\x3e, \x3ccode\x3eInfinite Free Trial\x3c\/code\x3e, \x3ccode\x3eVery TriVial ReVersing\x3c\/code\x3e, \x3ccode\x3eJammy\x27s Old Infra\x3c\/code\x3e, \x3ccode\x3eboring flag checker\x3c\/code\x3e, \x3ccode\x3eDown The Rabbit Hole\x3c\/code\x3e\x3c\/p\x3e
 
@@ -8,180 +110,644 @@
       
 
 
-    ","inLanguage":"en","isFamilyFriendly":"true","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/artis24106.github.io\/blog\/posts\/2021-rarctf\/"},"author":{"@type":"Person","name":"artis24106"},"creator":{"@type":"Person","name":"artis24106"},"accountablePerson":{"@type":"Person","name":"artis24106"},"copyrightHolder":{"@type":"Person","name":"artis24106"},"copyrightYear":"2021","dateCreated":"2021-08-09T16:57:18.00Z","datePublished":"2021-08-09T16:57:18.00Z","dateModified":"2021-08-09T16:57:18.00Z","publisher":{"@type":"Organization","name":"artis24106","url":"https://artis24106.github.io/blog","logo":{"@type":"ImageObject","url":"https:\/\/artis24106.github.io\/blogfavicon-32x32.png","width":"32","height":"32"}},"image":[],"url":"https:\/\/artis24106.github.io\/blog\/posts\/2021-rarctf\/","wordCount":"1323","genre":["CTF"],"keywords":["CTF","RaRCTF","Reverse"]}</script></head><body><header><div class="page-top
-."><a role=button class=navbar-burger data-target=navMenu aria-label=menu aria-expanded=false><span aria-hidden=true></span><span aria-hidden=true></span><span aria-hidden=true></span></a><nav><ul class=nav__list id=navMenu><div class=nav__links><li><a href=/blog/posts/>Posts</a></li><li><a href=/blog/tags/>Tags</a></li><li><a href=/blog/categories/>Categories</a></li></div><li></li></ul></nav></div></header><div class=wrapper><aside><div class="sidebar
-."><div class=sidebar__content><div class=logo-title><div class=title><img src="https://avatars.githubusercontent.com/u/32833063?v=4" alt="profile picture"><h3><a href=/blog>artis24106's blog</a></h3><div class=description><p>真白な夢 羽ばたかせよう</p></div></div></div><ul class=social-links><li><a href=https://github.com/Artis24106 rel=me aria-label=Github><i class="fab fa-github fa-2x" aria-hidden=true></i></a></li></ul></div><footer class="footer footer--sidebar"><div class=by_farbox><ul class=footer__list><li class=footer__item>&copy;
-artis24106
-2021</li></ul></div></footer><script async src="https://www.googletagmanager.com/gtag/js?id=G-0K535799NY"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
-gtag('js',new Date());gtag('config','G-0K535799NY');</script></div></aside><main><div class=autopagerize_page_element><div class=content><div class="post
-."><div class=post-content><div class=post-title><h1>2021 RaRCTF - Writeup</h1></div><p>題目：<code>verybabyrev</code>, <code>Dotty</code>, <code>RaRPG</code>, <code>Infinite Free Trial</code>, <code>Very TriVial ReVersing</code>, <code>Jammy's Old Infra</code>, <code>boring flag checker</code>, <code>Down The Rabbit Hole</code></p><h2 id=scorenctfu---3rd>Score：NCtfU - 3rd</h2><p><figure><img src=/blog/posts/2021-rarctf/img/1_hue25d819316a6877e3bc039c7bf4fded3_34899_840x0_resize_box_2.png></figure></p><p><figure><img src=/blog/posts/2021-rarctf/img/2_hu13107e0cdc909064ab52eb746b414be5_32272_840x0_resize_box_2.png></figure></p><hr><h2 id=verybabyrev>verybabyrev</h2><h3 id=challenge-info>Challenge Info</h3><blockquote><p>fun fact: verybabyrev backwards is verybabyrev</p><p>file：<code>verybabyrev - ad2b44</code></p></blockquote><h3 id=solution>Solution</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=n>enc</span> <span class=o>=</span> <span class=p>[</span><span class=mh>0x45</span><span class=p>,</span> <span class=mh>0x48</span><span class=p>,</span> <span class=mh>0x1D</span><span class=p>,</span> <span class=mh>0x12</span><span class=p>,</span> <span class=mh>0x17</span><span class=p>,</span> <span class=mh>0x11</span><span class=p>,</span> <span class=mh>0x13</span><span class=p>,</span> <span class=mh>0x13</span><span class=p>][::</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span> <span class=o>+</span> \
-    <span class=p>[</span><span class=mh>0x09</span><span class=p>,</span> <span class=mh>0x5F</span><span class=p>,</span> <span class=mh>0x42</span><span class=p>,</span> <span class=mh>0x2C</span><span class=p>,</span> <span class=mh>0x26</span><span class=p>,</span> <span class=mh>0x0B</span><span class=p>,</span> <span class=mh>0x41</span><span class=p>,</span> <span class=mh>0x45</span><span class=p>][::</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span> <span class=o>+</span> \
-    <span class=p>[</span><span class=mh>0x54</span><span class=p>,</span> <span class=mh>0x1B</span><span class=p>,</span> <span class=mh>0x56</span><span class=p>,</span> <span class=mh>0x56</span><span class=p>,</span> <span class=mh>0x3D</span><span class=p>,</span> <span class=mh>0x6C</span><span class=p>,</span> <span class=mh>0x5F</span><span class=p>,</span> <span class=mh>0x0B</span><span class=p>][::</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span> <span class=o>+</span> \
-    <span class=p>[</span><span class=mh>0x58</span><span class=p>,</span> <span class=mh>0x5C</span><span class=p>,</span> <span class=mh>0x0B</span><span class=p>,</span> <span class=mh>0x3C</span><span class=p>,</span> <span class=mh>0x29</span><span class=p>,</span> <span class=mh>0x45</span><span class=p>,</span> <span class=mh>0x41</span><span class=p>,</span> <span class=mh>0x5F</span><span class=p>][::</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span> <span class=o>+</span> \
-    <span class=p>[</span><span class=mh>0x40</span><span class=p>,</span> <span class=mh>0x2A</span><span class=p>,</span> <span class=mh>0x6C</span><span class=p>,</span> <span class=mh>0x54</span><span class=p>,</span> <span class=mh>0x09</span><span class=p>,</span> <span class=mh>0x5D</span><span class=p>,</span> <span class=mh>0x5F</span><span class=p>,</span> <span class=mh>0x00</span><span class=p>][::</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span> <span class=o>+</span> \
-    <span class=p>[</span><span class=mh>0x4B</span><span class=p>,</span> <span class=mh>0x5F</span><span class=p>,</span> <span class=mh>0x42</span><span class=p>,</span> <span class=mh>0x48</span><span class=p>,</span> <span class=mh>0x27</span><span class=p>,</span> <span class=mh>0x6A</span><span class=p>,</span> <span class=mh>0x06</span><span class=p>,</span> <span class=mh>0x06</span><span class=p>][::</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span> <span class=o>+</span> \
-    <span class=p>[</span><span class=mh>0x6C</span><span class=p>,</span> <span class=mh>0x5E</span><span class=p>,</span> <span class=mh>0x5D</span><span class=p>,</span> <span class=mh>0x43</span><span class=p>,</span> <span class=mh>0x2C</span><span class=p>,</span> <span class=mh>0x2D</span><span class=p>,</span> <span class=mh>0x42</span><span class=p>,</span> <span class=mh>0x56</span><span class=p>][::</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span> <span class=o>+</span> \
-    <span class=p>[</span><span class=mh>0x6B</span><span class=p>,</span> <span class=mh>0x31</span><span class=p>,</span> <span class=mh>0x5E</span><span class=p>,</span> <span class=mh>0x43</span><span class=p>,</span> <span class=mh>0x47</span><span class=p>,</span> <span class=mh>0x07</span><span class=p>,</span> <span class=mh>0x41</span><span class=p>,</span> <span class=mh>0x2D</span><span class=p>][::</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span> <span class=o>+</span> \
-    <span class=p>[</span><span class=mh>0x5E</span><span class=p>,</span> <span class=mh>0x54</span><span class=p>,</span> <span class=mh>0x49</span><span class=p>,</span> <span class=mh>0x1C</span><span class=p>,</span> <span class=mh>0x6E</span><span class=p>,</span> <span class=mh>0x3B</span><span class=p>,</span> <span class=mh>0x0A</span><span class=p>,</span> <span class=mh>0x5A</span><span class=p>][::</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span> <span class=o>+</span> \
-    <span class=p>[</span><span class=mh>0x28</span><span class=p>,</span> <span class=mh>0x28</span><span class=p>,</span> <span class=mh>0x47</span><span class=p>,</span> <span class=mh>0x5E</span><span class=p>,</span> <span class=mh>0x05</span><span class=p>,</span> <span class=mh>0x34</span><span class=p>,</span> <span class=mh>0x2B</span><span class=p>,</span> <span class=mh>0x1A</span><span class=p>][::</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span> <span class=o>+</span> \
-    <span class=p>[</span><span class=mh>0x06</span><span class=p>,</span> <span class=mh>0x04</span><span class=p>,</span> <span class=mh>0x50</span><span class=p>,</span> <span class=mh>0x07</span><span class=p>,</span> <span class=mh>0x3B</span><span class=p>,</span> <span class=mh>0x26</span><span class=p>,</span> <span class=mh>0x11</span><span class=p>,</span> <span class=mh>0x1F</span><span class=p>][::</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span> <span class=o>+</span> \
-    <span class=p>[</span><span class=mh>0x0A</span><span class=p>,</span> <span class=mh>0x77</span><span class=p>,</span> <span class=mh>0x48</span><span class=p>,</span> <span class=mh>0x03</span><span class=p>,</span> <span class=mh>0x05</span><span class=p>,</span> <span class=mh>0x0B</span><span class=p>,</span> <span class=mh>0x0D</span><span class=p>,</span> <span class=mh>0x04</span><span class=p>][::</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span>
+    ",
+        "inLanguage": "en",
+        "isFamilyFriendly": "true",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/artis24106.github.io\/blog\/posts\/2021-rarctf\/"
+        },
+        "author" : {
+            "@type": "Person",
+            "name": "artis24106"
+        },
+        "creator" : {
+            "@type": "Person",
+            "name": "artis24106"
+        },
+        "accountablePerson" : {
+            "@type": "Person",
+            "name": "artis24106"
+        },
+        "copyrightHolder" : {
+            "@type": "Person",
+            "name": "artis24106"
+        },
+        "copyrightYear" : "2021",
+        "dateCreated": "2021-08-09T16:57:18.00Z",
+        "datePublished": "2021-08-09T16:57:18.00Z",
+        "dateModified": "2021-08-09T16:57:18.00Z",
+        "publisher":{
+            "@type":"Organization",
+            "name": "artis24106",
+            "url": "https://artis24106.github.io/blog",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https:\/\/artis24106.github.io\/blogfavicon-32x32.png",
+                "width":"32",
+                "height":"32"
+            }
+        },
+        "image": 
+      [
+      ]
 
-<span class=n>flag</span> <span class=o>=</span> <span class=p>[</span><span class=nb>ord</span><span class=p>(</span><span class=s1>&#39;r&#39;</span><span class=p>)]</span>
+    ,
+        "url" : "https:\/\/artis24106.github.io\/blog\/posts\/2021-rarctf\/",
+        "wordCount" : "1323",
+        "genre" : [ 
+      
+      "CTF"
 
-<span class=k>for</span> <span class=n>i</span><span class=p>,</span> <span class=n>v</span> <span class=ow>in</span> <span class=nb>enumerate</span><span class=p>(</span><span class=n>enc</span><span class=p>):</span>
-    <span class=n>flag</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>flag</span><span class=p>[</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span> <span class=o>^</span> <span class=n>v</span><span class=p>)</span>
-    <span class=k>print</span><span class=p>(</span><span class=nb>chr</span><span class=p>(</span><span class=n>flag</span><span class=p>[</span><span class=o>-</span><span class=mi>2</span><span class=p>]),</span> <span class=n>end</span><span class=o>=</span><span class=s1>&#39;&#39;</span><span class=p>)</span>
-</code></pre></td></tr></table></div></div><h3 id=flag>Flag</h3><p><code>rarctf{3v3ry_s1ngl3_b4by-r3v_ch4ll3ng3_u535_x0r-f0r_s0m3_r34s0n_4nd_1-d0nt_kn0w_why_dc37158365}</code></p><hr><h2 id=dotty>Dotty</h2><h3 id=challenge-info-1>Challenge Info</h3><blockquote><p>My new program will keep your secrets safe using military grade encryption!</p><p>file：<code>Dotty.exe - 81a733</code></p></blockquote><h3 id=solution-1>Solution</h3><p>It&rsquo;s a .Net assembly, so simply decode with DNSpy.</p><p>A morse code string can be found in <code>Check()</code>.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-c data-lang=c><span class=c1>// Dotty.Check
-</span><span class=c1>// Token: 0x06000007 RID: 7 RVA: 0x000022EC File Offset: 0x000004EC
-</span><span class=c1>// Note: this type is marked as &#39;beforefieldinit&#39;.
-</span><span class=c1></span><span class=k>static</span> <span class=nf>Check</span><span class=p>()</span>
-<span class=p>{</span>
-	<span class=n>Check</span><span class=p>.</span><span class=n>check</span> <span class=o>=</span> <span class=s>&#34;-|....|.|/|..-.|.-..|.-|--.|/|..|...|/|---|.---|--.-|-..-|.|-.--|...--|..-|--|--..|.....|.--|..|--|.-..|.|.-..|.....|....-|-|.-|.....|-.-|--...|---|.-|--..|-|--.|..---|..---|--...|--.|-...|--..|..-.|-....|-.|.-..|--.-|.--.|.|--...|-|-....|.--.|--..|--...|.-..|.....|-|--.|-.-.|-.|-..|-...|--|--|...--|-..|.-|-.|.-..|.....|/|-...|.-|...|.|...--|..---&#34;</span><span class=p>;</span>
-<span class=p>}</span>
-</code></pre></td></tr></table></div></div><p>Decode the string with <code>|</code> as letter and <code>/</code> as word delimeter, and get</p><pre><code>THE FLAG IS OJQXEY3UMZ5WIMLEL54TA5K7OAZTG227GBZF6NLQPE7T6PZ7L5TGCNDBMM3DANL5 BASE32
-</code></pre><p>Decode from Base32 and get the flag.</p><h3 id=flag-1>Flag</h3><p><code>rarctf{d1d_y0u_p33k_0r_5py????_fa4ac605}</code></p><hr><h2 id=rarpg>RaRPG</h2><h3 id=challenge-info-2>Challenge Info</h3><blockquote><p>Challenge instance ready at <code>193.57.159.27:60415</code>
-I&rsquo;ve been building a brand new Massively(?) Multiplayer(?) Online Role-Playing(?) Game(?) - try it out! Just don&rsquo;t try and visit the secret dev room&mldr;</p><p>If you do not have the linked libraries, download rarpg-libs.zip and extract the libraries into your working directory. Then use</p><p><code>LD_LIBRARY_PATH=$(pwd) ./client &lt;ip> &lt;port></code></p><p>file：<code>client - edcfd5</code>, <code>rarpg-libs.zip - e89a64</code>, <code>rarpg-libs.zip - e89a64</code></p></blockquote><h3 id=solution-2>Solution</h3><p>It&rsquo;s a simple game. We can control <code>*</code> to go into portals (<code>X</code>), and any other characters are refrred to as the wall.</p><p>Apparently, the goal is to go into the portal in the east.</p><p><figure><img src=/blog/posts/2021-rarctf/img/4_huf9698353b5ad45cad11815c04d5408aa_32263_840x0_resize_box_2.png></figure></p><p>I found the code which can modify character&rsquo;s corodinate by pressing arrow keys, so I patched the moving distance from 1 to 2 when the up arrow key is pressed.</p><p><figure><img src=/blog/posts/2021-rarctf/img/3.png></figure></p><p>Then just play the game and get the flag.</p><p><figure><img src=/blog/posts/2021-rarctf/img/5_hubec9f6e6d856e23bf7e88888a35ba12c_30526_840x0_resize_box_2.png></figure></p><h3 id=flag-2>Flag</h3><p><code>rarctf{g4m3_h4ck1ng_f0r_n00b5!-75f8b0}</code></p><hr><h2 id=infinite-free-trial>Infinite Free Trial</h2><h3 id=challenge-info-3>Challenge Info</h3><blockquote><p>We&rsquo;ve decided to make an app specially for flag hoarding, can you make sure no one can crack it?</p><p>NOTE: The flag is a valid registration key</p><p>file：<code>ift.zip - 12b533</code></p></blockquote><h3 id=solution-3>Solution</h3><p>It&rsquo;s a serial key checker. Analyze statically in IDA.</p><p>In <code>func()</code>, there is a 2-step verification (<code>do_crc_check()</code> and <code>do_xor_check()</code>).<figure><img src=/blog/posts/2021-rarctf/img/6.png></figure></p><p>However, the crc check is useless as it is simple to reverse the xor check and get flag.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span><span class=lnt>8
-</span><span class=lnt>9
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=n>xor_check</span> <span class=o>=</span> <span class=sa>b</span><span class=s1>&#39;</span><span class=se>\t\x16\x17\x0f\x17</span><span class=s1>V</span><span class=se>\x16</span><span class=s1>D:</span><span class=se>\x18</span><span class=s1>So</span><span class=se>\x14\x03</span><span class=s1>*</span><span class=se>\x06</span><span class=s1>o1</span><span class=se>\x1c</span><span class=s1>G*</span><span class=se>\x06</span><span class=s1>-_Q</span><span class=se>\x1b\x00</span><span class=s1>FJ</span><span class=se>\x00\x04</span><span class=s1>UfP</span><span class=se>\x01</span><span class=s1>L&#39;</span>
-<span class=n>flag</span> <span class=o>=</span> <span class=p>[</span><span class=nb>ord</span><span class=p>(</span><span class=n>el</span><span class=p>)</span> <span class=k>for</span> <span class=n>el</span> <span class=ow>in</span> <span class=s1>&#39;rarctf&#39;</span><span class=p>]</span>
+    ],
+        "keywords" : [ 
+      
+      "CTF"
 
-<span class=k>print</span><span class=p>(</span><span class=s1>&#39;rarctf&#39;</span><span class=p>,</span> <span class=n>end</span><span class=o>=</span><span class=s1>&#39;&#39;</span><span class=p>)</span>
-<span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=mi>6</span><span class=p>):</span>
-    <span class=k>for</span> <span class=n>j</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=mi>6</span><span class=p>):</span>
-        <span class=n>idx</span> <span class=o>=</span> <span class=n>i</span><span class=o>*</span><span class=mi>6</span> <span class=o>+</span> <span class=n>j</span>
-        <span class=n>flag</span><span class=p>[</span><span class=n>j</span><span class=p>]</span> <span class=o>^=</span> <span class=n>xor_check</span><span class=p>[</span><span class=n>idx</span><span class=p>]</span>
-        <span class=k>print</span><span class=p>(</span><span class=nb>chr</span><span class=p>(</span><span class=n>flag</span><span class=p>[</span><span class=n>j</span><span class=p>]),</span> <span class=n>end</span><span class=o>=</span><span class=s1>&#39;&#39;</span><span class=p>)</span>
-</code></pre></td></tr></table></div></div><h3 id=flag-3>Flag</h3><p><code>rarctf{welc0m3_t0_y0ur_new_tr14l_281099b9}</code></p><hr><h2 id=very-trivial-reversing>Very TriVial ReVersing</h2><h3 id=challenge-info-4>Challenge Info</h3><blockquote><p>Hey, at least it&rsquo;s not Haskell!</p><p>file：<code>vtr-alternate - ade66a</code>, <code>vtr - 71cb11</code></p></blockquote><h3 id=solution-4>Solution</h3><p>A flag checker. In <code>main__check()</code> shows that it encode user input and check if it&rsquo;s the same as the encoded flag.</p><p>Below is how the encoding mechanism works.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=n>encoded_flag</span> <span class=o>=</span> <span class=p>[</span><span class=mi>152</span><span class=p>,</span> <span class=mi>105</span><span class=p>,</span> <span class=mi>152</span><span class=p>,</span> <span class=mi>103</span><span class=p>,</span> <span class=mi>158</span><span class=p>,</span> <span class=mi>100</span><span class=p>,</span> <span class=mi>159</span><span class=p>,</span> <span class=mi>119</span><span class=p>,</span> <span class=mi>173</span><span class=p>,</span> <span class=mi>101</span><span class=p>,</span> <span class=mi>118</span><span class=p>,</span> <span class=mi>118</span><span class=p>,</span> <span class=mi>178</span><span class=p>,</span> <span class=mi>105</span><span class=p>,</span> <span class=mi>158</span><span class=p>,</span> <span class=mi>115</span><span class=p>,</span> <span class=mi>169</span><span class=p>,</span> <span class=mi>87</span><span class=p>,</span>
-                <span class=mi>180</span><span class=p>,</span> <span class=mi>35</span><span class=p>,</span> <span class=mi>158</span><span class=p>,</span> <span class=mi>119</span><span class=p>,</span> <span class=mi>179</span><span class=p>,</span> <span class=mi>146</span><span class=p>,</span> <span class=mi>169</span><span class=p>,</span> <span class=mi>88</span><span class=p>,</span> <span class=mi>174</span><span class=p>,</span> <span class=mi>45</span><span class=p>,</span> <span class=mi>89</span><span class=p>,</span> <span class=mi>101</span><span class=p>,</span> <span class=mi>168</span><span class=p>,</span> <span class=mi>21</span><span class=p>,</span> <span class=mi>89</span><span class=p>,</span> <span class=mi>33</span><span class=p>,</span> <span class=mi>173</span><span class=p>,</span> <span class=mi>102</span><span class=p>,</span> <span class=mi>165</span><span class=p>]</span>
-<span class=n>key</span> <span class=o>=</span> <span class=p>[</span><span class=mh>0x13</span><span class=p>,</span> <span class=mh>0x37</span><span class=p>]</span>
+    
+      
+        ,
+
+      
+      "RaRCTF"
+
+    
+      
+        ,
+
+      
+      "Reverse"
+
+    ]
+    }
+  </script>
 
 
-<span class=k>def</span> <span class=nf>enc</span><span class=p>(</span><span class=n>key</span><span class=p>,</span> <span class=n>data</span><span class=p>):</span>
-    <span class=k>for</span> <span class=n>el</span> <span class=ow>in</span> <span class=n>data</span><span class=p>:</span>
-        <span class=n>e</span> <span class=o>=</span> <span class=p>(</span><span class=nb>ord</span><span class=p>(</span><span class=n>el</span><span class=p>)</span> <span class=o>^</span> <span class=n>key</span><span class=p>[</span><span class=mi>0</span><span class=p>])</span> <span class=o>+</span> <span class=n>key</span><span class=p>[</span><span class=mi>1</span><span class=p>]</span>
-        <span class=n>key</span> <span class=o>=</span> <span class=n>key</span><span class=p>[::</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span>
-        <span class=k>print</span><span class=p>(</span><span class=n>e</span><span class=p>,</span> <span class=n>end</span><span class=o>=</span><span class=s1>&#39;, &#39;</span><span class=p>)</span>
-    <span class=k>print</span><span class=p>()</span>
+
+</head>
+<body>
+    <header><div
+  class="page-top 
+    .
+
+  "
+>
+  <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+  </a>
+  <nav>
+    <ul class="nav__list" id="navMenu">
+      <div class="nav__links">
+        
+        
+          
+          <li>
+            <a
+              
+              href="/blog/posts/"
+              
+              title=""
+              >Posts</a
+            >
+          </li>
+
+        
+          
+          <li>
+            <a
+              
+              href="/blog/tags/"
+              
+              title=""
+              >Tags</a
+            >
+          </li>
+
+        
+          
+          <li>
+            <a
+              
+              href="/blog/categories/"
+              
+              title=""
+              >Categories</a
+            >
+          </li>
+
+        
+        
+      </div>
+      <li>
+        
+      </li>
+    </ul>
+  </nav>
+</div>
+</header>
+    <div class="wrapper">
+      <aside><div
+  class="sidebar
+    .
+
+  "
+>
+  <div class="sidebar__content">
+    <div class="logo-title">
+      <div class="title">
+        <img src="https://avatars.githubusercontent.com/u/32833063?v=4" alt="profile picture" />
+        <h3 title=""><a href="/blog">artis24106&#39;s blog</a></h3>
+        <div class="description">
+          <p>真白な夢 羽ばたかせよう</p>
+        </div>
+      </div>
+    </div>
+    <ul class="social-links">
+      
+        <li>
+          <a href="https://github.com/Artis24106" rel="me" aria-label="Github">
+            <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+
+      
+    </ul>
+  </div><footer class="footer footer--sidebar">
+  <div class="by_farbox">
+    <ul class="footer__list">
+      <li class="footer__item">
+        &copy;
+        
+          artis24106
+          2021
 
 
-<span class=k>def</span> <span class=nf>dec</span><span class=p>(</span><span class=n>key</span><span class=p>,</span> <span class=n>data</span><span class=p>):</span>
-    <span class=k>for</span> <span class=n>el</span> <span class=ow>in</span> <span class=n>data</span><span class=p>:</span>
-        <span class=n>p</span> <span class=o>=</span> <span class=p>(</span><span class=n>el</span> <span class=o>-</span> <span class=n>key</span><span class=p>[</span><span class=mi>1</span><span class=p>])</span> <span class=o>^</span> <span class=n>key</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span>
-        <span class=n>key</span> <span class=o>=</span> <span class=n>key</span><span class=p>[::</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span>
-        <span class=k>print</span><span class=p>(</span><span class=nb>chr</span><span class=p>(</span><span class=n>p</span><span class=p>),</span> <span class=n>end</span><span class=o>=</span><span class=s1>&#39;&#39;</span><span class=p>)</span>
-    <span class=k>print</span><span class=p>()</span>
+        
+      </li>
+      
+    </ul>
+  </div>
+</footer>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0K535799NY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+  gtag('config', 'G-0K535799NY');
+</script>
+</div>
+</aside>
+      <main>
+        <div class="autopagerize_page_element">
+          <div class="content">
+  <div
+    class="post 
+      .
+
+    "
+  >
+    <div class="post-content">
+      
+      <div class="post-title">
+        <h1>2021 RaRCTF - Writeup</h1>
+        
+      </div><p>題目：<code>verybabyrev</code>, <code>Dotty</code>, <code>RaRPG</code>, <code>Infinite Free Trial</code>, <code>Very TriVial ReVersing</code>, <code>Jammy's Old Infra</code>, <code>boring flag checker</code>, <code>Down The Rabbit Hole</code></p>
+<h2 id="scorenctfu---3rd">Score：NCtfU - 3rd</h2>
+<p>
+
+<figure>
+	<img src="/blog/posts/2021-rarctf/img/1_hue25d819316a6877e3bc039c7bf4fded3_34899_840x0_resize_box_2.png"   />
+	
+</figure></p>
+<p>
+
+<figure>
+	<img src="/blog/posts/2021-rarctf/img/2_hu13107e0cdc909064ab52eb746b414be5_32272_840x0_resize_box_2.png"   />
+	
+</figure></p>
+<hr>
+<h2 id="verybabyrev">verybabyrev</h2>
+<h3 id="challenge-info">Challenge Info</h3>
+<blockquote>
+<p>fun fact: verybabyrev backwards is verybabyrev</p>
+<p>file：<code>verybabyrev - ad2b44</code></p>
+</blockquote>
+<h3 id="solution">Solution</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">enc</span> <span class="o">=</span> <span class="p">[</span><span class="mh">0x45</span><span class="p">,</span> <span class="mh">0x48</span><span class="p">,</span> <span class="mh">0x1D</span><span class="p">,</span> <span class="mh">0x12</span><span class="p">,</span> <span class="mh">0x17</span><span class="p">,</span> <span class="mh">0x11</span><span class="p">,</span> <span class="mh">0x13</span><span class="p">,</span> <span class="mh">0x13</span><span class="p">][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> \
+    <span class="p">[</span><span class="mh">0x09</span><span class="p">,</span> <span class="mh">0x5F</span><span class="p">,</span> <span class="mh">0x42</span><span class="p">,</span> <span class="mh">0x2C</span><span class="p">,</span> <span class="mh">0x26</span><span class="p">,</span> <span class="mh">0x0B</span><span class="p">,</span> <span class="mh">0x41</span><span class="p">,</span> <span class="mh">0x45</span><span class="p">][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> \
+    <span class="p">[</span><span class="mh">0x54</span><span class="p">,</span> <span class="mh">0x1B</span><span class="p">,</span> <span class="mh">0x56</span><span class="p">,</span> <span class="mh">0x56</span><span class="p">,</span> <span class="mh">0x3D</span><span class="p">,</span> <span class="mh">0x6C</span><span class="p">,</span> <span class="mh">0x5F</span><span class="p">,</span> <span class="mh">0x0B</span><span class="p">][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> \
+    <span class="p">[</span><span class="mh">0x58</span><span class="p">,</span> <span class="mh">0x5C</span><span class="p">,</span> <span class="mh">0x0B</span><span class="p">,</span> <span class="mh">0x3C</span><span class="p">,</span> <span class="mh">0x29</span><span class="p">,</span> <span class="mh">0x45</span><span class="p">,</span> <span class="mh">0x41</span><span class="p">,</span> <span class="mh">0x5F</span><span class="p">][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> \
+    <span class="p">[</span><span class="mh">0x40</span><span class="p">,</span> <span class="mh">0x2A</span><span class="p">,</span> <span class="mh">0x6C</span><span class="p">,</span> <span class="mh">0x54</span><span class="p">,</span> <span class="mh">0x09</span><span class="p">,</span> <span class="mh">0x5D</span><span class="p">,</span> <span class="mh">0x5F</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> \
+    <span class="p">[</span><span class="mh">0x4B</span><span class="p">,</span> <span class="mh">0x5F</span><span class="p">,</span> <span class="mh">0x42</span><span class="p">,</span> <span class="mh">0x48</span><span class="p">,</span> <span class="mh">0x27</span><span class="p">,</span> <span class="mh">0x6A</span><span class="p">,</span> <span class="mh">0x06</span><span class="p">,</span> <span class="mh">0x06</span><span class="p">][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> \
+    <span class="p">[</span><span class="mh">0x6C</span><span class="p">,</span> <span class="mh">0x5E</span><span class="p">,</span> <span class="mh">0x5D</span><span class="p">,</span> <span class="mh">0x43</span><span class="p">,</span> <span class="mh">0x2C</span><span class="p">,</span> <span class="mh">0x2D</span><span class="p">,</span> <span class="mh">0x42</span><span class="p">,</span> <span class="mh">0x56</span><span class="p">][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> \
+    <span class="p">[</span><span class="mh">0x6B</span><span class="p">,</span> <span class="mh">0x31</span><span class="p">,</span> <span class="mh">0x5E</span><span class="p">,</span> <span class="mh">0x43</span><span class="p">,</span> <span class="mh">0x47</span><span class="p">,</span> <span class="mh">0x07</span><span class="p">,</span> <span class="mh">0x41</span><span class="p">,</span> <span class="mh">0x2D</span><span class="p">][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> \
+    <span class="p">[</span><span class="mh">0x5E</span><span class="p">,</span> <span class="mh">0x54</span><span class="p">,</span> <span class="mh">0x49</span><span class="p">,</span> <span class="mh">0x1C</span><span class="p">,</span> <span class="mh">0x6E</span><span class="p">,</span> <span class="mh">0x3B</span><span class="p">,</span> <span class="mh">0x0A</span><span class="p">,</span> <span class="mh">0x5A</span><span class="p">][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> \
+    <span class="p">[</span><span class="mh">0x28</span><span class="p">,</span> <span class="mh">0x28</span><span class="p">,</span> <span class="mh">0x47</span><span class="p">,</span> <span class="mh">0x5E</span><span class="p">,</span> <span class="mh">0x05</span><span class="p">,</span> <span class="mh">0x34</span><span class="p">,</span> <span class="mh">0x2B</span><span class="p">,</span> <span class="mh">0x1A</span><span class="p">][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> \
+    <span class="p">[</span><span class="mh">0x06</span><span class="p">,</span> <span class="mh">0x04</span><span class="p">,</span> <span class="mh">0x50</span><span class="p">,</span> <span class="mh">0x07</span><span class="p">,</span> <span class="mh">0x3B</span><span class="p">,</span> <span class="mh">0x26</span><span class="p">,</span> <span class="mh">0x11</span><span class="p">,</span> <span class="mh">0x1F</span><span class="p">][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> \
+    <span class="p">[</span><span class="mh">0x0A</span><span class="p">,</span> <span class="mh">0x77</span><span class="p">,</span> <span class="mh">0x48</span><span class="p">,</span> <span class="mh">0x03</span><span class="p">,</span> <span class="mh">0x05</span><span class="p">,</span> <span class="mh">0x0B</span><span class="p">,</span> <span class="mh">0x0D</span><span class="p">,</span> <span class="mh">0x04</span><span class="p">][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">flag</span> <span class="o">=</span> <span class="p">[</span><span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;r&#39;</span><span class="p">)]</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">enc</span><span class="p">):</span>
+    <span class="n">flag</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">flag</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">^</span> <span class="n">v</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="nb">chr</span><span class="p">(</span><span class="n">flag</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]),</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="flag">Flag</h3>
+<p><code>rarctf{3v3ry_s1ngl3_b4by-r3v_ch4ll3ng3_u535_x0r-f0r_s0m3_r34s0n_4nd_1-d0nt_kn0w_why_dc37158365}</code></p>
+<hr>
+<h2 id="dotty">Dotty</h2>
+<h3 id="challenge-info-1">Challenge Info</h3>
+<blockquote>
+<p>My new program will keep your secrets safe using military grade encryption!</p>
+<p>file：<code>Dotty.exe - 81a733</code></p>
+</blockquote>
+<h3 id="solution-1">Solution</h3>
+<p>It&rsquo;s a .Net assembly, so simply decode with DNSpy.</p>
+<p>A morse code string can be found in <code>Check()</code>.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="c1">// Dotty.Check
+</span><span class="c1">// Token: 0x06000007 RID: 7 RVA: 0x000022EC File Offset: 0x000004EC
+</span><span class="c1">// Note: this type is marked as &#39;beforefieldinit&#39;.
+</span><span class="c1"></span><span class="k">static</span> <span class="nf">Check</span><span class="p">()</span>
+<span class="p">{</span>
+	<span class="n">Check</span><span class="p">.</span><span class="n">check</span> <span class="o">=</span> <span class="s">&#34;-|....|.|/|..-.|.-..|.-|--.|/|..|...|/|---|.---|--.-|-..-|.|-.--|...--|..-|--|--..|.....|.--|..|--|.-..|.|.-..|.....|....-|-|.-|.....|-.-|--...|---|.-|--..|-|--.|..---|..---|--...|--.|-...|--..|..-.|-....|-.|.-..|--.-|.--.|.|--...|-|-....|.--.|--..|--...|.-..|.....|-|--.|-.-.|-.|-..|-...|--|--|...--|-..|.-|-.|.-..|.....|/|-...|.-|...|.|...--|..---&#34;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Decode the string with <code>|</code> as letter and <code>/</code> as word delimeter, and get</p>
+<pre><code>THE FLAG IS OJQXEY3UMZ5WIMLEL54TA5K7OAZTG227GBZF6NLQPE7T6PZ7L5TGCNDBMM3DANL5 BASE32
+</code></pre><p>Decode from Base32 and get the flag.</p>
+<h3 id="flag-1">Flag</h3>
+<p><code>rarctf{d1d_y0u_p33k_0r_5py????_fa4ac605}</code></p>
+<hr>
+<h2 id="rarpg">RaRPG</h2>
+<h3 id="challenge-info-2">Challenge Info</h3>
+<blockquote>
+<p>Challenge instance ready at <code>193.57.159.27:60415</code>
+I&rsquo;ve been building a brand new Massively(?) Multiplayer(?) Online Role-Playing(?) Game(?) - try it out! Just don&rsquo;t try and visit the secret dev room&hellip;</p>
+<p>If you do not have the linked libraries, download rarpg-libs.zip and extract the libraries into your working directory. Then use</p>
+<p><code>LD_LIBRARY_PATH=$(pwd) ./client &lt;ip&gt; &lt;port&gt;</code></p>
+<p>file：<code>client - edcfd5</code>, <code>rarpg-libs.zip - e89a64</code>, <code>rarpg-libs.zip - e89a64</code></p>
+</blockquote>
+<h3 id="solution-2">Solution</h3>
+<p>It&rsquo;s a simple game. We can control <code>*</code> to go into portals (<code>X</code>), and any other characters are refrred to as the wall.</p>
+<p>Apparently, the goal is to go into the portal in the east.</p>
+<p>
+
+<figure>
+	<img src="/blog/posts/2021-rarctf/img/4_huf9698353b5ad45cad11815c04d5408aa_32263_840x0_resize_box_2.png"   />
+	
+</figure></p>
+<p>I found the code which can modify character&rsquo;s corodinate by pressing arrow keys, so I patched the moving distance from 1 to 2 when the up arrow key is pressed.</p>
+<p>
+
+<figure>
+	<img src="/blog/posts/2021-rarctf/img/3.png"   />
+	
+</figure></p>
+<p>Then just play the game and get the flag.</p>
+<p>
+
+<figure>
+	<img src="/blog/posts/2021-rarctf/img/5_hubec9f6e6d856e23bf7e88888a35ba12c_30526_840x0_resize_box_2.png"   />
+	
+</figure></p>
+<h3 id="flag-2">Flag</h3>
+<p><code>rarctf{g4m3_h4ck1ng_f0r_n00b5!-75f8b0}</code></p>
+<hr>
+<h2 id="infinite-free-trial">Infinite Free Trial</h2>
+<h3 id="challenge-info-3">Challenge Info</h3>
+<blockquote>
+<p>We&rsquo;ve decided to make an app specially for flag hoarding, can you make sure no one can crack it?</p>
+<p>NOTE: The flag is a valid registration key</p>
+<p>file：<code>ift.zip - 12b533</code></p>
+</blockquote>
+<h3 id="solution-3">Solution</h3>
+<p>It&rsquo;s a serial key checker. Analyze statically in IDA.</p>
+<p>In <code>func()</code>, there is a 2-step verification (<code>do_crc_check()</code> and <code>do_xor_check()</code>).
 
 
-<span class=n>dec</span><span class=p>(</span><span class=n>key</span><span class=p>,</span> <span class=n>encoded_flag</span><span class=p>)</span>
-<span class=n>enc</span><span class=p>(</span><span class=n>key</span><span class=p>,</span> <span class=s1>&#39;rarctf{See,ThatWasn</span><span class=se>\&#39;</span><span class=s1>tSoHard-1eb519ed}&#39;</span><span class=p>)</span>
-</code></pre></td></tr></table></div></div><h3 id=flag-4>Flag</h3><p><code>rarctf{See,ThatWasn'tSoHard-1eb519ed}</code></p><hr><h2 id=jammys-old-infra>Jammy&rsquo;s Old Infra</h2><h3 id=challenge-info-5>Challenge Info</h3><blockquote><p>Jammy asked me to build some login infrastructure for his website. Well, here it is.</p><p>file：<code>jammys_old_infra.apk - 7d03b5</code>, <code>jammys_old_infra_4_4.apk - 8f56dd</code></p></blockquote><h3 id=solution-5>Solution</h3><p>After playing app in Android Studio and statically reverse the apk file with apktool and dex2jar (<a href="https://marketplace.visualstudio.com/items?itemName=Surendrajat.apklab">APKLab</a> is also useful)</p><p>It came out that the app is to open a login webpage (<code>http://ec2-18-130-135-40.eu-west-2.compute.amazonaws.com:8090</code>).</p><p>After pressing the login button, both username and password are checked locally by the function <code>checkCreds()</code> which is inside <code>libnative-lib.so</code>.</p><p><figure><img src=/blog/posts/2021-rarctf/img/7_hubc0a6730b43ca2a48bcecb133111588d_11486_840x0_resize_box_2.png></figure></p><p><code>checkUsername()</code> simply check if the input username is the same as <code>"SQ]X9]A>" ^ "bc79T08j"</code>, so the username is <code>12jammyT</code>.</p><p><code>checkPasswords()</code> check if the input password is the same as the real password decrypted by AES-CBC. The part that decrypt AES key is quite complicate, so dynamically fetch the real password in memory is a better choice.</p><p>Setting the debug environment is the hardest part of the challenge though. Here is my steps in short😢:</p><ol><li>Install one rootable VM in Android Studio.</li><li>Root the VM with the help of <a href=https://supersuroot.org/download/>SuperSU</a>.</li><li>Enter the shell (<code>adb -e shell</code>)</li><li>Open the app and find its pid. (<code>ps | grep jammy</code>)</li><li>Setup port forwarding (<code>adb forward tcp:23946 tcp:23946</code>)</li><li>Start the gdbserver (<code>gdbserver localhost:23946 --attach &lt;pid></code>)</li><li>Open IDA and remote attach to the gdbserver.</li></ol><p>After the catastrophic suffering, just set a breakpoint right after AES decryption is over, and the password in on the stack. (<code>stove:spill2:drivable:1</code>)</p><p>Lastly, input the right username and password to get flag.</p><h3 id=flag-5>Flag</h3><p><code>rarctf{pl34s3_d0nt_s0lv3_st4tic4lly_3829103890}</code></p><hr><h2 id=boring-flag-checker>boring flag checker</h2><h3 id=challenge-info-6>Challenge Info</h3><blockquote><p>Why do all rev challenges have to be boring flag checkers these days?</p><p>Note: This challenge has the same binary as <code>boring-flag-runner</code></p><p>file：<code>boring-flag-checker.zip - 4dc9bc</code></p></blockquote><h3 id=solution-6>Solution</h3><p>It&rsquo;s a brainfuck vm challenge.</p><p>My script is not good enough, so I will add the writeup in the future days.</p><h3 id=flag-6>Flag</h3><p><code>rarctf{1_h0p3_y0u-3njoy3d_my-Br41nF$&k_r3v!_d387171751}</code></p><hr><h2 id=down-the-rabbit-hole>Down The Rabbit Hole</h2><h3 id=challenge-info-7>Challenge Info</h3><blockquote><p>Good luck</p><p>file：<code>loader - ef0b0a</code></p></blockquote><h3 id=solution-7>Solution</h3><p>The program will call <code>sub_401196(i)</code> to load 0x8000 bytes shellcode into a RWX space <code>0xabcdef000</code>, then execute the shellcode.</p><p>This is how the decoding works:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
-</span><span class=lnt>25
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=n>key_data</span> <span class=o>=</span> <span class=nb>open</span><span class=p>(</span><span class=s1>&#39;dump_key&#39;</span><span class=p>,</span> <span class=s1>&#39;rb&#39;</span><span class=p>)</span><span class=o>.</span><span class=n>read</span><span class=p>()</span>    <span class=c1># 0x8000*49 bytes stored in the memory</span>
-<span class=n>src</span> <span class=o>=</span> <span class=nb>open</span><span class=p>(</span><span class=s1>&#39;init_src&#39;</span><span class=p>,</span> <span class=s1>&#39;rb&#39;</span><span class=p>)</span><span class=o>.</span><span class=n>read</span><span class=p>()</span>         <span class=c1># 0x8000 bytes initially stored in 0xabcdef000</span>
-<span class=n>prev_i</span> <span class=o>=</span> <span class=mi>0</span>
+<figure>
+	<img src="/blog/posts/2021-rarctf/img/6.png"   />
+	
+</figure></p>
+<p>However, the crc check is useless as it is simple to reverse the xor check and get flag.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">xor_check</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;</span><span class="se">\t\x16\x17\x0f\x17</span><span class="s1">V</span><span class="se">\x16</span><span class="s1">D:</span><span class="se">\x18</span><span class="s1">So</span><span class="se">\x14\x03</span><span class="s1">*</span><span class="se">\x06</span><span class="s1">o1</span><span class="se">\x1c</span><span class="s1">G*</span><span class="se">\x06</span><span class="s1">-_Q</span><span class="se">\x1b\x00</span><span class="s1">FJ</span><span class="se">\x00\x04</span><span class="s1">UfP</span><span class="se">\x01</span><span class="s1">L&#39;</span>
+<span class="n">flag</span> <span class="o">=</span> <span class="p">[</span><span class="nb">ord</span><span class="p">(</span><span class="n">el</span><span class="p">)</span> <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="s1">&#39;rarctf&#39;</span><span class="p">]</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;rarctf&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
+        <span class="n">idx</span> <span class="o">=</span> <span class="n">i</span><span class="o">*</span><span class="mi">6</span> <span class="o">+</span> <span class="n">j</span>
+        <span class="n">flag</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">^=</span> <span class="n">xor_check</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+        <span class="k">print</span><span class="p">(</span><span class="nb">chr</span><span class="p">(</span><span class="n">flag</span><span class="p">[</span><span class="n">j</span><span class="p">]),</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="flag-3">Flag</h3>
+<p><code>rarctf{welc0m3_t0_y0ur_new_tr14l_281099b9}</code></p>
+<hr>
+<h2 id="very-trivial-reversing">Very TriVial ReVersing</h2>
+<h3 id="challenge-info-4">Challenge Info</h3>
+<blockquote>
+<p>Hey, at least it&rsquo;s not Haskell!</p>
+<p>file：<code>vtr-alternate - ade66a</code>, <code>vtr - 71cb11</code></p>
+</blockquote>
+<h3 id="solution-4">Solution</h3>
+<p>A flag checker. In <code>main__check()</code> shows that it encode user input and check if it&rsquo;s the same as the encoded flag.</p>
+<p>Below is how the encoding mechanism works.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">encoded_flag</span> <span class="o">=</span> <span class="p">[</span><span class="mi">152</span><span class="p">,</span> <span class="mi">105</span><span class="p">,</span> <span class="mi">152</span><span class="p">,</span> <span class="mi">103</span><span class="p">,</span> <span class="mi">158</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">159</span><span class="p">,</span> <span class="mi">119</span><span class="p">,</span> <span class="mi">173</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">118</span><span class="p">,</span> <span class="mi">118</span><span class="p">,</span> <span class="mi">178</span><span class="p">,</span> <span class="mi">105</span><span class="p">,</span> <span class="mi">158</span><span class="p">,</span> <span class="mi">115</span><span class="p">,</span> <span class="mi">169</span><span class="p">,</span> <span class="mi">87</span><span class="p">,</span>
+                <span class="mi">180</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">158</span><span class="p">,</span> <span class="mi">119</span><span class="p">,</span> <span class="mi">179</span><span class="p">,</span> <span class="mi">146</span><span class="p">,</span> <span class="mi">169</span><span class="p">,</span> <span class="mi">88</span><span class="p">,</span> <span class="mi">174</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">89</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">168</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">89</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">173</span><span class="p">,</span> <span class="mi">102</span><span class="p">,</span> <span class="mi">165</span><span class="p">]</span>
+<span class="n">key</span> <span class="o">=</span> <span class="p">[</span><span class="mh">0x13</span><span class="p">,</span> <span class="mh">0x37</span><span class="p">]</span>
 
 
-<span class=k>def</span> <span class=nf>decode</span><span class=p>(</span><span class=n>key</span><span class=p>,</span> <span class=n>size</span><span class=o>=</span><span class=mh>0x8000</span><span class=p>):</span>
-    <span class=k>global</span> <span class=n>src</span>
-    <span class=n>ret</span> <span class=o>=</span> <span class=sa>b</span><span class=s1>&#39;&#39;</span>
-    <span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=n>size</span><span class=p>):</span>
-        <span class=n>curr_key</span> <span class=o>=</span> <span class=n>key</span><span class=p>[</span><span class=n>i</span><span class=p>]</span>
-        <span class=n>curr_src</span> <span class=o>=</span> <span class=n>src</span><span class=p>[</span><span class=n>i</span><span class=p>]</span>
-        <span class=n>ret</span> <span class=o>+=</span> <span class=nb>bytes</span><span class=p>([</span><span class=n>curr_key</span> <span class=o>^</span> <span class=n>curr_src</span> <span class=o>^</span> <span class=mh>0x90</span><span class=p>])</span>
-    <span class=n>src</span> <span class=o>=</span> <span class=n>ret</span>
-    <span class=k>return</span> <span class=n>ret</span>
+<span class="k">def</span> <span class="nf">enc</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+        <span class="n">e</span> <span class="o">=</span> <span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">el</span><span class="p">)</span> <span class="o">^</span> <span class="n">key</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="n">key</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="n">key</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;, &#39;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">()</span>
 
 
-<span class=k>def</span> <span class=nf>sub_401196</span><span class=p>(</span><span class=n>i</span><span class=p>):</span>
-    <span class=k>global</span> <span class=n>prev_i</span>
-    <span class=n>pos</span> <span class=o>=</span> <span class=mh>0x8000</span> <span class=o>*</span> <span class=p>(</span><span class=n>i</span> <span class=o>+</span> <span class=mi>7</span> <span class=o>*</span> <span class=n>prev_i</span><span class=p>)</span>
-    <span class=n>prev_i</span> <span class=o>=</span> <span class=n>i</span>
-    <span class=k>return</span> <span class=n>decode</span><span class=p>(</span><span class=n>key_data</span><span class=p>[</span><span class=n>pos</span><span class=p>:</span><span class=n>pos</span><span class=o>+</span><span class=mh>0x8000</span><span class=p>])</span>
+<span class="k">def</span> <span class="nf">dec</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="p">(</span><span class="n">el</span> <span class="o">-</span> <span class="n">key</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">^</span> <span class="n">key</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="n">key</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">print</span><span class="p">(</span><span class="nb">chr</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">()</span>
 
 
-<span class=nb>open</span><span class=p>(</span><span class=s1>&#39;decode_0.bin&#39;</span><span class=p>,</span> <span class=s1>&#39;wb&#39;</span><span class=p>)</span><span class=o>.</span><span class=n>write</span><span class=p>(</span><span class=n>sub_401196</span><span class=p>(</span><span class=mi>0</span><span class=p>))</span>
-<span class=nb>open</span><span class=p>(</span><span class=s1>&#39;decode_2.bin&#39;</span><span class=p>,</span> <span class=s1>&#39;wb&#39;</span><span class=p>)</span><span class=o>.</span><span class=n>write</span><span class=p>(</span><span class=n>sub_401196</span><span class=p>(</span><span class=mi>2</span><span class=p>))</span>
-</code></pre></td></tr></table></div></div><p>In short, there are two options, and both options will <code>fork()</code>. The parent process will call the child process to do something and get the result back.</p><p><figure><img src=/blog/posts/2021-rarctf/img/8.png></figure></p><h4 id=red-pill>red pill</h4><ol><li>input at most 16 bytes as password</li><li>parent passes the input to the child process to calculate hash (<code>md5(md5(input()) + md5('https://i.imgur.com/gub160B.png\x00'))</code>)</li><li>parent receives the hash</li><li>if the hash is the same as <code>'cbbefea802bf596615e073d3419262f0'</code>, print out half the flag</li></ol><p>So I attached to the parent process and modify the receiving hash sotred in the memory, and got the 1/2 flag.</p><h4 id=blue-pill>blue pill</h4><ol><li>come up with a very simple shell</li><li>if the cat command is used, pass the argument (file path) to the child process</li><li>the child process will first add <code>X</code> padding to the end of the argument till string length is the multiply of 4</li><li>then xor each 4 bytes to get a 4 bytes hash value</li><li>again, if the hash value is matched, print out another half of the flag.</li></ol><p>Similarly to the red pill, I just dynamically changed the zero flag to pass the check, and got the last part of the flag.</p><h3 id=flag-7>Flag</h3><p><code>rarctf{D1d-y0u-t4k3-th3-r3d-p1ll-0r-m4yb3-th3-blu3-p177-539c8a}</code></p></div><div class=post-footer><div class=info><span class=separator><a class=category href=/blog/categories/ctf/>CTF</a></span>
-<span class=separator><a class=tag href=/blog/tags/ctf/>CTF</a><a class=tag href=/blog/tags/rarctf/>RaRCTF</a><a class=tag href=/blog/tags/reverse/>Reverse</a></span></div></div></div></div></div></main></div><footer class="footer footer--base"><div class=by_farbox><ul class=footer__list><li class=footer__item>&copy;
-artis24106
-2021</li></ul></div></footer><script async src="https://www.googletagmanager.com/gtag/js?id=G-0K535799NY"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
-gtag('js',new Date());gtag('config','G-0K535799NY');</script></body></html>
+<span class="n">dec</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">encoded_flag</span><span class="p">)</span>
+<span class="n">enc</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s1">&#39;rarctf{See,ThatWasn</span><span class="se">\&#39;</span><span class="s1">tSoHard-1eb519ed}&#39;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="flag-4">Flag</h3>
+<p><code>rarctf{See,ThatWasn'tSoHard-1eb519ed}</code></p>
+<hr>
+<h2 id="jammys-old-infra">Jammy&rsquo;s Old Infra</h2>
+<h3 id="challenge-info-5">Challenge Info</h3>
+<blockquote>
+<p>Jammy asked me to build some login infrastructure for his website. Well, here it is.</p>
+<p>file：<code>jammys_old_infra.apk - 7d03b5</code>, <code>jammys_old_infra_4_4.apk - 8f56dd</code></p>
+</blockquote>
+<h3 id="solution-5">Solution</h3>
+<p>After playing app in Android Studio and statically reverse the apk file with apktool and dex2jar (<a href="https://marketplace.visualstudio.com/items?itemName=Surendrajat.apklab">APKLab</a> is also useful)</p>
+<p>It came out that the app is to open a login webpage (<code>http://ec2-18-130-135-40.eu-west-2.compute.amazonaws.com:8090</code>).</p>
+<p>After pressing the login button, both username and password are checked locally by the function <code>checkCreds()</code> which is inside <code>libnative-lib.so</code>.</p>
+<p>
+
+<figure>
+	<img src="/blog/posts/2021-rarctf/img/7_hubc0a6730b43ca2a48bcecb133111588d_11486_840x0_resize_box_2.png"   />
+	
+</figure></p>
+<p><code>checkUsername()</code> simply check if the input username is the same as <code>&quot;SQ]X9]A&gt;&quot; ^ &quot;bc79T08j&quot;</code>, so the username is <code>12jammyT</code>.</p>
+<p><code>checkPasswords()</code> check if the input password is the same as the real password decrypted by AES-CBC. The part that decrypt AES key is quite complicate, so dynamically fetch the real password in memory is a better choice.</p>
+<p>Setting the debug environment is the hardest part of the challenge though. Here is my steps in short😢:</p>
+<ol>
+<li>Install one rootable VM in Android Studio.</li>
+<li>Root the VM with the help of <a href="https://supersuroot.org/download/">SuperSU</a>.</li>
+<li>Enter the shell (<code>adb -e shell</code>)</li>
+<li>Open the app and find its pid. (<code>ps | grep jammy</code>)</li>
+<li>Setup port forwarding (<code>adb forward tcp:23946 tcp:23946</code>)</li>
+<li>Start the gdbserver (<code>gdbserver localhost:23946 --attach &lt;pid&gt;</code>)</li>
+<li>Open IDA and remote attach to the gdbserver.</li>
+</ol>
+<p>After the catastrophic suffering, just set a breakpoint right after AES decryption is over, and the password in on the stack. (<code>stove:spill2:drivable:1</code>)</p>
+<p>Lastly, input the right username and password to get flag.</p>
+<h3 id="flag-5">Flag</h3>
+<p><code>rarctf{pl34s3_d0nt_s0lv3_st4tic4lly_3829103890}</code></p>
+<hr>
+<h2 id="boring-flag-checker">boring flag checker</h2>
+<h3 id="challenge-info-6">Challenge Info</h3>
+<blockquote>
+<p>Why do all rev challenges have to be boring flag checkers these days?</p>
+<p>Note: This challenge has the same binary as <code>boring-flag-runner</code></p>
+<p>file：<code>boring-flag-checker.zip - 4dc9bc</code></p>
+</blockquote>
+<h3 id="solution-6">Solution</h3>
+<p>It&rsquo;s a brainfuck vm challenge.</p>
+<p>My script is not good enough, so I will add the writeup in the future days.</p>
+<h3 id="flag-6">Flag</h3>
+<p><code>rarctf{1_h0p3_y0u-3njoy3d_my-Br41nF$&amp;k_r3v!_d387171751}</code></p>
+<hr>
+<h2 id="down-the-rabbit-hole">Down The Rabbit Hole</h2>
+<h3 id="challenge-info-7">Challenge Info</h3>
+<blockquote>
+<p>Good luck</p>
+<p>file：<code>loader - ef0b0a</code></p>
+</blockquote>
+<h3 id="solution-7">Solution</h3>
+<p>The program will call <code>sub_401196(i)</code> to load 0x8000 bytes shellcode into a RWX space <code>0xabcdef000</code>, then execute the shellcode.</p>
+<p>This is how the decoding works:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">key_data</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;dump_key&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>    <span class="c1"># 0x8000*49 bytes stored in the memory</span>
+<span class="n">src</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;init_src&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>         <span class="c1"># 0x8000 bytes initially stored in 0xabcdef000</span>
+<span class="n">prev_i</span> <span class="o">=</span> <span class="mi">0</span>
+
+
+<span class="k">def</span> <span class="nf">decode</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mh">0x8000</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">src</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;&#39;</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">):</span>
+        <span class="n">curr_key</span> <span class="o">=</span> <span class="n">key</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">curr_src</span> <span class="o">=</span> <span class="n">src</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">ret</span> <span class="o">+=</span> <span class="nb">bytes</span><span class="p">([</span><span class="n">curr_key</span> <span class="o">^</span> <span class="n">curr_src</span> <span class="o">^</span> <span class="mh">0x90</span><span class="p">])</span>
+    <span class="n">src</span> <span class="o">=</span> <span class="n">ret</span>
+    <span class="k">return</span> <span class="n">ret</span>
+
+
+<span class="k">def</span> <span class="nf">sub_401196</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">prev_i</span>
+    <span class="n">pos</span> <span class="o">=</span> <span class="mh">0x8000</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">7</span> <span class="o">*</span> <span class="n">prev_i</span><span class="p">)</span>
+    <span class="n">prev_i</span> <span class="o">=</span> <span class="n">i</span>
+    <span class="k">return</span> <span class="n">decode</span><span class="p">(</span><span class="n">key_data</span><span class="p">[</span><span class="n">pos</span><span class="p">:</span><span class="n">pos</span><span class="o">+</span><span class="mh">0x8000</span><span class="p">])</span>
+
+
+<span class="nb">open</span><span class="p">(</span><span class="s1">&#39;decode_0.bin&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">sub_401196</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="nb">open</span><span class="p">(</span><span class="s1">&#39;decode_2.bin&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">sub_401196</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>In short, there are two options, and both options will <code>fork()</code>. The parent process will call the child process to do something and get the result back.</p>
+<p>
+
+<figure>
+	<img src="/blog/posts/2021-rarctf/img/8.png"   />
+	
+</figure></p>
+<h4 id="red-pill">red pill</h4>
+<ol>
+<li>input at most 16 bytes as password</li>
+<li>parent passes the input to the child process to calculate hash (<code>md5(md5(input()) + md5('https://i.imgur.com/gub160B.png\x00'))</code>)</li>
+<li>parent receives the hash</li>
+<li>if the hash is the same as <code>'cbbefea802bf596615e073d3419262f0'</code>, print out half the flag</li>
+</ol>
+<p>So I attached to the parent process and modify the receiving hash sotred in the memory, and got the 1/2 flag.</p>
+<h4 id="blue-pill">blue pill</h4>
+<ol>
+<li>come up with a very simple shell</li>
+<li>if the cat command is used, pass the argument (file path) to the child process</li>
+<li>the child process will first add <code>X</code> padding to the end of the argument till string length is the multiply of 4</li>
+<li>then xor each 4 bytes to get a 4 bytes hash value</li>
+<li>again, if the hash value is matched, print out another half of the flag.</li>
+</ol>
+<p>Similarly to the red pill, I just dynamically changed the zero flag to pass the check, and got the last part of the flag.</p>
+<h3 id="flag-7">Flag</h3>
+<p><code>rarctf{D1d-y0u-t4k3-th3-r3d-p1ll-0r-m4yb3-th3-blu3-p177-539c8a}</code></p></div>
+    <div class="post-footer">
+      <div class="info">
+        
+          <span class="separator"><a class="category" href="/blog/categories/ctf/">CTF</a></span>
+
+
+
+
+        
+
+        
+          <span class="separator"><a class="tag" href="/blog/tags/ctf/">CTF</a><a class="tag" href="/blog/tags/rarctf/">RaRCTF</a><a class="tag" href="/blog/tags/reverse/">Reverse</a></span>
+
+
+
+
+        
+      </div>
+    </div>
+
+    
+  </div>
+
+
+          </div>
+        </div>
+      </main>
+    </div><footer class="footer footer--base">
+  <div class="by_farbox">
+    <ul class="footer__list">
+      <li class="footer__item">
+        &copy;
+        
+          artis24106
+          2021
+
+
+        
+      </li>
+      
+    </ul>
+  </div>
+</footer>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0K535799NY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+  gtag('config', 'G-0K535799NY');
+</script>
+</body>
+</html>

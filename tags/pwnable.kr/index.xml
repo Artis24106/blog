@@ -1,1 +1,22 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>pwnable.kr on artis24106's blog</title><link>https://artis24106.github.io/blog/tags/pwnable.kr/</link><description>Recent content in pwnable.kr on artis24106's blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 18 Aug 2019 12:38:29 +0800</lastBuildDate><atom:link href="https://artis24106.github.io/blog/tags/pwnable.kr/index.xml" rel="self" type="application/rss+xml"/><item><title>Pwnable.kr - Writeup</title><link>https://artis24106.github.io/blog/posts/pwnable-kr/</link><pubDate>Sun, 18 Aug 2019 12:38:29 +0800</pubDate><guid>https://artis24106.github.io/blog/posts/pwnable-kr/</guid><description>&lt;p>題目：&lt;code>blackjack&lt;/code>, &lt;code>collision&lt;/code>, &lt;code>input&lt;/code>, &lt;code>random&lt;/code>&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>pwnable.kr on artis24106&#39;s blog</title>
+    <link>https://artis24106.github.io/blog/tags/pwnable.kr/</link>
+    <description>Recent content in pwnable.kr on artis24106&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 18 Aug 2019 12:38:29 +0800</lastBuildDate><atom:link href="https://artis24106.github.io/blog/tags/pwnable.kr/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Pwnable.kr - Writeup</title>
+      <link>https://artis24106.github.io/blog/posts/pwnable-kr/</link>
+      <pubDate>Sun, 18 Aug 2019 12:38:29 +0800</pubDate>
+      
+      <guid>https://artis24106.github.io/blog/posts/pwnable-kr/</guid>
+      
+        <description>&lt;p&gt;題目：&lt;code&gt;blackjack&lt;/code&gt;, &lt;code&gt;collision&lt;/code&gt;, &lt;code&gt;input&lt;/code&gt;, &lt;code&gt;random&lt;/code&gt;&lt;/p&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>
