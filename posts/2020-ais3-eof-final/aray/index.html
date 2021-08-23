@@ -1,0 +1,895 @@
+<!doctype html><html dir=ltr lang=en data-theme=light><head><title>artis24106
+|
+2020 AIS3 EOF final - ARAY</title><meta charset=utf-8><meta name=generator content="Hugo 0.68.3"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name=description content="真白な夢 羽ばたかせよう"><link rel=stylesheet href=/blog/css/main.min.f08dfd6292604273495f670c5af67081690e166c26708b1dda2d9147b11b7fd9.css integrity="sha256-8I39YpJgQnNJX2cMWvZwgWkOFmwmcIsd2i2RR7Ebf9k=" crossorigin=anonymous type=text/css><link rel=stylesheet href=/blog/css/markupHighlight.min.cc84ed683057cc175ddfa738ea6ba2d5c882b95cb64f50bf9be918cb3791887b.css integrity="sha256-zITtaDBXzBdd36c46mui1ciCuVy2T1C/m+kYyzeRiHs=" crossorigin=anonymous type=text/css><link rel=stylesheet href=/blog/css/custom.min.a72f5e535b2fcc1a9c343df6f1c6b4bced92289acf4e685ad613ec7c31646003.css integrity="sha256-py9eU1svzBqcND328ca0vO2SKJrPTmha1hPsfDFkYAM=" crossorigin=anonymous media=screen><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin=anonymous><link rel="shortcut icon" href=/blogfavicon.ico type=image/x-icon><link rel=apple-touch-icon sizes=180x180 href=/blogapple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/blogfavicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/blogfavicon-16x16.png><link rel=canonical href=/blog/posts/2020-ais3-eof-final/aray/><script type=text/javascript src=/blog/js/anatole-header.min.413f798d8aa82610bef17a5ca1d7e962ec185be395f1aeb3f45d1891af568b65.js integrity="sha256-QT95jYqoJhC+8XpcodfpYuwYW+OV8a6z9F0Yka9Wi2U=" crossorigin=anonymous></script><meta name=twitter:card content="summary"><meta name=twitter:title content="2020 AIS3 EOF final - ARAY"><meta name=twitter:description content="題目：ARAY {FREE_FLAG}, ARAY2 {EASY_FLAG}, ARAY3 {REGEXP_FLAG}, ARAY4 {HARD_FLAG}
+AIS3 EOF Final 的 YARA 系列題，是時候搞定它ㄌ"><script async src="https://www.googletagmanager.com/gtag/js?id=G-0K535799NY"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','G-0K535799NY');</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","articleSection":"posts","name":"2020 AIS3 EOF final - ARAY","headline":"2020 AIS3 EOF final - ARAY","alternativeHeadline":"","description":"
+      
+        \x3cp\x3e題目：\x3ccode\x3eARAY {FREE_FLAG}\x3c\/code\x3e, \x3ccode\x3eARAY2 {EASY_FLAG}\x3c\/code\x3e, \x3ccode\x3eARAY3 {REGEXP_FLAG}\x3c\/code\x3e, \x3ccode\x3eARAY4 {HARD_FLAG}\x3c\/code\x3e\x3c\/p\x3e\n\x3cp\x3eAIS3 EOF Final 的 YARA 系列題，是時候搞定它ㄌ\x3c\/p\x3e
+
+
+      
+
+
+    ","inLanguage":"en","isFamilyFriendly":"true","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/artis24106.github.io\/blog\/posts\/2020-ais3-eof-final\/aray\/"},"author":{"@type":"Person","name":"artis24106"},"creator":{"@type":"Person","name":"artis24106"},"accountablePerson":{"@type":"Person","name":"artis24106"},"copyrightHolder":{"@type":"Person","name":"artis24106"},"copyrightYear":"2021","dateCreated":"2021-08-23T17:45:05.00Z","datePublished":"2021-08-23T17:45:05.00Z","dateModified":"2021-08-23T17:45:05.00Z","publisher":{"@type":"Organization","name":"artis24106","url":"https://artis24106.github.io/blog","logo":{"@type":"ImageObject","url":"https:\/\/artis24106.github.io\/blogfavicon-32x32.png","width":"32","height":"32"}},"image":[],"url":"https:\/\/artis24106.github.io\/blog\/posts\/2020-ais3-eof-final\/aray\/","wordCount":"1641","genre":["CTF"],"keywords":["CTF","AIS3","Reverse"]}</script></head><body><header><div class="page-top
+."><a role=button class=navbar-burger data-target=navMenu aria-label=menu aria-expanded=false><span aria-hidden=true></span><span aria-hidden=true></span><span aria-hidden=true></span></a><nav><ul class=nav__list id=navMenu><div class=nav__links><li><a href=/blog/posts/>Posts</a></li><li><a href=/blog/tags/>Tags</a></li><li><a href=/blog/categories/>Categories</a></li></div><li></li></ul></nav></div></header><div class=wrapper><aside><div class="sidebar
+."><div class=sidebar__content><div class=logo-title><div class=title><img src="https://avatars.githubusercontent.com/u/32833063?v=4" alt="profile picture"><h3><a href=/blog>artis24106's blog</a></h3><div class=description><p>真白な夢 羽ばたかせよう</p></div></div></div><ul class=social-links><li><a href=https://github.com/Artis24106 rel=me aria-label=Github><i class="fab fa-github fa-2x" aria-hidden=true></i></a></li></ul></div><footer class="footer footer--sidebar"><div class=by_farbox><ul class=footer__list><li class=footer__item>&copy;
+artis24106
+2021</li></ul></div></footer></div></aside><main><div class=autopagerize_page_element><div class=content><div class="post
+."><div class=post-content><div class=post-title><h1>2020 AIS3 EOF final - ARAY</h1></div><p>題目：<code>ARAY {FREE_FLAG}</code>, <code>ARAY2 {EASY_FLAG}</code>, <code>ARAY3 {REGEXP_FLAG}</code>, <code>ARAY4 {HARD_FLAG}</code></p><p>AIS3 EOF Final 的 YARA 系列題，是時候搞定它ㄌ</p><h2 id=challenge-info>Challenge Info</h2><p>有 <code>reverse.yac</code>, <code>yara</code>, <code>libyara.so</code> 三個檔案，四題共用</p><h2 id=aray-free_flag-50>ARAY {FREE_FLAG} (50)</h2><h3 id=solution>Solution</h3><p><code>strings</code> 下去噴出一堆 flag</p><p>用眼睛看，或是 yara rule 檢查</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>./yara -C reverse.yac free_flag
+<span class=c1># FREE_FLAG free_flag</span>
+</code></pre></td></tr></table></div></div><h2 id=aray2-easy_flag-100>ARAY2 {EASY_FLAG} (100)</h2><p>肉眼觀察，找到明顯被拆散的 flag 片段XD</p><p><figure><img src=/blog/posts/2020-ais3-eof-final/aray/img/1.png></figure></p><p>簡單寫個腳本解掉：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=n>data</span> <span class=o>=</span> <span class=nb>open</span><span class=p>(</span><span class=s1>&#39;./reverse.yac&#39;</span><span class=p>,</span> <span class=s1>&#39;rb&#39;</span><span class=p>)</span><span class=o>.</span><span class=n>read</span><span class=p>()[</span><span class=mh>0x488FD</span><span class=p>:</span><span class=mh>0x48AEF</span><span class=p>]</span>
+<span class=n>data</span> <span class=o>=</span> <span class=n>data</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=sa>b</span><span class=s1>&#39;</span><span class=se>\x00</span><span class=s1>&#39;</span><span class=p>)</span>
+
+<span class=n>flag</span> <span class=o>=</span> <span class=s1>&#39;&#39;</span>
+<span class=k>for</span> <span class=n>i</span><span class=p>,</span> <span class=n>v</span> <span class=ow>in</span> <span class=nb>enumerate</span><span class=p>(</span><span class=n>data</span><span class=p>):</span>
+    <span class=k>if</span> <span class=n>i</span> <span class=o>&amp;</span> <span class=mi>1</span> <span class=o>==</span> <span class=mi>0</span><span class=p>:</span>
+        <span class=n>flag</span> <span class=o>+=</span> <span class=n>v</span><span class=o>.</span><span class=n>decode</span><span class=p>()</span>
+
+<span class=k>print</span><span class=p>(</span><span class=n>flag</span><span class=p>)</span>
+<span class=nb>open</span><span class=p>(</span><span class=s1>&#39;easy_flag&#39;</span><span class=p>,</span> <span class=s1>&#39;w&#39;</span><span class=p>)</span><span class=o>.</span><span class=n>write</span><span class=p>(</span><span class=n>flag</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><h2 id=aray3-regexp_flag-200>ARAY3 {REGEXP_FLAG} (200)</h2><p>自己寫一個簡單的 regex rule，然後編譯</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-javascript data-lang=javascript><span class=nx>rule</span> <span class=nx>RegExpExample1</span>
+<span class=p>{</span>
+    <span class=nx>strings</span><span class=o>:</span>
+        <span class=nx>$re1</span> <span class=o>=</span> <span class=sr>/[Aa].{2}IS3}/</span>
+        <span class=nx>$re2</span> <span class=o>=</span> <span class=sr>/CC/</span>
+        <span class=nx>$re3</span> <span class=o>=</span> <span class=sr>/(bar|baz|quux)/</span>
+        <span class=nx>$re4</span> <span class=o>=</span> <span class=sr>/[Ada].{2}IS3}/</span>
+        <span class=nx>$re5</span> <span class=o>=</span> <span class=sr>/[Aavb].{6}IS3}/</span>
+
+    <span class=nx>condition</span><span class=o>:</span>
+        <span class=nx>all</span> <span class=k>of</span> <span class=nx>them</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>./yarac ./test.yar ./test.yac<span class=sb>`</span>
+</code></pre></td></tr></table></div></div><p>用 hex editor 觀察，發現會以明文存起來，放在 <code>\xA2</code>（<code>RE_OPCODE_LITERAL</code>） 後面、並用 <code>\xAD</code>（<code>RE_OPCODE_MATCH</code>） 隔開每條規則</p><p>又因為 flag 是正常的英文單字，所以湊出來就好了@@</p><p><figure><img src=/blog/posts/2020-ais3-eof-final/aray/img/2.png></figure></p><p>隨便湊 flag 腳本：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=n>data</span> <span class=o>=</span> <span class=nb>open</span><span class=p>(</span><span class=s1>&#39;./reverse.yac&#39;</span><span class=p>,</span> <span class=s1>&#39;rb&#39;</span><span class=p>)</span><span class=o>.</span><span class=n>read</span><span class=p>()[</span><span class=mh>0x1685C</span><span class=p>:</span><span class=mh>0x16B36</span><span class=p>]</span>
+<span class=n>data</span> <span class=o>=</span> <span class=n>data</span><span class=o>.</span><span class=n>replace</span><span class=p>(</span><span class=sa>b</span><span class=s1>&#39;</span><span class=se>\xA0</span><span class=s1>&#39;</span><span class=p>,</span> <span class=sa>b</span><span class=s1>&#39;&#39;</span><span class=p>)</span><span class=o>.</span><span class=n>replace</span><span class=p>(</span><span class=sa>b</span><span class=s1>&#39;</span><span class=se>\xA2</span><span class=s1>&#39;</span><span class=p>,</span> <span class=sa>b</span><span class=s1>&#39;&#39;</span><span class=p>)</span>
+<span class=n>data</span> <span class=o>=</span> <span class=n>data</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=sa>b</span><span class=s1>&#39;</span><span class=se>\xAD</span><span class=s1>&#39;</span><span class=p>)[:</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span>
+<span class=n>data</span><span class=p>[</span><span class=o>-</span><span class=mi>4</span><span class=p>]</span> <span class=o>+=</span> <span class=sa>b</span><span class=s1>&#39;PP&#39;</span>
+<span class=n>data</span><span class=p>[</span><span class=o>-</span><span class=mi>2</span><span class=p>]</span> <span class=o>+=</span> <span class=sa>b</span><span class=s1>&#39;PP&#39;</span>
+<span class=n>flag</span> <span class=o>=</span> <span class=sa>b</span><span class=s1>&#39;&#39;</span>
+
+<span class=k>for</span> <span class=n>i</span><span class=p>,</span> <span class=n>v</span> <span class=ow>in</span> <span class=nb>enumerate</span><span class=p>(</span><span class=n>data</span><span class=p>):</span>
+    <span class=k>if</span> <span class=n>i</span> <span class=o>%</span> <span class=mi>4</span> <span class=o>!=</span> <span class=mi>0</span><span class=p>:</span>
+        <span class=k>continue</span>
+    <span class=n>str_a</span> <span class=o>=</span> <span class=n>v</span><span class=p>[:</span><span class=o>-</span><span class=mi>2</span><span class=p>]</span>
+    <span class=n>str_b</span> <span class=o>=</span> <span class=n>data</span><span class=p>[</span><span class=n>i</span><span class=o>+</span><span class=mi>2</span><span class=p>][:</span><span class=o>-</span><span class=mi>2</span><span class=p>]</span>
+    <span class=k>for</span> <span class=n>a</span><span class=p>,</span> <span class=n>b</span> <span class=ow>in</span> <span class=nb>zip</span><span class=p>(</span><span class=n>str_a</span><span class=p>,</span> <span class=n>str_b</span><span class=p>):</span>
+        <span class=n>flag</span> <span class=o>+=</span> <span class=nb>bytes</span><span class=p>([</span><span class=n>a</span><span class=p>,</span> <span class=n>b</span><span class=p>])</span>
+    <span class=k>if</span> <span class=nb>len</span><span class=p>(</span><span class=n>str_a</span><span class=p>)</span> <span class=o>&gt;</span> <span class=nb>len</span><span class=p>(</span><span class=n>str_b</span><span class=p>):</span>
+        <span class=n>flag</span> <span class=o>+=</span> <span class=nb>bytes</span><span class=p>([</span><span class=n>str_a</span><span class=p>[</span><span class=o>-</span><span class=mi>1</span><span class=p>]])</span>
+
+<span class=k>print</span><span class=p>(</span><span class=n>flag</span><span class=p>)</span>
+<span class=nb>open</span><span class=p>(</span><span class=s1>&#39;regexp_flag&#39;</span><span class=p>,</span> <span class=s1>&#39;wb&#39;</span><span class=p>)</span><span class=o>.</span><span class=n>write</span><span class=p>(</span><span class=n>flag</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><blockquote><p>原本覺得這是最難的一題，不像 ARAY4 可以直接 dump instruction，沒想到直接用看的就出來了QAQ</p><p>沒仔細看 yara regular expression engine 跟它 bytecode 是怎麼存的，目前知道在編譯規則的時候 regexp 會被建成 AST，可以用內建的 function <code>yr_re_ast_print(re_ast)</code> 把 AST 印出來</p></blockquote><h2 id=aray4-hard_flag-300>ARAY4 {HARD_FLAG} (300)</h2><p>題目使用 <code>v3.9.0</code> 版本的 yara</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>git clone --branch <span class=s1>&#39;v3.9.0&#39;</span> https://github.com/VirusTotal/yara.git
+
+<span class=c1># compile</span>
+<span class=nb>cd</span> yara/
+./bootstrap.sh
+./configure
+make -j
+</code></pre></td></tr></table></div></div><p>yara 執行 bytecode 的 function 是 <code>yr_execute_code()</code>（<code>libyara/exec.c</code>），裡面有一個很大的 switch case 根據 1 byte opcode 做相對應的動作，是一個 stack based VM</p><p>可以 trace code 並印出一些資訊，來了解實際運作流程</p><p>經過一些嘗試，可以確定 hard flag 的部分會把輸入拿去做運算，然後跟特定數值做比較（<code>OP_INT_EQ</code>），如果一樣就進行下一個比較，否則結束（<code>OP_JFALSE</code>）</p><p>修改兩個 instruction（<code>OP_INT_EQ</code>, <code>OP_AND</code>）強制通過檢查，這樣就能看到所有規則：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-c data-lang=c>      <span class=k>case</span> <span class=nl>OP_AND</span><span class=p>:</span>
+        <span class=n>pop</span><span class=p>(</span><span class=n>r2</span><span class=p>);</span>
+        <span class=n>pop</span><span class=p>(</span><span class=n>r1</span><span class=p>);</span>
+
+        <span class=k>if</span> <span class=p>(</span><span class=n>is_undef</span><span class=p>(</span><span class=n>r1</span><span class=p>)</span> <span class=o>||</span> <span class=n>is_undef</span><span class=p>(</span><span class=n>r2</span><span class=p>))</span>
+          <span class=n>r1</span><span class=p>.</span><span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+        <span class=k>else</span>
+          <span class=n>r1</span><span class=p>.</span><span class=n>i</span> <span class=o>=</span> <span class=n>r1</span><span class=p>.</span><span class=n>i</span> <span class=o>&amp;&amp;</span> <span class=n>r2</span><span class=p>.</span><span class=n>i</span><span class=p>;</span>
+        <span class=n>r1</span><span class=p>.</span><span class=n>i</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span> <span class=c1>// add this line
+</span><span class=c1></span>        <span class=n>push</span><span class=p>(</span><span class=n>r1</span><span class=p>);</span>
+        <span class=k>break</span><span class=p>;</span>
+<span class=p>...</span>
+
+      <span class=k>case</span> <span class=nl>OP_INT_EQ</span><span class=p>:</span>
+        <span class=n>pop</span><span class=p>(</span><span class=n>r2</span><span class=p>);</span>
+        <span class=n>pop</span><span class=p>(</span><span class=n>r1</span><span class=p>);</span>
+        <span class=n>ensure_defined</span><span class=p>(</span><span class=n>r2</span><span class=p>);</span>
+        <span class=n>ensure_defined</span><span class=p>(</span><span class=n>r1</span><span class=p>);</span>
+        <span class=n>r1</span><span class=p>.</span><span class=n>i</span> <span class=o>=</span> <span class=n>r1</span><span class=p>.</span><span class=n>i</span> <span class=o>==</span> <span class=n>r2</span><span class=p>.</span><span class=n>i</span><span class=p>;</span>
+        <span class=n>r1</span><span class=p>.</span><span class=n>i</span> <span class=o>=</span> <span class=nb>true</span><span class=p>;</span> <span class=c1>// add this line
+</span><span class=c1></span>        <span class=n>push</span><span class=p>(</span><span class=n>r1</span><span class=p>);</span>
+        <span class=k>break</span><span class=p>;</span>
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>make -j <span class=o>&amp;&amp;</span> ./yara -C ../reverse.yac ../input
+</code></pre></td></tr></table></div></div><p>確定輸出有 <code>HARD_FLAG ../input</code> 代表成功繞過所有檢查</p><hr><p>最後整理出所有規則，總共有 80 個檢查：</p><ul><li>19th：輸入不是 <code>AIS3{You got my secret flag, but did you check which is real flag?}</code></li><li>45th：輸入中存在 <code>AIS3{</code> 跟 <code>}</code></li><li>64th：輸入長度為 88</li><li>76th：輸入要符合 <code>$flag_format</code>，不會逆 regex QQ，但我猜是類似這樣 <code>AIS3\{.*\}</code></li><li>其他：把輸入拿去做運算，結果要跟特定值一樣</li></ul><p>之後還會載入 256 個 hash function（<code>md5</code>, <code>sha1</code>, <code>sha256</code>）然後算一堆 hash，就結果而言，能通過上面那 80 個規則就可以了</p><p>所以根據 instruction 生出相對應的 python code，用 z3 solver 解掉</p><p>最後修改的 <code>exec.c</code>：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>  1
+</span><span class=lnt>  2
+</span><span class=lnt>  3
+</span><span class=lnt>  4
+</span><span class=lnt>  5
+</span><span class=lnt>  6
+</span><span class=lnt>  7
+</span><span class=lnt>  8
+</span><span class=lnt>  9
+</span><span class=lnt> 10
+</span><span class=lnt> 11
+</span><span class=lnt> 12
+</span><span class=lnt> 13
+</span><span class=lnt> 14
+</span><span class=lnt> 15
+</span><span class=lnt> 16
+</span><span class=lnt> 17
+</span><span class=lnt> 18
+</span><span class=lnt> 19
+</span><span class=lnt> 20
+</span><span class=lnt> 21
+</span><span class=lnt> 22
+</span><span class=lnt> 23
+</span><span class=lnt> 24
+</span><span class=lnt> 25
+</span><span class=lnt> 26
+</span><span class=lnt> 27
+</span><span class=lnt> 28
+</span><span class=lnt> 29
+</span><span class=lnt> 30
+</span><span class=lnt> 31
+</span><span class=lnt> 32
+</span><span class=lnt> 33
+</span><span class=lnt> 34
+</span><span class=lnt> 35
+</span><span class=lnt> 36
+</span><span class=lnt> 37
+</span><span class=lnt> 38
+</span><span class=lnt> 39
+</span><span class=lnt> 40
+</span><span class=lnt> 41
+</span><span class=lnt> 42
+</span><span class=lnt> 43
+</span><span class=lnt> 44
+</span><span class=lnt> 45
+</span><span class=lnt> 46
+</span><span class=lnt> 47
+</span><span class=lnt> 48
+</span><span class=lnt> 49
+</span><span class=lnt> 50
+</span><span class=lnt> 51
+</span><span class=lnt> 52
+</span><span class=lnt> 53
+</span><span class=lnt> 54
+</span><span class=lnt> 55
+</span><span class=lnt> 56
+</span><span class=lnt> 57
+</span><span class=lnt> 58
+</span><span class=lnt> 59
+</span><span class=lnt> 60
+</span><span class=lnt> 61
+</span><span class=lnt> 62
+</span><span class=lnt> 63
+</span><span class=lnt> 64
+</span><span class=lnt> 65
+</span><span class=lnt> 66
+</span><span class=lnt> 67
+</span><span class=lnt> 68
+</span><span class=lnt> 69
+</span><span class=lnt> 70
+</span><span class=lnt> 71
+</span><span class=lnt> 72
+</span><span class=lnt> 73
+</span><span class=lnt> 74
+</span><span class=lnt> 75
+</span><span class=lnt> 76
+</span><span class=lnt> 77
+</span><span class=lnt> 78
+</span><span class=lnt> 79
+</span><span class=lnt> 80
+</span><span class=lnt> 81
+</span><span class=lnt> 82
+</span><span class=lnt> 83
+</span><span class=lnt> 84
+</span><span class=lnt> 85
+</span><span class=lnt> 86
+</span><span class=lnt> 87
+</span><span class=lnt> 88
+</span><span class=lnt> 89
+</span><span class=lnt> 90
+</span><span class=lnt> 91
+</span><span class=lnt> 92
+</span><span class=lnt> 93
+</span><span class=lnt> 94
+</span><span class=lnt> 95
+</span><span class=lnt> 96
+</span><span class=lnt> 97
+</span><span class=lnt> 98
+</span><span class=lnt> 99
+</span><span class=lnt>100
+</span><span class=lnt>101
+</span><span class=lnt>102
+</span><span class=lnt>103
+</span><span class=lnt>104
+</span><span class=lnt>105
+</span><span class=lnt>106
+</span><span class=lnt>107
+</span><span class=lnt>108
+</span><span class=lnt>109
+</span><span class=lnt>110
+</span><span class=lnt>111
+</span><span class=lnt>112
+</span><span class=lnt>113
+</span><span class=lnt>114
+</span><span class=lnt>115
+</span><span class=lnt>116
+</span><span class=lnt>117
+</span><span class=lnt>118
+</span><span class=lnt>119
+</span><span class=lnt>120
+</span><span class=lnt>121
+</span><span class=lnt>122
+</span><span class=lnt>123
+</span><span class=lnt>124
+</span><span class=lnt>125
+</span><span class=lnt>126
+</span><span class=lnt>127
+</span><span class=lnt>128
+</span><span class=lnt>129
+</span><span class=lnt>130
+</span><span class=lnt>131
+</span><span class=lnt>132
+</span><span class=lnt>133
+</span><span class=lnt>134
+</span><span class=lnt>135
+</span><span class=lnt>136
+</span><span class=lnt>137
+</span><span class=lnt>138
+</span><span class=lnt>139
+</span><span class=lnt>140
+</span><span class=lnt>141
+</span><span class=lnt>142
+</span><span class=lnt>143
+</span><span class=lnt>144
+</span><span class=lnt>145
+</span><span class=lnt>146
+</span><span class=lnt>147
+</span><span class=lnt>148
+</span><span class=lnt>149
+</span><span class=lnt>150
+</span><span class=lnt>151
+</span><span class=lnt>152
+</span><span class=lnt>153
+</span><span class=lnt>154
+</span><span class=lnt>155
+</span><span class=lnt>156
+</span><span class=lnt>157
+</span><span class=lnt>158
+</span><span class=lnt>159
+</span><span class=lnt>160
+</span><span class=lnt>161
+</span><span class=lnt>162
+</span><span class=lnt>163
+</span><span class=lnt>164
+</span><span class=lnt>165
+</span><span class=lnt>166
+</span><span class=lnt>167
+</span><span class=lnt>168
+</span><span class=lnt>169
+</span><span class=lnt>170
+</span><span class=lnt>171
+</span><span class=lnt>172
+</span><span class=lnt>173
+</span><span class=lnt>174
+</span><span class=lnt>175
+</span><span class=lnt>176
+</span><span class=lnt>177
+</span><span class=lnt>178
+</span><span class=lnt>179
+</span><span class=lnt>180
+</span><span class=lnt>181
+</span><span class=lnt>182
+</span><span class=lnt>183
+</span><span class=lnt>184
+</span><span class=lnt>185
+</span><span class=lnt>186
+</span><span class=lnt>187
+</span><span class=lnt>188
+</span><span class=lnt>189
+</span><span class=lnt>190
+</span><span class=lnt>191
+</span><span class=lnt>192
+</span><span class=lnt>193
+</span><span class=lnt>194
+</span><span class=lnt>195
+</span><span class=lnt>196
+</span><span class=lnt>197
+</span><span class=lnt>198
+</span><span class=lnt>199
+</span><span class=lnt>200
+</span><span class=lnt>201
+</span><span class=lnt>202
+</span><span class=lnt>203
+</span><span class=lnt>204
+</span><span class=lnt>205
+</span><span class=lnt>206
+</span><span class=lnt>207
+</span><span class=lnt>208
+</span><span class=lnt>209
+</span><span class=lnt>210
+</span><span class=lnt>211
+</span><span class=lnt>212
+</span><span class=lnt>213
+</span><span class=lnt>214
+</span><span class=lnt>215
+</span><span class=lnt>216
+</span><span class=lnt>217
+</span><span class=lnt>218
+</span><span class=lnt>219
+</span><span class=lnt>220
+</span><span class=lnt>221
+</span><span class=lnt>222
+</span><span class=lnt>223
+</span><span class=lnt>224
+</span><span class=lnt>225
+</span><span class=lnt>226
+</span><span class=lnt>227
+</span><span class=lnt>228
+</span><span class=lnt>229
+</span><span class=lnt>230
+</span><span class=lnt>231
+</span><span class=lnt>232
+</span><span class=lnt>233
+</span><span class=lnt>234
+</span><span class=lnt>235
+</span><span class=lnt>236
+</span><span class=lnt>237
+</span><span class=lnt>238
+</span><span class=lnt>239
+</span><span class=lnt>240
+</span><span class=lnt>241
+</span><span class=lnt>242
+</span><span class=lnt>243
+</span><span class=lnt>244
+</span><span class=lnt>245
+</span><span class=lnt>246
+</span><span class=lnt>247
+</span><span class=lnt>248
+</span><span class=lnt>249
+</span><span class=lnt>250
+</span><span class=lnt>251
+</span><span class=lnt>252
+</span><span class=lnt>253
+</span><span class=lnt>254
+</span><span class=lnt>255
+</span><span class=lnt>256
+</span><span class=lnt>257
+</span><span class=lnt>258
+</span><span class=lnt>259
+</span><span class=lnt>260
+</span><span class=lnt>261
+</span><span class=lnt>262
+</span><span class=lnt>263
+</span><span class=lnt>264
+</span><span class=lnt>265
+</span><span class=lnt>266
+</span><span class=lnt>267
+</span><span class=lnt>268
+</span><span class=lnt>269
+</span><span class=lnt>270
+</span><span class=lnt>271
+</span><span class=lnt>272
+</span><span class=lnt>273
+</span><span class=lnt>274
+</span><span class=lnt>275
+</span><span class=lnt>276
+</span><span class=lnt>277
+</span><span class=lnt>278
+</span><span class=lnt>279
+</span><span class=lnt>280
+</span><span class=lnt>281
+</span><span class=lnt>282
+</span><span class=lnt>283
+</span><span class=lnt>284
+</span><span class=lnt>285
+</span><span class=lnt>286
+</span><span class=lnt>287
+</span><span class=lnt>288
+</span><span class=lnt>289
+</span><span class=lnt>290
+</span><span class=lnt>291
+</span><span class=lnt>292
+</span><span class=lnt>293
+</span><span class=lnt>294
+</span><span class=lnt>295
+</span><span class=lnt>296
+</span><span class=lnt>297
+</span><span class=lnt>298
+</span><span class=lnt>299
+</span><span class=lnt>300
+</span><span class=lnt>301
+</span><span class=lnt>302
+</span><span class=lnt>303
+</span><span class=lnt>304
+</span><span class=lnt>305
+</span><span class=lnt>306
+</span><span class=lnt>307
+</span><span class=lnt>308
+</span><span class=lnt>309
+</span><span class=lnt>310
+</span><span class=lnt>311
+</span><span class=lnt>312
+</span><span class=lnt>313
+</span><span class=lnt>314
+</span><span class=lnt>315
+</span><span class=lnt>316
+</span><span class=lnt>317
+</span><span class=lnt>318
+</span><span class=lnt>319
+</span><span class=lnt>320
+</span><span class=lnt>321
+</span><span class=lnt>322
+</span><span class=lnt>323
+</span><span class=lnt>324
+</span><span class=lnt>325
+</span><span class=lnt>326
+</span><span class=lnt>327
+</span><span class=lnt>328
+</span><span class=lnt>329
+</span><span class=lnt>330
+</span><span class=lnt>331
+</span><span class=lnt>332
+</span><span class=lnt>333
+</span><span class=lnt>334
+</span><span class=lnt>335
+</span><span class=lnt>336
+</span><span class=lnt>337
+</span><span class=lnt>338
+</span><span class=lnt>339
+</span><span class=lnt>340
+</span><span class=lnt>341
+</span><span class=lnt>342
+</span><span class=lnt>343
+</span><span class=lnt>344
+</span><span class=lnt>345
+</span><span class=lnt>346
+</span><span class=lnt>347
+</span><span class=lnt>348
+</span><span class=lnt>349
+</span><span class=lnt>350
+</span><span class=lnt>351
+</span><span class=lnt>352
+</span><span class=lnt>353
+</span><span class=lnt>354
+</span><span class=lnt>355
+</span><span class=lnt>356
+</span><span class=lnt>357
+</span><span class=lnt>358
+</span><span class=lnt>359
+</span><span class=lnt>360
+</span><span class=lnt>361
+</span><span class=lnt>362
+</span><span class=lnt>363
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-c data-lang=c><span class=p>...</span>
+
+<span class=kt>int</span> <span class=n>op_init_cnt</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+<span class=kt>int</span> <span class=n>op_int_eq_cnt</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+<span class=kt>int</span> <span class=n>op_jfalse_cnt</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+
+<span class=cp>#define DEBUG false
+</span><span class=cp></span>
+<span class=cp>#define push(x)  \
+</span><span class=cp>    if (sp &lt; stack_size) \
+</span><span class=cp>    { \
+</span><span class=cp>      stack[sp++] = (x); \
+</span><span class=cp>      if (DEBUG &amp;&amp; op_init_cnt &gt; 3) { \
+</span><span class=cp>        printf(&#34;# debug stack[%d]: [&#34;, sp); \
+</span><span class=cp>        for (int i=sp-1; i&gt;=0; i--) printf(&#34;0x%lx (0x%x), &#34;, stack[i], &amp;stack[i]); \
+</span><span class=cp>        debug_puts(&#34;]&#34;); \
+</span><span class=cp>      } \
+</span><span class=cp>    } \
+</span><span class=cp>    else \
+</span><span class=cp>    { \
+</span><span class=cp>      result = ERROR_EXEC_STACK_OVERFLOW; \
+</span><span class=cp>      stop = true; \
+</span><span class=cp>      break; \
+</span><span class=cp>    } \
+</span><span class=cp>
+</span><span class=cp></span><span class=p>...</span>
+
+<span class=kt>void</span> <span class=n>debug_puts</span><span class=p>(</span><span class=kt>char</span><span class=o>*</span> <span class=n>content</span><span class=p>)</span> <span class=p>{</span>
+  <span class=k>if</span> <span class=p>(</span><span class=n>op_init_cnt</span> <span class=o>&gt;</span> <span class=mi>3</span><span class=p>)</span> <span class=n>puts</span><span class=p>(</span><span class=n>content</span><span class=p>);</span>
+<span class=p>}</span>
+
+<span class=p>...</span>
+
+<span class=kt>int</span> <span class=n>yr_execute_code</span><span class=p>(</span>
+    <span class=n>YR_SCAN_CONTEXT</span><span class=o>*</span> <span class=n>context</span><span class=p>)</span>
+<span class=p>{</span>
+  <span class=n>int64_t</span> <span class=n>mem</span><span class=p>[</span><span class=n>MEM_SIZE</span><span class=p>];</span>
+  <span class=n>int32_t</span> <span class=n>sp</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+
+  <span class=k>const</span> <span class=n>uint8_t</span><span class=o>*</span> <span class=n>ip</span> <span class=o>=</span> <span class=n>context</span><span class=o>-&gt;</span><span class=n>rules</span><span class=o>-&gt;</span><span class=n>code_start</span><span class=p>;</span>
+
+  <span class=n>YR_VALUE</span> <span class=n>args</span><span class=p>[</span><span class=n>YR_MAX_FUNCTION_ARGS</span><span class=p>];</span>
+  <span class=n>YR_VALUE</span> <span class=o>*</span><span class=n>stack</span><span class=p>;</span>
+  <span class=n>YR_VALUE</span> <span class=n>r1</span><span class=p>;</span>
+  <span class=n>YR_VALUE</span> <span class=n>r2</span><span class=p>;</span>
+  <span class=n>YR_VALUE</span> <span class=n>r3</span><span class=p>;</span>
+
+  <span class=p>...</span>
+
+  <span class=k>while</span><span class=p>(</span><span class=o>!</span><span class=n>stop</span><span class=p>)</span>
+  <span class=p>{</span>
+    <span class=n>opcode</span> <span class=o>=</span> <span class=o>*</span><span class=n>ip</span><span class=p>;</span>
+    <span class=n>ip</span><span class=o>++</span><span class=p>;</span>
+
+    <span class=k>switch</span><span class=p>(</span><span class=n>opcode</span><span class=p>)</span>
+    <span class=p>{</span>
+      <span class=p>...</span>
+
+      <span class=k>case</span> <span class=nl>OP_PUSH</span><span class=p>:</span>
+        <span class=n>r1</span><span class=p>.</span><span class=n>i</span> <span class=o>=</span> <span class=o>*</span><span class=p>(</span><span class=n>uint64_t</span><span class=o>*</span><span class=p>)(</span><span class=n>ip</span><span class=p>);</span>
+        <span class=n>ip</span> <span class=o>+=</span> <span class=k>sizeof</span><span class=p>(</span><span class=n>uint64_t</span><span class=p>);</span>
+        <span class=k>if</span> <span class=p>(</span><span class=n>op_init_cnt</span> <span class=o>&gt;</span> <span class=mi>3</span><span class=p>)</span> <span class=p>{</span>
+          <span class=k>if</span><span class=p>(</span><span class=n>r1</span><span class=p>.</span><span class=n>s</span> <span class=o>!=</span> <span class=mh>0xfffabadafabadaff</span> <span class=o>&amp;&amp;</span> <span class=n>r1</span><span class=p>.</span><span class=n>s</span> <span class=o>&gt;</span> <span class=mh>0x7efd2436a92</span><span class=p>)</span> <span class=p>{</span>
+            <span class=n>printf</span><span class=p>(</span><span class=s>&#34;# OP_PUSH, 0x%hx, %s, &#39;%s&#39;</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>ip</span><span class=p>,</span> <span class=n>r1</span><span class=p>.</span><span class=n>s</span><span class=o>-&gt;</span><span class=n>identifier</span><span class=p>,</span> <span class=n>r1</span><span class=p>.</span><span class=n>s</span><span class=o>-&gt;</span><span class=n>string</span><span class=p>);</span> <span class=c1>// r1.s-&gt;string
+</span><span class=c1></span>          <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+            <span class=n>printf</span><span class=p>(</span><span class=s>&#34;push(0x%lx)</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>r1</span><span class=p>.</span><span class=n>i</span><span class=p>);</span>
+          <span class=p>}</span>
+        <span class=p>}</span>
+        <span class=n>push</span><span class=p>(</span><span class=n>r1</span><span class=p>);</span>
+        <span class=k>break</span><span class=p>;</span>
+
+      <span class=p>...</span>
+
+      <span class=k>case</span> <span class=nl>OP_JFALSE</span><span class=p>:</span>
+        <span class=k>if</span> <span class=p>(</span><span class=n>op_init_cnt</span> <span class=o>&gt;</span> <span class=mi>3</span><span class=p>)</span> <span class=p>{</span>
+          <span class=k>switch</span> <span class=p>(</span><span class=n>op_jfalse_cnt</span><span class=p>)</span>
+          <span class=p>{</span>
+          <span class=k>case</span> <span class=mi>19</span><span class=o>:</span>
+          <span class=k>case</span> <span class=mi>45</span><span class=o>:</span>
+          <span class=k>case</span> <span class=mi>64</span><span class=o>:</span>
+          <span class=k>case</span> <span class=mi>76</span><span class=o>:</span>
+            <span class=k>break</span><span class=p>;</span>
+          
+          <span class=k>default</span><span class=o>:</span>
+            <span class=n>printf</span><span class=p>(</span><span class=s>&#34;s.add(stack[-1] == stack[-2]) # OP_INT_EQ %d</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>op_int_eq_cnt</span><span class=p>);</span>
+            <span class=k>break</span><span class=p>;</span>
+          <span class=p>}</span>
+          <span class=c1>// puts(&#34;print(len(stack))&#34;);
+</span><span class=c1></span>          <span class=n>puts</span><span class=p>(</span><span class=s>&#34;clear()&#34;</span><span class=p>);</span>
+          <span class=n>printf</span><span class=p>(</span><span class=s>&#34;# [OP_JFALSE] %d</span><span class=se>\n\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>op_jfalse_cnt</span><span class=o>++</span><span class=p>);</span>
+        <span class=p>}</span>
+        <span class=n>pop</span><span class=p>(</span><span class=n>r1</span><span class=p>);</span>
+        <span class=n>push</span><span class=p>(</span><span class=n>r1</span><span class=p>);</span>
+
+        <span class=n>ip</span> <span class=o>=</span> <span class=n>jmp_if</span><span class=p>(</span><span class=n>is_undef</span><span class=p>(</span><span class=n>r1</span><span class=p>)</span> <span class=o>||</span> <span class=o>!</span><span class=n>r1</span><span class=p>.</span><span class=n>i</span><span class=p>,</span> <span class=n>ip</span><span class=p>);</span>
+        <span class=k>break</span><span class=p>;</span>
+
+      <span class=p>...</span>
+
+      <span class=k>case</span> <span class=nl>OP_BITWISE_XOR</span><span class=p>:</span>
+        <span class=n>debug_puts</span><span class=p>(</span><span class=s>&#34;xor() # OP_BITWISE_XOR&#34;</span><span class=p>);</span>
+        <span class=n>pop</span><span class=p>(</span><span class=n>r2</span><span class=p>);</span>
+        <span class=n>pop</span><span class=p>(</span><span class=n>r1</span><span class=p>);</span>
+        <span class=n>ensure_defined</span><span class=p>(</span><span class=n>r2</span><span class=p>);</span>
+        <span class=n>ensure_defined</span><span class=p>(</span><span class=n>r1</span><span class=p>);</span>
+        <span class=n>r1</span><span class=p>.</span><span class=n>i</span> <span class=o>=</span> <span class=n>r1</span><span class=p>.</span><span class=n>i</span> <span class=o>^</span> <span class=n>r2</span><span class=p>.</span><span class=n>i</span><span class=p>;</span>
+        <span class=n>push</span><span class=p>(</span><span class=n>r1</span><span class=p>);</span>
+        <span class=k>break</span><span class=p>;</span>
+
+      <span class=p>...</span>
+
+      <span class=k>case</span> <span class=nl>OP_INIT_RULE</span><span class=p>:</span>
+        <span class=n>printf</span><span class=p>(</span><span class=s>&#34;# OP_INIT_RULE %d</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>op_init_cnt</span><span class=o>++</span><span class=p>);</span>
+        <span class=k>if</span> <span class=p>(</span><span class=n>op_init_cnt</span> <span class=o>&gt;</span> <span class=mi>3</span><span class=p>)</span> <span class=p>{</span>
+          <span class=n>puts</span><span class=p>(</span>
+            <span class=s>&#34;from z3 import *</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;stack = []</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;flag = [BitVec(f&#39;f{i}&#39;, 64) for i in range(88)]</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;def pop():</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;    r1 = stack[-1]</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;    stack.pop()</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;    return r1</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;def pop2():</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;    r1, r2 = stack[-1], stack[-2]</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;    stack.pop()</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;    stack.pop()</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;    return r1, r2</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;def push(d):</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;    stack.append(d)</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;    # print(stack)</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;def xor():</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;    r1, r2 = pop2()</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;    push(r1 ^ r2)</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;def sub():</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;    r1, r2 = pop2()</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;    r2 -= r1</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;    # if r2 &lt; 0:</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;    #     r2 += 0x100000000</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;    push(r2)</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;def add():</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;    r1, r2 = pop2()</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;    r2 += r1</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;    # if r2 &gt;= 0x100000000:</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;    # r2 -= 0x100000000</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;    push(r2)</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;def minus():</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;    r1 = pop()</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;    # r1 = -r1 + 0x100000000</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;    r1 = -r1</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;    push(r1)</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;def get(offset, size, endian):</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;    offset = pop()</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;    tmp = flag[offset:offset+size]</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;    if endian == &#39;little&#39;:</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;        tmp = tmp[::-1]</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;    res = 0</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;    for i, v in enumerate(tmp):</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;        res = res | (v &amp; 0xff) &lt;&lt; ((size - i - 1) * 8)</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;    push(res)</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;def clear():</span><span class=se>\n</span><span class=s>&#34;</span>    
+            <span class=s>&#34;    stack.clear()</span><span class=se>\n</span><span class=s>&#34;</span>        
+            <span class=s>&#34;</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;s = Solver()</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;for i in range(len(flag)):</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;    s.add(flag[i] &gt; 0x20)</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=s>&#34;    s.add(flag[i] &lt; 0x7f)</span><span class=se>\n</span><span class=s>&#34;</span>
+            <span class=p>);</span>
+        <span class=p>}</span>
+        <span class=n>memcpy</span><span class=p>(</span><span class=o>&amp;</span><span class=n>init_rule_args</span><span class=p>,</span> <span class=n>ip</span><span class=p>,</span> <span class=k>sizeof</span><span class=p>(</span><span class=n>init_rule_args</span><span class=p>));</span>
+        <span class=cp>#ifdef PROFILING_ENABLED
+</span><span class=cp></span>        <span class=n>current_rule</span> <span class=o>=</span> <span class=n>init_rule_args</span><span class=p>.</span><span class=n>rule</span><span class=p>;</span>
+        <span class=cp>#endif
+</span><span class=cp></span>        <span class=k>if</span> <span class=p>(</span><span class=n>RULE_IS_DISABLED</span><span class=p>(</span><span class=n>init_rule_args</span><span class=p>.</span><span class=n>rule</span><span class=p>))</span>
+          <span class=n>ip</span> <span class=o>=</span> <span class=n>init_rule_args</span><span class=p>.</span><span class=n>jmp_addr</span><span class=p>;</span>
+        <span class=k>else</span>
+          <span class=n>ip</span> <span class=o>+=</span> <span class=k>sizeof</span><span class=p>(</span><span class=n>init_rule_args</span><span class=p>);</span>
+        <span class=k>break</span><span class=p>;</span>
+
+      <span class=p>...</span>
+
+      <span class=k>case</span> <span class=nl>OP_FILESIZE</span><span class=p>:</span>
+        <span class=k>if</span> <span class=p>(</span><span class=n>op_init_cnt</span> <span class=o>&gt;</span> <span class=mi>3</span><span class=p>)</span> <span class=p>{</span>
+          <span class=n>printf</span><span class=p>(</span><span class=s>&#34;push(88) # OP_FILESIZE %d</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>context</span><span class=o>-&gt;</span><span class=n>file_size</span><span class=p>);</span>
+        <span class=p>}</span>
+        <span class=n>r1</span><span class=p>.</span><span class=n>i</span> <span class=o>=</span> <span class=n>context</span><span class=o>-&gt;</span><span class=n>file_size</span><span class=p>;</span>
+        <span class=n>push</span><span class=p>(</span><span class=n>r1</span><span class=p>);</span>
+        <span class=k>break</span><span class=p>;</span>
+
+      <span class=p>...</span>
+
+      <span class=k>case</span> <span class=nl>OP_INT8</span><span class=p>:</span>
+        <span class=n>pop</span><span class=p>(</span><span class=n>r1</span><span class=p>);</span>
+        <span class=n>printf</span><span class=p>(</span><span class=s>&#34;get(1, &#39;little&#39;)</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
+        <span class=n>r1</span><span class=p>.</span><span class=n>i</span> <span class=o>=</span> <span class=n>read_int8_t_little_endian</span><span class=p>(</span><span class=n>context</span><span class=o>-&gt;</span><span class=n>iterator</span><span class=p>,</span> <span class=p>(</span><span class=n>size_t</span><span class=p>)</span> <span class=n>r1</span><span class=p>.</span><span class=n>i</span><span class=p>);</span>
+        <span class=n>push</span><span class=p>(</span><span class=n>r1</span><span class=p>);</span>
+        <span class=k>break</span><span class=p>;</span>
+
+      <span class=k>case</span> <span class=nl>OP_INT16</span><span class=p>:</span>
+        <span class=n>pop</span><span class=p>(</span><span class=n>r1</span><span class=p>);</span>
+        <span class=n>printf</span><span class=p>(</span><span class=s>&#34;get(2, &#39;little&#39;)</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
+        <span class=n>r1</span><span class=p>.</span><span class=n>i</span> <span class=o>=</span> <span class=n>read_int16_t_little_endian</span><span class=p>(</span><span class=n>context</span><span class=o>-&gt;</span><span class=n>iterator</span><span class=p>,</span> <span class=p>(</span><span class=n>size_t</span><span class=p>)</span> <span class=n>r1</span><span class=p>.</span><span class=n>i</span><span class=p>);</span>
+        <span class=n>push</span><span class=p>(</span><span class=n>r1</span><span class=p>);</span>
+        <span class=k>break</span><span class=p>;</span>
+
+      <span class=k>case</span> <span class=nl>OP_INT32</span><span class=p>:</span>
+        <span class=n>pop</span><span class=p>(</span><span class=n>r1</span><span class=p>);</span>
+        <span class=n>printf</span><span class=p>(</span><span class=s>&#34;get(4, &#39;little&#39;)</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
+        <span class=n>r1</span><span class=p>.</span><span class=n>i</span> <span class=o>=</span> <span class=n>read_int32_t_little_endian</span><span class=p>(</span><span class=n>context</span><span class=o>-&gt;</span><span class=n>iterator</span><span class=p>,</span> <span class=p>(</span><span class=n>size_t</span><span class=p>)</span> <span class=n>r1</span><span class=p>.</span><span class=n>i</span><span class=p>);</span>
+        <span class=n>push</span><span class=p>(</span><span class=n>r1</span><span class=p>);</span>
+        <span class=k>break</span><span class=p>;</span>
+
+      <span class=k>case</span> <span class=nl>OP_UINT8</span><span class=p>:</span>
+        <span class=n>pop</span><span class=p>(</span><span class=n>r1</span><span class=p>);</span>
+        <span class=n>printf</span><span class=p>(</span><span class=s>&#34;get(1, &#39;little&#39;)</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
+        <span class=n>r1</span><span class=p>.</span><span class=n>i</span> <span class=o>=</span> <span class=n>read_uint8_t_little_endian</span><span class=p>(</span><span class=n>context</span><span class=o>-&gt;</span><span class=n>iterator</span><span class=p>,</span> <span class=p>(</span><span class=n>size_t</span><span class=p>)</span> <span class=n>r1</span><span class=p>.</span><span class=n>i</span><span class=p>);</span>
+        <span class=n>push</span><span class=p>(</span><span class=n>r1</span><span class=p>);</span>
+        <span class=k>break</span><span class=p>;</span>
+
+      <span class=k>case</span> <span class=nl>OP_UINT16</span><span class=p>:</span>
+        <span class=n>pop</span><span class=p>(</span><span class=n>r1</span><span class=p>);</span>
+        <span class=n>printf</span><span class=p>(</span><span class=s>&#34;get(2, &#39;little&#39;)</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
+        <span class=n>r1</span><span class=p>.</span><span class=n>i</span> <span class=o>=</span> <span class=n>read_uint16_t_little_endian</span><span class=p>(</span><span class=n>context</span><span class=o>-&gt;</span><span class=n>iterator</span><span class=p>,</span> <span class=p>(</span><span class=n>size_t</span><span class=p>)</span> <span class=n>r1</span><span class=p>.</span><span class=n>i</span><span class=p>);</span>
+        <span class=n>push</span><span class=p>(</span><span class=n>r1</span><span class=p>);</span>
+        <span class=k>break</span><span class=p>;</span>
+
+      <span class=k>case</span> <span class=nl>OP_UINT32</span><span class=p>:</span>
+        <span class=n>pop</span><span class=p>(</span><span class=n>r1</span><span class=p>);</span>
+        <span class=n>printf</span><span class=p>(</span><span class=s>&#34;get(4, &#39;little&#39;)</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
+        <span class=n>r1</span><span class=p>.</span><span class=n>i</span> <span class=o>=</span> <span class=n>read_uint32_t_little_endian</span><span class=p>(</span><span class=n>context</span><span class=o>-&gt;</span><span class=n>iterator</span><span class=p>,</span> <span class=p>(</span><span class=n>size_t</span><span class=p>)</span> <span class=n>r1</span><span class=p>.</span><span class=n>i</span><span class=p>);</span>
+        <span class=n>push</span><span class=p>(</span><span class=n>r1</span><span class=p>);</span>
+        <span class=k>break</span><span class=p>;</span>
+
+      <span class=k>case</span> <span class=nl>OP_INT8BE</span><span class=p>:</span>
+        <span class=n>pop</span><span class=p>(</span><span class=n>r1</span><span class=p>);</span>
+        <span class=n>printf</span><span class=p>(</span><span class=s>&#34;get(1, &#39;big&#39;)</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
+        <span class=n>r1</span><span class=p>.</span><span class=n>i</span> <span class=o>=</span> <span class=n>read_int8_t_big_endian</span><span class=p>(</span><span class=n>context</span><span class=o>-&gt;</span><span class=n>iterator</span><span class=p>,</span> <span class=p>(</span><span class=n>size_t</span><span class=p>)</span> <span class=n>r1</span><span class=p>.</span><span class=n>i</span><span class=p>);</span>
+        <span class=n>push</span><span class=p>(</span><span class=n>r1</span><span class=p>);</span>
+        <span class=k>break</span><span class=p>;</span>
+
+      <span class=k>case</span> <span class=nl>OP_INT16BE</span><span class=p>:</span>
+        <span class=n>pop</span><span class=p>(</span><span class=n>r1</span><span class=p>);</span>
+        <span class=n>printf</span><span class=p>(</span><span class=s>&#34;get(2, &#39;big&#39;)</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
+        <span class=n>r1</span><span class=p>.</span><span class=n>i</span> <span class=o>=</span> <span class=n>read_int16_t_big_endian</span><span class=p>(</span><span class=n>context</span><span class=o>-&gt;</span><span class=n>iterator</span><span class=p>,</span> <span class=p>(</span><span class=n>size_t</span><span class=p>)</span> <span class=n>r1</span><span class=p>.</span><span class=n>i</span><span class=p>);</span>
+        <span class=n>push</span><span class=p>(</span><span class=n>r1</span><span class=p>);</span>
+        <span class=k>break</span><span class=p>;</span>
+
+      <span class=k>case</span> <span class=nl>OP_INT32BE</span><span class=p>:</span>
+        <span class=n>pop</span><span class=p>(</span><span class=n>r1</span><span class=p>);</span>
+        <span class=n>printf</span><span class=p>(</span><span class=s>&#34;get(4, &#39;big&#39;)</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
+        <span class=n>r1</span><span class=p>.</span><span class=n>i</span> <span class=o>=</span> <span class=n>read_int32_t_big_endian</span><span class=p>(</span><span class=n>context</span><span class=o>-&gt;</span><span class=n>iterator</span><span class=p>,</span> <span class=p>(</span><span class=n>size_t</span><span class=p>)</span> <span class=n>r1</span><span class=p>.</span><span class=n>i</span><span class=p>);</span>
+        <span class=n>push</span><span class=p>(</span><span class=n>r1</span><span class=p>);</span>
+        <span class=k>break</span><span class=p>;</span>
+
+      <span class=k>case</span> <span class=nl>OP_UINT8BE</span><span class=p>:</span>
+        <span class=n>pop</span><span class=p>(</span><span class=n>r1</span><span class=p>);</span>
+        <span class=n>printf</span><span class=p>(</span><span class=s>&#34;get(1, &#39;big&#39;)</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
+        <span class=n>r1</span><span class=p>.</span><span class=n>i</span> <span class=o>=</span> <span class=n>read_uint8_t_big_endian</span><span class=p>(</span><span class=n>context</span><span class=o>-&gt;</span><span class=n>iterator</span><span class=p>,</span> <span class=p>(</span><span class=n>size_t</span><span class=p>)</span> <span class=n>r1</span><span class=p>.</span><span class=n>i</span><span class=p>);</span>
+        <span class=n>push</span><span class=p>(</span><span class=n>r1</span><span class=p>);</span>
+        <span class=k>break</span><span class=p>;</span>
+
+      <span class=k>case</span> <span class=nl>OP_UINT16BE</span><span class=p>:</span>
+        <span class=n>pop</span><span class=p>(</span><span class=n>r1</span><span class=p>);</span>
+        <span class=n>printf</span><span class=p>(</span><span class=s>&#34;get(2, &#39;big&#39;)</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
+        <span class=n>r1</span><span class=p>.</span><span class=n>i</span> <span class=o>=</span> <span class=n>read_uint16_t_big_endian</span><span class=p>(</span><span class=n>context</span><span class=o>-&gt;</span><span class=n>iterator</span><span class=p>,</span> <span class=p>(</span><span class=n>size_t</span><span class=p>)</span> <span class=n>r1</span><span class=p>.</span><span class=n>i</span><span class=p>);</span>
+        <span class=n>push</span><span class=p>(</span><span class=n>r1</span><span class=p>);</span>
+        <span class=k>break</span><span class=p>;</span>
+
+      <span class=k>case</span> <span class=nl>OP_UINT32BE</span><span class=p>:</span>
+        <span class=n>printf</span><span class=p>(</span><span class=s>&#34;get(4, &#39;big&#39;)</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
+        <span class=n>pop</span><span class=p>(</span><span class=n>r1</span><span class=p>);</span>
+        <span class=n>r1</span><span class=p>.</span><span class=n>i</span> <span class=o>=</span> <span class=n>read_uint32_t_big_endian</span><span class=p>(</span><span class=n>context</span><span class=o>-&gt;</span><span class=n>iterator</span><span class=p>,</span> <span class=p>(</span><span class=n>size_t</span><span class=p>)</span> <span class=n>r1</span><span class=p>.</span><span class=n>i</span><span class=p>);</span>
+        <span class=n>push</span><span class=p>(</span><span class=n>r1</span><span class=p>);</span>
+        <span class=k>break</span><span class=p>;</span>
+
+      <span class=p>...</span>
+
+      <span class=k>case</span> <span class=nl>OP_INT_EQ</span><span class=p>:</span>
+        <span class=k>if</span> <span class=p>(</span><span class=n>op_init_cnt</span> <span class=o>&gt;</span> <span class=mi>3</span><span class=p>)</span> <span class=p>{</span>
+          <span class=n>op_int_eq_cnt</span> <span class=o>+=</span> <span class=mi>1</span><span class=p>;</span>
+        <span class=p>}</span>
+        <span class=n>pop</span><span class=p>(</span><span class=n>r2</span><span class=p>);</span>
+        <span class=n>pop</span><span class=p>(</span><span class=n>r1</span><span class=p>);</span>
+        <span class=n>ensure_defined</span><span class=p>(</span><span class=n>r2</span><span class=p>);</span>
+        <span class=n>ensure_defined</span><span class=p>(</span><span class=n>r1</span><span class=p>);</span>
+        <span class=n>r1</span><span class=p>.</span><span class=n>i</span> <span class=o>=</span> <span class=n>r1</span><span class=p>.</span><span class=n>i</span> <span class=o>==</span> <span class=n>r2</span><span class=p>.</span><span class=n>i</span><span class=p>;</span>
+        <span class=n>r1</span><span class=p>.</span><span class=n>i</span> <span class=o>=</span> <span class=nb>true</span><span class=p>;</span> <span class=c1>// add this line
+</span><span class=c1></span>        <span class=n>push</span><span class=p>(</span><span class=n>r1</span><span class=p>);</span>
+        <span class=k>break</span><span class=p>;</span>
+
+      <span class=p>...</span>
+
+      <span class=k>case</span> <span class=nl>OP_INT_ADD</span><span class=p>:</span>
+        <span class=n>debug_puts</span><span class=p>(</span><span class=s>&#34;add() # OP_INT_ADD&#34;</span><span class=p>);</span>
+        <span class=n>pop</span><span class=p>(</span><span class=n>r2</span><span class=p>);</span>
+        <span class=n>pop</span><span class=p>(</span><span class=n>r1</span><span class=p>);</span>
+        <span class=n>ensure_defined</span><span class=p>(</span><span class=n>r2</span><span class=p>);</span>
+        <span class=n>ensure_defined</span><span class=p>(</span><span class=n>r1</span><span class=p>);</span>
+        <span class=n>r1</span><span class=p>.</span><span class=n>i</span> <span class=o>=</span> <span class=n>r1</span><span class=p>.</span><span class=n>i</span> <span class=o>+</span> <span class=n>r2</span><span class=p>.</span><span class=n>i</span><span class=p>;</span>
+        <span class=n>push</span><span class=p>(</span><span class=n>r1</span><span class=p>);</span>
+        <span class=k>break</span><span class=p>;</span>
+
+      <span class=k>case</span> <span class=nl>OP_INT_SUB</span><span class=p>:</span>
+        <span class=n>debug_puts</span><span class=p>(</span><span class=s>&#34;sub() # OP_INT_SUB&#34;</span><span class=p>);</span>
+        <span class=n>pop</span><span class=p>(</span><span class=n>r2</span><span class=p>);</span>
+        <span class=n>pop</span><span class=p>(</span><span class=n>r1</span><span class=p>);</span>
+        <span class=n>ensure_defined</span><span class=p>(</span><span class=n>r2</span><span class=p>);</span>
+        <span class=n>ensure_defined</span><span class=p>(</span><span class=n>r1</span><span class=p>);</span>
+        <span class=n>r1</span><span class=p>.</span><span class=n>i</span> <span class=o>=</span> <span class=n>r1</span><span class=p>.</span><span class=n>i</span> <span class=o>-</span> <span class=n>r2</span><span class=p>.</span><span class=n>i</span><span class=p>;</span>
+        <span class=n>push</span><span class=p>(</span><span class=n>r1</span><span class=p>);</span>
+        <span class=k>break</span><span class=p>;</span>
+
+      <span class=p>...</span>
+
+      <span class=k>case</span> <span class=nl>OP_INT_MINUS</span><span class=p>:</span>
+        <span class=n>debug_puts</span><span class=p>(</span><span class=s>&#34;minus() # OP_INT_MINUS&#34;</span><span class=p>);</span>
+        <span class=n>pop</span><span class=p>(</span><span class=n>r1</span><span class=p>);</span>
+        <span class=n>ensure_defined</span><span class=p>(</span><span class=n>r1</span><span class=p>);</span>
+        <span class=n>r1</span><span class=p>.</span><span class=n>i</span> <span class=o>=</span> <span class=o>-</span><span class=n>r1</span><span class=p>.</span><span class=n>i</span><span class=p>;</span>
+        <span class=n>push</span><span class=p>(</span><span class=n>r1</span><span class=p>);</span>
+        <span class=k>break</span><span class=p>;</span>
+
+      <span class=p>...</span>
+
+      <span class=k>default</span><span class=o>:</span>
+        <span class=c1>// Unknown instruction, this shouldn&#39;t happen.
+</span><span class=c1></span>        <span class=n>assert</span><span class=p>(</span><span class=nb>false</span><span class=p>);</span>
+    <span class=p>}</span>
+
+    <span class=p>...</span>
+  <span class=p>}</span>
+
+  <span class=p>...</span>
+
+  <span class=n>puts</span><span class=p>(</span> <span class=s>&#34;if s.check() == sat:</span><span class=se>\n</span><span class=s>&#34;</span>
+        <span class=s>&#34;    m = s.model()</span><span class=se>\n</span><span class=s>&#34;</span>
+        <span class=s>&#34;    for i in range(len(flag)):</span><span class=se>\n</span><span class=s>&#34;</span>
+        <span class=s>&#34;        print(chr(int(str(m[flag[i]]))), end=&#39;&#39;)</span><span class=se>\n</span><span class=s>&#34;</span>
+        <span class=s>&#34;else:</span><span class=se>\n</span><span class=s>&#34;</span>
+        <span class=s>&#34;    print(&#39;GGG&#39;)</span><span class=se>\n</span><span class=s>&#34;</span>
+  <span class=p>);</span>
+  <span class=k>return</span> <span class=n>result</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><blockquote><p>原本的 constrain 會把空白 filter 掉，這邊卡好久 = =</p></blockquote><h2 id=flag>Flag</h2><ol><li>FREE_FLAG：<code>AIS3{This is the free flag for do nothing but run `strings` on the compiled rule file :D}</code></li><li>EASY_FLAG：<code>AIS3{Ok, now you just reversed the binary rule, but to make it harder, I have to add random string: xrmXfGydyUWk1Rirk3gZAN/tH08Ag+Hxrxus3n7kdjokmi54hcZOJmu6EwOvR1ISIBCK7KVYQSXNP1vfcKQ225Ok}</code></li><li>REGEXP_FLAG：<code>AIS3{Even strings shows nothing about the flag, but I think you are good at regular expression!}</code></li><li>HARD_FLAG：<code>AIS3{This is too hard, I want to go home. 7gy0kPXE1AUiMZLnAW06EKqummGSVcGh23Eq9tl9SW2fz}</code></li></ol><h2 id=reference>Reference</h2><ul><li><a href=https://github.com/VirusTotal/yara/tree/v3.9.0>github.com/VirusTotal/yara</a></li><li><a href=https://bnbdr.github.io/posts/swisscheese/>YARA Internals: Compiled Rule Format</a></li><li><a href="https://www.youtube.com/watch?v=zPRLxNq8XbQ&ab_channel=ReversingLabs">REVERSING 2020 - Rules as code, A look at the YARA compiler&rsquo;s output</a><ul><li><a href=https://www.reversinglabs.com/hubfs/Reversing%202020/Presentations/Hilko%20Bengen%20Presentation.pdf>pdf</a></li></ul></li></ul></div><div class=post-footer><div class=info><span class=separator><a class=category href=/blog/categories/ctf/>CTF</a></span>
+<span class=separator><a class=tag href=/blog/tags/ctf/>CTF</a><a class=tag href=/blog/tags/ais3/>AIS3</a><a class=tag href=/blog/tags/reverse/>Reverse</a></span></div></div></div></div></div></main></div><footer class="footer footer--base"><div class=by_farbox><ul class=footer__list><li class=footer__item>&copy;
+artis24106
+2021</li></ul></div></footer></body></html>
