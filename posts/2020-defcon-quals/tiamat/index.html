@@ -1,0 +1,340 @@
+<!doctype html><html dir=ltr lang=en data-theme=light><head><title>artis24106
+|
+2020 DEFCON Quals - Tiamat</title><meta charset=utf-8><meta name=generator content="Hugo 0.68.3"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name=description content="真白な夢 羽ばたかせよう"><link rel=stylesheet href=/blog/css/main.min.f08dfd6292604273495f670c5af67081690e166c26708b1dda2d9147b11b7fd9.css integrity="sha256-8I39YpJgQnNJX2cMWvZwgWkOFmwmcIsd2i2RR7Ebf9k=" crossorigin=anonymous type=text/css><link rel=stylesheet href=/blog/css/markupHighlight.min.cc84ed683057cc175ddfa738ea6ba2d5c882b95cb64f50bf9be918cb3791887b.css integrity="sha256-zITtaDBXzBdd36c46mui1ciCuVy2T1C/m+kYyzeRiHs=" crossorigin=anonymous type=text/css><link rel=stylesheet href=/blog/css/custom.min.309f3b8e285a1d1054080366b9b542f75b1bdbe6aa002a48a4567c57269a4dec.css integrity="sha256-MJ87jihaHRBUCANmubVC91sb2+aqACpIpFZ8VyaaTew=" crossorigin=anonymous media=screen><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin=anonymous><link rel="shortcut icon" href=/blogfavicon.ico type=image/x-icon><link rel=apple-touch-icon sizes=180x180 href=/blogapple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/blogfavicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/blogfavicon-16x16.png><link rel=canonical href=/blog/posts/2020-defcon-quals/tiamat/><script type=text/javascript src=/blog/js/anatole-header.min.413f798d8aa82610bef17a5ca1d7e962ec185be395f1aeb3f45d1891af568b65.js integrity="sha256-QT95jYqoJhC+8XpcodfpYuwYW+OV8a6z9F0Yka9Wi2U=" crossorigin=anonymous></script><meta name=twitter:card content="summary"><meta name=twitter:title content="2020 DEFCON Quals - Tiamat"><meta name=twitter:description content="題目：Tiamat"><script async src="https://www.googletagmanager.com/gtag/js?id=G-0K535799NY"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','G-0K535799NY');</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","articleSection":"posts","name":"2020 DEFCON Quals - Tiamat","headline":"2020 DEFCON Quals - Tiamat","alternativeHeadline":"","description":"
+      
+        \x3cp\x3e題目：\x3ccode\x3eTiamat\x3c\/code\x3e\x3c\/p\x3e
+
+
+      
+
+
+    ","inLanguage":"en","isFamilyFriendly":"true","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/artis24106.github.io\/blog\/posts\/2020-defcon-quals\/tiamat\/"},"author":{"@type":"Person","name":"artis24106"},"creator":{"@type":"Person","name":"artis24106"},"accountablePerson":{"@type":"Person","name":"artis24106"},"copyrightHolder":{"@type":"Person","name":"artis24106"},"copyrightYear":"2021","dateCreated":"2021-07-25T13:25:13.00Z","datePublished":"2021-07-25T13:25:13.00Z","dateModified":"2021-07-25T13:25:13.00Z","publisher":{"@type":"Organization","name":"artis24106","url":"https://artis24106.github.io/blog","logo":{"@type":"ImageObject","url":"https:\/\/artis24106.github.io\/blogfavicon-32x32.png","width":"32","height":"32"}},"image":[],"url":"https:\/\/artis24106.github.io\/blog\/posts\/2020-defcon-quals\/tiamat\/","wordCount":"1406","genre":["CTF"],"keywords":["CTF","DEFCON","Reverse","QEMU"]}</script></head><body><header><div class="page-top
+."><a role=button class=navbar-burger data-target=navMenu aria-label=menu aria-expanded=false><span aria-hidden=true></span><span aria-hidden=true></span><span aria-hidden=true></span></a><nav><ul class=nav__list id=navMenu><div class=nav__links><li><a href=/blog/posts/>Posts</a></li><li><a href=/blog/tags/>Tags</a></li><li><a href=/blog/categories/>Categories</a></li></div><li></li></ul></nav></div></header><div class=wrapper><aside><div class="sidebar
+."><div class=sidebar__content><div class=logo-title><div class=title><img src="https://avatars.githubusercontent.com/u/32833063?v=4" alt="profile picture"><h3><a href=/blog>artis24106's blog</a></h3><div class=description><p>真白な夢 羽ばたかせよう</p></div></div></div><ul class=social-links><li><a href=https://github.com/Artis24106 rel=me aria-label=Github><i class="fab fa-github fa-2x" aria-hidden=true></i></a></li></ul></div><footer class="footer footer--sidebar"><div class=by_farbox><ul class=footer__list><li class=footer__item>&copy;
+artis24106
+2021</li></ul></div></footer><script type=text/javascript src=/blog/js/medium-zoom.min.bdc7b23aff63497a79433b3920b03e2473399d90ad4c2d87cf7c08d33d61966f.js integrity="sha256-vceyOv9jSXp5Qzs5ILA+JHM5nZCtTC2Hz3wI0z1hlm8=" crossorigin=anonymous></script></div></aside><main><div class=autopagerize_page_element><div class=content><div class="post
+."><div class=post-content><div class=post-title><h1>2020 DEFCON Quals - Tiamat</h1></div><p>題目：<code>Tiamat</code></p><h2 id=tiamat>Tiamat</h2><h3 id=challenge-info>Challenge Info</h3><blockquote><p>Protovision just launched their new licensing server yesterday and the sysop over at Pirate&rsquo;s Harbor BBS already has a copy. You should download it and try to be the first one to hack it.</p></blockquote><p><code>Dockerfile</code>, <code>service.conf</code>, <code>wrapper</code>, <code>liccheck.bin</code>, <code>qemooo</code>, <code>games</code>, <code>banner_fail</code></p><h3 id=solution>Solution</h3><p><code>Dockerfile</code> 有些資訊：</p><ul><li><code>/flag</code>：flag 存在這裡</li><li><code>/lic</code>：<code>/flag</code> 的 md5，所以由 <code>a-f0-9</code> 組成，共 0x20 字元</li><li><code>/$x.mz</code>：<code>$x = {1,2,3,4,5,6,7,8,9,a,b,c,d,e,f}</code>，內容都一樣</li></ul><p><code>1.mz ~ f.mz</code>：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>STRANGE GAME
+THE ONLY WINNING MOVE IS
+NOT TO PLAY.
+
+
+</code></pre></td></tr></table></div></div><p>local 端執行服務的方法是：<code>./qemooo liccheck.bin</code>，可以看到一隻龍，隨便輸入程式會直接結束</p><p><img src=https://i.imgur.com/4LeIY3g.png alt></p><p>將 <code>liccheck.bin</code> 丟 IDA 分析，發現只有少數幾個指令有解出來：</p><p><img src=https://i.imgur.com/kTXIul0.png alt></p><p>總之先分析 <code>qemooo</code> 的部分</p><h4 id=qemooo--customized-qemu><code>qemooo</code> = customized <code>qemu</code></h4><p><code>qemooo</code> 有帶 symbol，丟 IDA 分析</p><p>在 <code>tb_gen_code()</code> 發現魔改 <a href=https://github.com/qemu/qemu><code>qemu</code></a> 的痕跡：</p><p><img src=https://i.imgur.com/DO4VfZ2.png alt></p><p>QEMU 是個 JIT emulator，可以動態將各種架構的 binary 翻譯成 host machine 的指令執行，QEMU 不會一次翻譯一個指令，而是以 TB（Translataion Block）為單位，每次翻譯完一個 TB，QEMU 會將它暫存起來下次再遇到就可以直接執行，而沒有暫存的 TB 時，會呼叫 <code>tb_gen_code()</code> 進行轉換。</p><p>正常情況下 <code>tb_gen_code()</code> 會遍歷每條指令，並呼叫 <code>gen_intermediate_code()</code> 生成相對應的 IR（Intermediate Representation）</p><p>而 <code>qemooo</code> 則會根據一個固定陣列 <code>tmap_arch</code> 決定該指令，是哪種 architecture 跟 endian，再呼叫相對應的 <code>gen_intemediate_code()</code></p><p>規則如下：</p><ul><li><code>base_pc</code> = <code>0x100d0</code></li><li><code>arch_index</code> = <code>(pc - base_pc) >> 2</code></li><li><code>tmap_arch</code>：由 <code>0</code>~<code>7</code> 組成的陣列<ul><li>0：SPARC - little</li><li>1：SPARC - big</li><li>2：RISCV - little</li><li>3：RISCV - big</li><li>4：ARM - little</li><li>5：ARM - big</li><li>6：MIPS - little</li><li>7：MIPS - big</li></ul></li><li>也就是 <code>tmap_arch[arch_index]</code> 決定第 <code>arch_index</code> 個 instruction 要怎麼解</li></ul><p>換句話說，<code>liccheck.bin</code> 是由 8 種架構指令組成的 binary</p><blockquote><p>值得一提的是，這四個架構指令長度都是 4 bytes（32bits），之後寫 disassembler 會簡單一些</p></blockquote><h4 id=dump-tmap_arch>Dump <code>tmap_arch</code></h4><p><img src=https://i.imgur.com/n46yKcr.png alt></p><ul><li><code>.text</code> section offset = <code>0xd0</code></li><li><code>.text</code> section size = <code>4112</code> -> <code>1028</code> instructions</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-s data-lang=s><span class=n>gef</span>➤  <span class=n>dump</span> <span class=n>memory</span> <span class=n>tmap_arch.bin</span> <span class=n>tmap_arch</span> <span class=n>tmap_arch</span><span class=m>+1028</span>
+</code></pre></td></tr></table></div></div><h4 id=register-mapping>Register Mapping</h4><p>在不同架構下，同樣是 <code>rsp</code> 可能對應到不同個暫存器，所以在反編譯的結果中，增加 <code>r0~r31</code> 的表示會比較好 trace code，我的話是這樣表示：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-s data-lang=s>  <span class=n>mips</span>   <span class=n>little</span>  <span class=mh>0x100d0</span>  <span class=n>sw</span>  <span class=o>$</span><span class=n>zero</span><span class=p>,</span> <span class=m>8</span><span class=p>(</span><span class=o>$</span><span class=n>sp</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><p>轉換成：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-s data-lang=s>  <span class=n>mips</span>   <span class=n>little</span>  <span class=mh>0x100d0</span>  <span class=n>sw</span>  <span class=n>[zero</span><span class=p>,</span> <span class=m>0</span><span class=n>]</span><span class=p>,</span> <span class=m>8</span><span class=p>(</span><span class=n>[sp</span><span class=p>,</span> <span class=m>29</span><span class=n>]</span><span class=p>)</span>           
+</code></pre></td></tr></table></div></div><blockquote><p>但我的腳本有些暫存器沒對應好 QQ</p></blockquote><h4 id=register-in-qemu-and-qemooo>Register in QEMU and qemooo</h4><p>QEMU 使用 array 來儲存暫存器的值，根據 host machine 架構不同會有些許差異，而 <code>qemooo</code> 使用下方的 <code>gpr</code> 來儲存（<code>gpr[0]</code> 對應 <code>r0</code> 以此類推）</p><p><img src=https://i.imgur.com/q4fOulL.png alt></p><p>其中 SPARC 的 register 儲存方式特別不一樣，它的大小為 QWORD 而不是 DWORD，這樣 <code>gpr</code> 顯然不夠存，所以還會用到 <code>regwptr</code>，對應方式如下：</p><p><img src=https://i.imgur.com/4Q9t1yn.png alt></p><blockquote><p>這部分我主要是動態追出來的</p></blockquote><h4 id=calling-conventioncpu_loop---do_syscall>Calling Convention：cpu_loop() -> do_syscall()</h4><p>QEMU 用 <code>cpu_loop()</code> 模擬 cpu 執行，一般來說會進到 <code>cpu_exec()</code> 去執行 TB 翻譯跟執行不再出來，但在一些情況下例外，例如 interrupt，QEMU 使用軟體模擬 interrupt（<code>helper_raise_exception()</code>），它被呼叫的時候會跳出 <code>cpu_exec()</code> 執行 <code>do_syscall()</code></p><p>而 <code>qemooo</code> 會根據 <code>cs->kvm_fd</code>（也就是 <code>tmap_arch</code>）去呼叫對應架構的 <code>do_syscall()</code>，這是它們的關係：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-c data-lang=c>   <span class=mh>0x0000000000286196</span> <span class=o>&lt;+</span><span class=mi>1378</span><span class=o>&gt;:</span>  <span class=n>call</span>   <span class=mh>0x370cf3</span> <span class=o>&lt;</span><span class=n>do_syscall</span><span class=o>&gt;</span> <span class=c1>// 6, 7 -&gt; MIPS
+</span><span class=c1></span>   <span class=mh>0x0000000000286b5b</span> <span class=o>&lt;+</span><span class=mi>3879</span><span class=o>&gt;:</span>  <span class=n>call</span>   <span class=mh>0x370cf3</span> <span class=o>&lt;</span><span class=n>do_syscall</span><span class=o>&gt;</span> <span class=c1>// 4, 5 -&gt; ARM
+</span><span class=c1></span>   <span class=mh>0x0000000000286d9d</span> <span class=o>&lt;+</span><span class=mi>4457</span><span class=o>&gt;:</span>  <span class=n>call</span>   <span class=mh>0x370cf3</span> <span class=o>&lt;</span><span class=n>do_syscall</span><span class=o>&gt;</span> <span class=c1>// 2, 3 -&gt; RISCV
+</span><span class=c1></span>   <span class=mh>0x000000000028700c</span> <span class=o>&lt;+</span><span class=mi>5080</span><span class=o>&gt;:</span>  <span class=n>call</span>   <span class=mh>0x370cf3</span> <span class=o>&lt;</span><span class=n>do_syscall</span><span class=o>&gt;</span> <span class=c1>// 0, 1 -&gt; SPARC
+</span></code></pre></td></tr></table></div></div><p>靜態看的話要修一下 switch case（因為 switch case 太大），或直接看組語</p><p>附上簡單的圖解（<code>Edit/Other/Specify switch idom</code>）</p><p><img src=https://i.imgur.com/fNWedH9.png alt></p><p>下面是四個架構的 <code>do_syscall()</code>：</p><p>SPARC（offset 1000）</p><blockquote><p>這邊是用 <code>regwptr</code> 存</p></blockquote><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-c data-lang=c> <span class=n>reta</span> <span class=o>=</span> <span class=n>do_syscall</span><span class=p>(</span>
+     <span class=n>env</span><span class=p>,</span>
+     <span class=n>env</span><span class=o>-&gt;</span><span class=n>active_tc</span><span class=p>.</span><span class=n>gpr</span><span class=p>[</span><span class=mi>2</span><span class=p>]</span> <span class=o>+</span> <span class=mi>1000</span><span class=p>,</span>
+     <span class=o>*</span><span class=n>env</span><span class=o>-&gt;</span><span class=n>active_tc</span><span class=p>.</span><span class=n>regwptr</span><span class=p>,</span>
+     <span class=n>env</span><span class=o>-&gt;</span><span class=n>active_tc</span><span class=p>.</span><span class=n>regwptr</span><span class=p>[</span><span class=mi>2</span><span class=p>],</span>
+     <span class=n>env</span><span class=o>-&gt;</span><span class=n>active_tc</span><span class=p>.</span><span class=n>regwptr</span><span class=p>[</span><span class=mi>4</span><span class=p>],</span>
+     <span class=n>env</span><span class=o>-&gt;</span><span class=n>active_tc</span><span class=p>.</span><span class=n>regwptr</span><span class=p>[</span><span class=mi>6</span><span class=p>],</span>
+     <span class=n>env</span><span class=o>-&gt;</span><span class=n>active_tc</span><span class=p>.</span><span class=n>regwptr</span><span class=p>[</span><span class=mi>8</span><span class=p>],</span>
+     <span class=n>env</span><span class=o>-&gt;</span><span class=n>active_tc</span><span class=p>.</span><span class=n>regwptr</span><span class=p>[</span><span class=mi>10</span><span class=p>],</span>
+     <span class=mi>0</span><span class=p>,</span>
+ <span class=mi>0</span><span class=p>);</span>
+</code></pre></td></tr></table></div></div><p>RISCV（offset 500）</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-c data-lang=c><span class=n>ret</span> <span class=o>=</span> <span class=n>do_syscall</span><span class=p>(</span>                   <span class=c1>// cpu_loop+4457
+</span><span class=c1></span>    <span class=n>env</span><span class=p>,</span>
+    <span class=n>env</span><span class=o>-&gt;</span><span class=n>active_tc</span><span class=p>.</span><span class=n>gpr</span><span class=p>[</span><span class=mi>17</span><span class=p>]</span> <span class=o>+</span> <span class=mi>500</span><span class=p>,</span>
+    <span class=n>env</span><span class=o>-&gt;</span><span class=n>active_tc</span><span class=p>.</span><span class=n>gpr</span><span class=p>[</span><span class=mi>10</span><span class=p>],</span>
+    <span class=n>env</span><span class=o>-&gt;</span><span class=n>active_tc</span><span class=p>.</span><span class=n>gpr</span><span class=p>[</span><span class=mi>11</span><span class=p>],</span>
+    <span class=n>env</span><span class=o>-&gt;</span><span class=n>active_tc</span><span class=p>.</span><span class=n>gpr</span><span class=p>[</span><span class=mi>12</span><span class=p>],</span>
+    <span class=n>env</span><span class=o>-&gt;</span><span class=n>active_tc</span><span class=p>.</span><span class=n>gpr</span><span class=p>[</span><span class=mi>13</span><span class=p>],</span>
+    <span class=n>env</span><span class=o>-&gt;</span><span class=n>active_tc</span><span class=p>.</span><span class=n>gpr</span><span class=p>[</span><span class=mi>14</span><span class=p>],</span>
+    <span class=n>env</span><span class=o>-&gt;</span><span class=n>active_tc</span><span class=p>.</span><span class=n>gpr</span><span class=p>[</span><span class=mi>15</span><span class=p>],</span>
+    <span class=mi>0</span><span class=p>,</span>
+<span class=mi>0</span><span class=p>);</span>
+
+</code></pre></td></tr></table></div></div><p>ARM（offset 0）</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-c data-lang=c><span class=n>abi_long</span> <span class=kr>__cdecl</span> <span class=n>do_syscall</span><span class=p>(</span>
+    <span class=n>env</span><span class=p>,</span> 
+    <span class=n>env</span><span class=o>-&gt;</span><span class=n>active_tc</span><span class=p>.</span><span class=n>gpr</span><span class=p>[</span><span class=mi>7</span><span class=p>],</span> 
+    <span class=n>env</span><span class=o>-&gt;</span><span class=n>active_tc</span><span class=p>.</span><span class=n>gpr</span><span class=p>[</span><span class=mi>0</span><span class=p>],</span> 
+    <span class=n>env</span><span class=o>-&gt;</span><span class=n>active_tc</span><span class=p>.</span><span class=n>gpr</span><span class=p>[</span><span class=mi>1</span><span class=p>],</span> 
+    <span class=n>env</span><span class=o>-&gt;</span><span class=n>active_tc</span><span class=p>.</span><span class=n>gpr</span><span class=p>[</span><span class=mi>2</span><span class=p>],</span> 
+    <span class=n>env</span><span class=o>-&gt;</span><span class=n>active_tc</span><span class=p>.</span><span class=n>gpr</span><span class=p>[</span><span class=mi>3</span><span class=p>],</span> 
+    <span class=n>env</span><span class=o>-&gt;</span><span class=n>active_tc</span><span class=p>.</span><span class=n>gpr</span><span class=p>[</span><span class=mi>4</span><span class=p>],</span> 
+    <span class=n>env</span><span class=o>-&gt;</span><span class=n>active_tc</span><span class=p>.</span><span class=n>gpr</span><span class=p>[</span><span class=mi>5</span><span class=p>],</span> 
+    <span class=mi>0</span><span class=p>,</span> 
+    <span class=mi>0</span>
+<span class=p>)</span>
+</code></pre></td></tr></table></div></div><p>MIPS（offset 4000）</p><blockquote><p>這邊的 offset 要在呼叫時自己加上</p></blockquote><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-c data-lang=c><span class=n>abi_long</span> <span class=kr>__cdecl</span> <span class=n>do_syscall</span><span class=p>(</span>
+    <span class=n>env</span><span class=p>,</span> 
+    <span class=n>env</span><span class=o>-&gt;</span><span class=n>active_tc</span><span class=p>.</span><span class=n>gpr</span><span class=p>[</span><span class=mi>2</span><span class=p>],</span> 
+    <span class=n>env</span><span class=o>-&gt;</span><span class=n>active_tc</span><span class=p>.</span><span class=n>gpr</span><span class=p>[</span><span class=mi>4</span><span class=p>],</span> 
+    <span class=n>env</span><span class=o>-&gt;</span><span class=n>active_tc</span><span class=p>.</span><span class=n>gpr</span><span class=p>[</span><span class=mi>5</span><span class=p>],</span> 
+    <span class=n>env</span><span class=o>-&gt;</span><span class=n>active_tc</span><span class=p>.</span><span class=n>gpr</span><span class=p>[</span><span class=mi>6</span><span class=p>],</span> 
+    <span class=n>env</span><span class=o>-&gt;</span><span class=n>active_tc</span><span class=p>.</span><span class=n>gpr</span><span class=p>[</span><span class=mi>7</span><span class=p>],</span> 
+    <span class=n>arg5</span> <span class=o>=</span> <span class=mi>0</span><span class=p>,</span> 
+    <span class=n>arg6</span> <span class=o>=</span> <span class=mi>0</span><span class=p>,</span> 
+    <span class=n>arg7</span> <span class=o>=</span> <span class=mi>0</span><span class=p>,</span> 
+    <span class=n>arg8</span> <span class=o>=</span> <span class=mi>0</span>
+<span class=p>)</span>
+</code></pre></td></tr></table></div></div><p>除了 system call 參數之外回傳值也要注意，我這邊沒放就是了</p><h4 id=syscall-number-do_syscall---do_syscall1>Syscall Number: do_syscall() -> do_syscall1()</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-c data-lang=c><span class=n>do_syscall1</span><span class=p>(</span>
+    <span class=kt>void</span> <span class=o>*</span><span class=n>cpu_env</span><span class=p>,</span> 
+    <span class=kt>int</span> <span class=n>num</span><span class=p>,</span> 
+    <span class=n>abi_long</span> <span class=n>arg1</span><span class=p>,</span> 
+    <span class=n>abi_long</span> <span class=n>arg2</span><span class=p>,</span> 
+    <span class=n>abi_long</span> <span class=n>arg3</span><span class=p>,</span> 
+    <span class=n>abi_long</span> <span class=n>arg4</span><span class=p>,</span> 
+    <span class=n>abi_long</span> <span class=n>arg5</span><span class=p>,</span> 
+    <span class=n>abi_long</span> <span class=n>arg6</span><span class=p>,</span> 
+    <span class=n>abi_long</span> <span class=n>arg7</span><span class=p>,</span> 
+    <span class=n>abi_long</span> <span class=n>arg8</span>
+<span class=p>)</span>
+</code></pre></td></tr></table></div></div><p>根據 <code>num</code> 決定要呼叫哪個 system call，有個超大 switch case 結構，跟前面一樣 case 超過五個所以編譯被使用 jump table 優化，IDA 判斷不出來，要自己修復，可以找到 system call number 跟 system call 的對應</p><p>下圖是 <code>sys_write</code> 的對應，我沒有全部 syscall 都確認過，但應該會照 QEMU 原始碼 <code>linux-user/&lt;arch>/</code> 裡面的 system call table，然後加一個 offset（0, 500, 1000, 4000）變成新的 system call table</p><p><img src=https://i.imgur.com/8bu6VI7.png alt></p><h4 id=qemooo-summary><code>qemooo</code> Summary</h4><p>看完可能會有點混亂？統整一下上面分析的內容：</p><ul><li><code>gpr</code>, <code>regwptr</code> 都存在 <code>TCState</code> 中，用來模擬暫存器</li><li>SPARC 每個暫存器佔 8 bytes（QWORD）</li><li>ARM 的 <code>r[0]</code> 會存 syscall 回傳值，也就是一個能使用的暫存器</li><li>其他架構的 <code>r0</code> 就是常數 0</li></ul><p><img src=https://i.imgur.com/YHCsmOw.png alt></p><blockquote><p><code>r[i] = gpr[i]</code>, <code>ex[i] = regwptr[i]</code></p></blockquote><hr><p><code>qemooo</code> 的行為大致理解了，接下來是分析 <code>liccheck.bin</code> 的行為</p><h4 id=customized-disassembler>Customized Disassembler</h4><p>顯然要靜態分析 <code>liccheck.bin</code> 現有工具並不管用，我是用 python + capstone 手寫 disassembler</p><p>安裝 capstone 時要注意一下，master branch 版本沒有支援 <code>riscv</code>，要用 <code>next</code> 的版本</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>git clone https://github.com/aquynh/capstone
+<span class=nb>cd</span> capstone/
+git checkout origin/next
+<span class=nb>cd</span> bindings/python/
+python3 setup.py install
+</code></pre></td></tr></table></div></div><blockquote><p>如果需要的話，我的腳本放這裡：<a href=https://gist.github.com/Artis24106/b4f81b3c988f15801000b0bb1dd4d467>gist link</a></p><p>為了要統一暫存器，我又寫了一個腳本直接做替換，比較好的做法應該是改 capstone，總之是垃圾 code 小心服用 QAQ</p><p>使用方法：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>python3 dec.py &gt; dec.ans
+python3 register_replace.py
+</code></pre></td></tr></table></div></div><p>並且安裝 VSCode <a href="https://marketplace.visualstudio.com/items?itemName=iliazeus.vscode-ansi">ANSI Colors</a> 插件
+<img src=https://i.imgur.com/w9o5qLO.png alt></p><p>檢視 <code>dec-re.ans</code> 然後按右上角按鈕，就可以看到上色的結果</p></blockquote><h4 id=dynamically-trace-host-machine-code>Dynamically Trace Host Machine Code</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-s data-lang=s><span class=o>$</span> <span class=n>gdb</span> <span class=n>qemooo</span>
+<span class=n>gef</span>➤ <span class=n>gef</span> <span class=n>config</span> <span class=n>context.enable</span> <span class=m>0</span>
+<span class=n>gef</span>➤ <span class=n>display</span><span class=o>/</span><span class=m>20i</span> <span class=n>itb</span><span class=o>-&gt;</span><span class=n>tc.ptr</span>
+<span class=n>gef</span>➤ <span class=n>display</span> <span class=n>itb</span><span class=o>-&gt;</span><span class=n>pc</span>
+<span class=n>gef</span>➤ <span class=n>b</span> <span class=n>cpu_tb_exec</span>
+<span class=n>gef</span>➤ <span class=n>r</span> <span class=n>liccheck.bin</span>
+
+<span class=n>gef</span>➤ <span class=n>c</span>
+</code></pre></td></tr></table></div></div><p>這樣就能靜態動態一起看（順便把我沒弄好的暫存器對應修好</p><hr><h4 id=liccheckbin-behavior><code>liccheck.bin</code> Behavior</h4><p>最後發現這是一個 menu 題</p><p>有幾個暫存器會被拿來做特殊使用：</p><ul><li><code>r[15]</code>：存 4 bytes random number</li><li><code>mem[r[29]]</code>：輸入的 license（後面稱作 <code>input</code>）</li><li><code>mem[r[29] + 4]</code>：xor 過後 <code>/lic</code> 的內容</li></ul><p><img src=https://i.imgur.com/r4m8Zdi.png alt></p><p>這邊簡單列幾個重要的 address：</p><ul><li><code>0x105d4</code>：<ul><li><code>r[10]</code>：buffer to print</li><li><code>r[11]</code>：print size</li><li>相當於 <code>write(1, r[10], r[11])</code></li></ul></li><li><code>0x10198</code>：應該算是 menu 的 main function<ul><li>先要輸入 1 個字元存到 <code>r[29] + 8</code>（也就是選一個選項）</li><li>輸入是 <code>g</code> 的話，直接結束（<code>exit()</code>）</li></ul></li></ul><p>總共有 7 個選項：</p><ul><li><code>j</code>：<ul><li>要求再輸入 6 bytes（<code>oshua\n</code>）存在 <code>mem[r[29] + 0x14]</code> -> <code>0x32004</code></li><li>會看到訊息 <code>GREETINGS PROFESSOR FALKEN.\n\nREADY\n</code></li></ul></li><li><code>e</code>：<ul><li>要求輸入 32 bytes 的 license key，並且要在 <code>0</code> ~ <code>f</code> 範圍內</li><li>將結果存在 <code>mem[r[29]]</code></li></ul></li><li><code>l</code>：<ul><li>檢查 <code>mem[r[29] + 0x14]</code> 前 4 bytes 為 <code>oshu</code>，否則結束（也就是要先通過 <code>j</code> 才能用）</li><li>接下來又是個菜單，每次輸入 <code>1-9a-f</code>，會打開特定 <code>.mz</code> 檔，然後輸出內容，內容從 Dockerfile 就知道了，都是垃圾</li></ul></li><li><code>n</code>：<ul><li>從 <code>/dev/urandom</code> 讀 4 bytes 存到 <code>r[15]</code></li><li>最多執行 0x18 次（<code>ex[28] -= 1</code>）</li></ul></li><li><code>p</code>：<ul><li>將 license key 印出來（從 <code>mem[r[29]]</code> 開始共 0x20 bytes）</li></ul></li><li><code>r</code>：<ul><li>直接跳回菜單開頭，沒啥用</li></ul></li><li><code>v</code>：<ul><li>要求 <code>mem[r[29]]</code> 不可以為 0，否則結束（也就是要先 <code>e</code> 輸入 license 才能用）</li><li>最多執行 8 次（<code>ex[30] -= 1</code>）</li><li>讀入 <code>/lic</code> 0x20 bytes，儲存在 <code>0x32024</code>，也就是 <code>input</code> 後面</li><li>每次 4 bytes 用 <code>r[15]</code> 對 <code>[0x32024]</code> 做 xor（<code>r[15]</code>：random number）</li><li>如果 <code>input</code> 跟 <code>xor /lic</code> 一樣，就讀出 <code>/flag</code> 並印出</li><li>否則輸出 <code>Authorization failed!\n</code> 然後跳回菜單</li></ul></li></ul><p>知道流程，接下來就是找 bug 的時間了</p><hr><h4 id=bug-1leak-xor-lic>Bug 1：Leak <code>xor /lic</code></h4><blockquote><p>前情提要，我使用 <code>arm[0]</code> 代表 0 號暫存器，<code>r[0]</code> 就單純是常數 0</p></blockquote><p><code>p</code> 使用到 <code>arm[0]</code> 作為 print 的長度，並且 <code>xor /lic</code> 存在 input 後面，所以只要能控制 <code>arm[0]</code>，就能 leak <code>/lic</code></p><p><img src=https://i.imgur.com/MZ4ikvp.png alt></p><p><code>n</code> 在 <code>0x1065c</code> 使用 arm 呼叫 open system call，會把回傳值 fd 存在 <code>arm[0]</code>，並且直到跳回 menu 都不會被改掉</p><p><img src=https://i.imgur.com/Io6mIBu.png alt></p><p>除此之外，有幾個地方 open 之後沒有 close，這會讓 fd 增加（每次 +1）：</p><ul><li><code>v</code>：<ul><li><code>0x10434</code> 附近，單純沒有 <code>close</code> 的 syscall</li><li><code>0x10520</code> 附近，單純沒有 <code>close</code> 的 syscall（是在 print flag 的時候，所以這沒用）</li></ul></li><li><code>n</code>：<ul><li>雖然 <code>0x10670</code> 看起來有 <code>syscall</code>，但 <code>mips</code> 的 syscall number 要手動加 4000，也就是 4006 才會呼叫 <code>close</code> system call，而不是 6</li></ul></li></ul><p><img src=https://i.imgur.com/AO4wWCg.png alt></p><p><code>v</code> 可以用 0x8 次，<code>n</code> 可以用 0x18 次，而且 fd 會從 3 開始增加，所以完全可以把 fd 控制到 0x20，然後更改 <code>r[0]</code>，最後 leak 出 <code>xor /lic</code></p><p>這是 payload：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=s1>&#39;e&#39;</span> <span class=o>+</span> <span class=s1>&#39;A&#39;</span><span class=o>*</span><span class=mh>0x20</span> <span class=o>+</span> <span class=s1>&#39;v&#39;</span><span class=o>*</span><span class=mi>6</span> <span class=o>+</span> <span class=s1>&#39;n&#39;</span><span class=o>*</span><span class=mh>0x17</span> <span class=o>+</span> <span class=s1>&#39;p&#39;</span>
+</code></pre></td></tr></table></div></div><h4 id=find-all-possible-licences>Find All Possible Licences</h4><p>因為 <code>/lic</code> 的每個字元會在 <code>0</code> ~ <code>f</code> 範圍，可以寫腳本爆出所有可能的 license</p><p>可能性依照 <code>/lic</code>（或是說 <code>/flag</code>）而定，用 docker image <code>archiveooo/pub:tiamat</code> 版本的話只有 2 種可能的 license</p><p>但這樣還不能拿到 flag，因為 <code>input</code> 會拿去跟 <code>xor /lic</code> 做比較，但是輸入有範圍限制（<code>0</code> ~ <code>f</code>），<code>xor /lic</code> 很有可能超出這個範圍</p><h4 id=bug-2set-r15random-number-to-0>Bug 2：Set <code>r[15]</code>（random number） to 0</h4><p>讓 <code>r[15] = 0</code> 的話，選 <code>v</code> 的時候 <code>xor /lic</code> 值就跟 <code>/lic</code> 一樣了</p><p>而 <code>j</code> 選項裡面的這個指令可以達成這件事，因為 SPARC 使用 QWORD 進行運算，也就是運算不超過 DWORD 範圍時 <code>r[15]</code> 會被歸零</p><p><img src=https://i.imgur.com/na5jflN.png alt></p><h4 id=solve>Solve!</h4><p>集合上面的東西寫腳本，搞定：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span><span class=lnt>61
+</span><span class=lnt>62
+</span><span class=lnt>63
+</span><span class=lnt>64
+</span><span class=lnt>65
+</span><span class=lnt>66
+</span><span class=lnt>67
+</span><span class=lnt>68
+</span><span class=lnt>69
+</span><span class=lnt>70
+</span><span class=lnt>71
+</span><span class=lnt>72
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=kn>from</span> <span class=nn>pwn</span> <span class=kn>import</span> <span class=o>*</span>
+<span class=kn>from</span> <span class=nn>itertools</span> <span class=kn>import</span> <span class=n>product</span>
+<span class=kn>import</span> <span class=nn>numpy</span> <span class=kn>as</span> <span class=nn>np</span>
+<span class=kn>from</span> <span class=nn>re</span> <span class=kn>import</span> <span class=n>search</span>
+
+
+<span class=k>class</span> <span class=nc>C</span><span class=p>:</span>
+    <span class=n>red</span> <span class=o>=</span> <span class=s2>&#34;</span><span class=se>\x1b</span><span class=s2>[38;5;1m&#34;</span>
+    <span class=n>green</span> <span class=o>=</span> <span class=s2>&#34;</span><span class=se>\x1b</span><span class=s2>[38;5;2m&#34;</span>
+    <span class=n>yellow</span> <span class=o>=</span> <span class=s2>&#34;</span><span class=se>\x1b</span><span class=s2>[38;5;3m&#34;</span>
+    <span class=n>blue</span> <span class=o>=</span> <span class=s2>&#34;</span><span class=se>\x1b</span><span class=s2>[38;5;4m&#34;</span>
+    <span class=n>gray</span> <span class=o>=</span> <span class=s2>&#34;</span><span class=se>\x1b</span><span class=s2>[38;5;8m&#34;</span>
+    <span class=n>clear</span> <span class=o>=</span> <span class=s2>&#34;</span><span class=se>\x1b</span><span class=s2>[0m&#34;</span>
+
+
+<span class=k>def</span> <span class=nf>connect_remote</span><span class=p>(</span><span class=n>payload</span><span class=p>):</span>
+    <span class=n>r</span> <span class=o>=</span> <span class=n>remote</span><span class=p>(</span><span class=s1>&#39;remote_domain_or_ip_:-)&#39;</span><span class=p>,</span> <span class=mi>5000</span><span class=p>)</span>
+    <span class=n>r</span><span class=o>.</span><span class=n>sendline</span><span class=p>(</span><span class=n>payload</span><span class=p>)</span>
+    <span class=k>return</span> <span class=n>r</span>
+
+
+<span class=k>def</span> <span class=nf>m_log</span><span class=p>(</span><span class=n>color</span><span class=p>,</span> <span class=n>char</span><span class=p>,</span> <span class=n>content</span><span class=p>):</span>
+    <span class=k>return</span> <span class=k>print</span><span class=p>(</span><span class=n>f</span><span class=s2>&#34;[{color}{char}{C.clear}]&#34;</span><span class=p>,</span> <span class=n>content</span><span class=p>)</span>
+
+
+<span class=k>def</span> <span class=nf>varify_lic</span><span class=p>(</span><span class=n>lic</span><span class=p>):</span>
+    <span class=n>m_log</span><span class=p>(</span><span class=n>C</span><span class=o>.</span><span class=n>yellow</span><span class=p>,</span> <span class=s1>&#39;~&#39;</span><span class=p>,</span> <span class=n>f</span><span class=s2>&#34;Trying license: {lic}&#34;</span><span class=p>)</span>
+    <span class=n>r</span> <span class=o>=</span> <span class=n>connect_remote</span><span class=p>(</span><span class=n>payload</span><span class=o>=</span><span class=n>f</span><span class=s1>&#39;e{lic}&#39;</span> <span class=o>+</span> <span class=s1>&#39;joshua</span><span class=se>\n</span><span class=s1>&#39;</span> <span class=o>+</span> <span class=s1>&#39;v&#39;</span><span class=p>)</span>
+    <span class=n>recv</span> <span class=o>=</span> <span class=n>r</span><span class=o>.</span><span class=n>recvall</span><span class=p>()</span><span class=o>.</span><span class=n>decode</span><span class=p>()</span>
+    <span class=n>r</span><span class=o>.</span><span class=n>close</span><span class=p>()</span>
+    <span class=n>res</span> <span class=o>=</span> <span class=n>search</span><span class=p>(</span><span class=sa>r</span><span class=s1>&#39;OOO{.*}&#39;</span><span class=p>,</span> <span class=n>recv</span><span class=p>)</span>
+    <span class=k>if</span> <span class=n>res</span><span class=p>:</span>
+        <span class=n>m_log</span><span class=p>(</span><span class=n>C</span><span class=o>.</span><span class=n>green</span><span class=p>,</span> <span class=s1>&#39;!&#39;</span><span class=p>,</span> <span class=n>f</span><span class=s2>&#34;Flag: {res.group()}&#34;</span><span class=p>)</span>
+        <span class=nb>exit</span><span class=p>()</span>
+
+
+<span class=n>context</span><span class=o>.</span><span class=n>log_level</span> <span class=o>=</span> <span class=s1>&#39;WARNING&#39;</span>
+
+<span class=s1>&#39;&#39;&#39;get encrypted license&#39;&#39;&#39;</span>
+<span class=n>r</span> <span class=o>=</span> <span class=n>connect_remote</span><span class=p>(</span><span class=n>payload</span><span class=o>=</span><span class=n>f</span><span class=s1>&#39;e{&#34;A&#34;*0x20}&#39;</span> <span class=o>+</span> <span class=s1>&#39;v&#39;</span><span class=o>*</span><span class=mi>6</span> <span class=o>+</span> <span class=s1>&#39;n&#39;</span><span class=o>*</span><span class=mh>0x17</span> <span class=o>+</span> <span class=s1>&#39;p&#39;</span><span class=p>)</span>
+<span class=n>r</span><span class=o>.</span><span class=n>recvuntil</span><span class=p>(</span><span class=s1>&#39;A&#39;</span><span class=o>*</span><span class=mh>0x20</span><span class=p>)</span>
+<span class=n>enc_lic</span> <span class=o>=</span> <span class=n>r</span><span class=o>.</span><span class=n>recvuntil</span><span class=p>(</span><span class=s1>&#39;</span><span class=se>\n</span><span class=s1>&#39;</span><span class=p>,</span> <span class=n>drop</span><span class=o>=</span><span class=bp>True</span><span class=p>)</span>
+<span class=n>r</span><span class=o>.</span><span class=n>close</span><span class=p>()</span>
+<span class=n>m_log</span><span class=p>(</span><span class=n>C</span><span class=o>.</span><span class=n>blue</span><span class=p>,</span> <span class=s1>&#39;+&#39;</span><span class=p>,</span> <span class=n>f</span><span class=s1>&#39;Get encrypted license: {len(enc_lic)} {enc_lic}&#39;</span><span class=p>)</span>
+<span class=k>if</span> <span class=nb>len</span><span class=p>(</span><span class=n>enc_lic</span><span class=p>)</span> <span class=o>!=</span> <span class=mi>32</span><span class=p>:</span>
+    <span class=n>m_log</span><span class=p>(</span><span class=n>C</span><span class=o>.</span><span class=n>red</span><span class=p>,</span> <span class=s1>&#39;!&#39;</span><span class=p>,</span> <span class=s1>&#39;Just try again!!!&#39;</span><span class=p>)</span>
+    <span class=nb>exit</span><span class=p>()</span>
+
+<span class=s1>&#39;&#39;&#39;gen possible char list&#39;&#39;&#39;</span>
+<span class=n>p_list</span> <span class=o>=</span> <span class=p>[]</span>
+<span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=mi>4</span><span class=p>):</span>
+    <span class=n>temp_list</span> <span class=o>=</span> <span class=p>[]</span>
+    <span class=k>for</span> <span class=n>g_lic</span> <span class=ow>in</span> <span class=s1>&#39;0123456789abcdef&#39;</span><span class=p>:</span>
+        <span class=n>g_rand</span> <span class=o>=</span> <span class=nb>ord</span><span class=p>(</span><span class=n>g_lic</span><span class=p>)</span> <span class=o>^</span> <span class=n>enc_lic</span><span class=p>[</span><span class=n>i</span><span class=p>]</span>
+        <span class=n>temp_list</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>g_lic</span><span class=p>)</span>
+
+        <span class=k>for</span> <span class=n>j</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=mi>1</span><span class=p>,</span> <span class=mi>8</span><span class=p>):</span>
+            <span class=n>idx</span> <span class=o>=</span> <span class=n>i</span> <span class=o>+</span> <span class=n>j</span> <span class=o>*</span> <span class=mi>4</span>
+            <span class=n>g_lic</span> <span class=o>=</span> <span class=nb>chr</span><span class=p>(</span><span class=n>g_rand</span> <span class=o>^</span> <span class=n>enc_lic</span><span class=p>[</span><span class=n>idx</span><span class=p>])</span>
+            <span class=k>if</span> <span class=n>g_lic</span> <span class=ow>in</span> <span class=s1>&#39;0123456789abcdef&#39;</span><span class=p>:</span>
+                <span class=n>temp_list</span><span class=p>[</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span> <span class=o>+=</span> <span class=n>g_lic</span>
+            <span class=k>else</span><span class=p>:</span>
+                <span class=n>temp_list</span><span class=o>.</span><span class=n>pop</span><span class=p>()</span>
+                <span class=k>break</span>
+    <span class=n>p_list</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>temp_list</span><span class=p>)</span>
+
+<span class=s1>&#39;&#39;&#39;gen possible lic and varify&#39;&#39;&#39;</span>
+<span class=k>for</span> <span class=n>p</span> <span class=ow>in</span> <span class=n>product</span><span class=p>(</span><span class=n>p_list</span><span class=p>[</span><span class=mi>0</span><span class=p>],</span> <span class=n>p_list</span><span class=p>[</span><span class=mi>1</span><span class=p>],</span> <span class=n>p_list</span><span class=p>[</span><span class=mi>2</span><span class=p>],</span> <span class=n>p_list</span><span class=p>[</span><span class=mi>3</span><span class=p>]):</span>
+    <span class=n>p_lic</span> <span class=o>=</span> <span class=s1>&#39;&#39;</span><span class=o>.</span><span class=n>join</span><span class=p>(</span><span class=nb>list</span><span class=p>(</span><span class=n>np</span><span class=o>.</span><span class=n>asarray</span><span class=p>([</span><span class=n>el</span> <span class=k>for</span> <span class=n>el</span> <span class=ow>in</span> <span class=s1>&#39;&#39;</span><span class=o>.</span><span class=n>join</span><span class=p>(</span><span class=n>p</span><span class=p>)])</span><span class=o>.</span><span class=n>reshape</span><span class=p>(</span><span class=mi>4</span><span class=p>,</span> <span class=mi>8</span><span class=p>)</span><span class=o>.</span><span class=n>T</span><span class=o>.</span><span class=n>reshape</span><span class=p>(</span><span class=mi>32</span><span class=p>)))</span>
+    <span class=n>varify_lic</span><span class=p>(</span><span class=n>p_lic</span><span class=p>)</span>
+
+<span class=c1># license: 876d31966ca96957d82f05349a366c72</span>
+</code></pre></td></tr></table></div></div><h3 id=offical-hint-after-the-context>Offical Hint After the Context</h3><blockquote><p>To complete the challenge, it is necessary to figure out how qemooo implements the various architectures and find the bugs that result from the interaction between them.</p><ol><li>SPARC, RISCV, MIPS all use a hardwired 0 in r0; however, for ARM the r0 register is where the syscall results are stored.</li><li>SPARC registers skip every other one because it uses 64-bit register values, which means on a mov it will overwrite the adjacent register.</li><li>The file close for one of the actions was the syscall value for a different architecure.</li><li>Another action failed to close the file.
+Good luck!</li></ol></blockquote><h3 id=flag>Flag</h3><p><code>OOO{Together well go all the way}</code></p></div><div class=post-footer><div class=info><span class=separator><a class=category href=/blog/categories/ctf/>CTF</a></span>
+<span class=separator><a class=tag href=/blog/tags/ctf/>CTF</a><a class=tag href=/blog/tags/defcon/>DEFCON</a><a class=tag href=/blog/tags/reverse/>Reverse</a><a class=tag href=/blog/tags/qemu/>QEMU</a></span></div></div></div></div></div></main></div><footer class="footer footer--base"><div class=by_farbox><ul class=footer__list><li class=footer__item>&copy;
+artis24106
+2021</li></ul></div></footer><script type=text/javascript src=/blog/js/medium-zoom.min.bdc7b23aff63497a79433b3920b03e2473399d90ad4c2d87cf7c08d33d61966f.js integrity="sha256-vceyOv9jSXp5Qzs5ILA+JHM5nZCtTC2Hz3wI0z1hlm8=" crossorigin=anonymous></script></body></html>
