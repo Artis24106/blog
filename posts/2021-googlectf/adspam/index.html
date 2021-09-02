@@ -1,0 +1,406 @@
+<!doctype html><html dir=ltr lang=en data-theme=light><head><title>artis24106
+|
+2021 Google CTF - ADSPAM</title><meta charset=utf-8><meta name=generator content="Hugo 0.68.3"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name=description content="真白な夢 羽ばたかせよう"><link rel=stylesheet href=/blog/css/main.min.f08dfd6292604273495f670c5af67081690e166c26708b1dda2d9147b11b7fd9.css integrity="sha256-8I39YpJgQnNJX2cMWvZwgWkOFmwmcIsd2i2RR7Ebf9k=" crossorigin=anonymous type=text/css><link rel=stylesheet href=/blog/css/markupHighlight.min.cc84ed683057cc175ddfa738ea6ba2d5c882b95cb64f50bf9be918cb3791887b.css integrity="sha256-zITtaDBXzBdd36c46mui1ciCuVy2T1C/m+kYyzeRiHs=" crossorigin=anonymous type=text/css><link rel=stylesheet href=/blog/css/custom.min.482d9951615a39324e608f92af5a5ddc467ab6b65ab73d6a748d39cdf7f2e321.css integrity="sha256-SC2ZUWFaOTJOYI+Sr1pd3EZ6trZatz1qdI05zffy4yE=" crossorigin=anonymous media=screen><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin=anonymous><link rel="shortcut icon" href=/blogfavicon.ico type=image/x-icon><link rel=apple-touch-icon sizes=180x180 href=/blogapple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/blogfavicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/blogfavicon-16x16.png><link rel=canonical href=/blog/posts/2021-googlectf/adspam/><script type=text/javascript src=/blog/js/anatole-header.min.413f798d8aa82610bef17a5ca1d7e962ec185be395f1aeb3f45d1891af568b65.js integrity="sha256-QT95jYqoJhC+8XpcodfpYuwYW+OV8a6z9F0Yka9Wi2U=" crossorigin=anonymous></script><meta name=twitter:card content="summary"><meta name=twitter:title content="2021 Google CTF - ADSPAM"><meta name=twitter:description content="題目：ADSPAM"><script async src="https://www.googletagmanager.com/gtag/js?id=G-0K535799NY"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','G-0K535799NY');</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","articleSection":"posts","name":"2021 Google CTF - ADSPAM","headline":"2021 Google CTF - ADSPAM","alternativeHeadline":"","description":"
+      
+        \x3cp\x3e題目：\x3ccode\x3eADSPAM\x3c\/code\x3e\x3c\/p\x3e
+
+
+      
+
+
+    ","inLanguage":"en","isFamilyFriendly":"true","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/artis24106.github.io\/blog\/posts\/2021-googlectf\/adspam\/"},"author":{"@type":"Person","name":"artis24106"},"creator":{"@type":"Person","name":"artis24106"},"accountablePerson":{"@type":"Person","name":"artis24106"},"copyrightHolder":{"@type":"Person","name":"artis24106"},"copyrightYear":"2021","dateCreated":"2021-09-02T13:51:34.00Z","datePublished":"2021-09-02T13:51:34.00Z","dateModified":"2021-09-02T13:51:34.00Z","publisher":{"@type":"Organization","name":"artis24106","url":"https://artis24106.github.io/blog","logo":{"@type":"ImageObject","url":"https:\/\/artis24106.github.io\/blogfavicon-32x32.png","width":"32","height":"32"}},"image":[],"url":"https:\/\/artis24106.github.io\/blog\/posts\/2021-googlectf\/adspam\/","wordCount":"928","genre":["CTF"],"keywords":["CTF","AIS3","Reverse","jni","apk"]}</script></head><body><header><div class="page-top
+."><a role=button class=navbar-burger data-target=navMenu aria-label=menu aria-expanded=false><span aria-hidden=true></span><span aria-hidden=true></span><span aria-hidden=true></span></a><nav><ul class=nav__list id=navMenu><div class=nav__links><li><a href=/blog/posts/>Posts</a></li><li><a href=/blog/tags/>Tags</a></li><li><a href=/blog/categories/>Categories</a></li></div><li></li></ul></nav></div></header><div class=wrapper><aside><div class="sidebar
+."><div class=sidebar__content><div class=logo-title><div class=title><img src="https://avatars.githubusercontent.com/u/32833063?v=4" alt="profile picture"><h3><a href=/blog>artis24106's blog</a></h3><div class=description><p>真白な夢 羽ばたかせよう</p></div></div></div><ul class=social-links><li><a href=https://github.com/Artis24106 rel=me aria-label=Github><i class="fab fa-github fa-2x" aria-hidden=true></i></a></li></ul></div><footer class="footer footer--sidebar"><div class=by_farbox><ul class=footer__list><li class=footer__item>&copy;
+artis24106
+2021</li></ul></div></footer><script type=text/javascript src=/blog/js/medium-zoom.min.bdc7b23aff63497a79433b3920b03e2473399d90ad4c2d87cf7c08d33d61966f.js integrity="sha256-vceyOv9jSXp5Qzs5ILA+JHM5nZCtTC2Hz3wI0z1hlm8=" crossorigin=anonymous></script></div></aside><main><div class=autopagerize_page_element><div class=content><div class="post
+."><div class=post-content><div class=post-title><h1>2021 Google CTF - ADSPAM</h1><div class=info><em class="fas fa-calendar-day"></em><span class=date>Thu, Sep 2, 2021</span>
+<em class="fas fa-stopwatch"></em><span class=reading-time>5-minute read</span></div></div><p>題目：<code>ADSPAM</code></p><h2 id=adspam>ADSPAM</h2><h3 id=challenge-info>Challenge Info</h3><blockquote><p>We&rsquo;ve intercepted this demo build of a new ad spam bot, see if you can find anything interesting.</p><p><code>adspam.2021.ctfcompetition.com 1337</code></p></blockquote><p><code>app-release.apk</code></p><h3 id=solution>Solution</h3><p>實際執行只看到一條訊息：</p><p><img src=img/1.png alt></p><p>apk 總之先反編譯（<a href="https://marketplace.visualstudio.com/items?itemName=Surendrajat.apklab">APKLab</a> 還不錯用）</p><p>在 <code>a/a/e.java</code> 發現有用到 socket</p><h4 id=tcpdump-聽封包><code>tcpdump</code> 聽封包</h4><p>先搞好一台 root VM，ARM 架構的話，<a href=https://www.androidtcpdump.com/android-tcpdump/downloads>這邊</a>可以直接下載，我的是 i386 只好自己編：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=cp>#!/bin/bash
+</span><span class=cp></span>
+<span class=nb>export</span> <span class=nv>TCPDUMP</span><span class=o>=</span>4.9.2
+<span class=nb>export</span> <span class=nv>LIBPCAP</span><span class=o>=</span>1.9.0
+
+wget http://www.tcpdump.org/release/tcpdump-<span class=nv>$TCPDUMP</span>.tar.gz
+wget http://www.tcpdump.org/release/libpcap-<span class=nv>$LIBPCAP</span>.tar.gz
+
+tar zxvf tcpdump-<span class=nv>$TCPDUMP</span>.tar.gz
+tar zxvf libpcap-<span class=nv>$LIBPCAP</span>.tar.gz
+
+<span class=nb>export</span> <span class=nv>CC</span><span class=o>=</span>i686-linux-gnu-gcc
+<span class=nb>cd</span> libpcap-<span class=nv>$LIBPCAP</span>
+./configure --host<span class=o>=</span>x86-linux --with-pcap<span class=o>=</span>linux
+make -j
+<span class=nb>cd</span> ..
+
+<span class=nb>cd</span> tcpdump-<span class=nv>$TCPDUMP</span>
+<span class=nb>export</span> <span class=nv>ac_cv_linux_vers</span><span class=o>=</span><span class=m>2</span>
+<span class=nb>export</span> <span class=nv>CFLAGS</span><span class=o>=</span>-static
+<span class=nb>export</span> <span class=nv>CPPFLAGS</span><span class=o>=</span>-static
+<span class=nb>export</span> <span class=nv>LDFLAGS</span><span class=o>=</span>-static
+
+./configure --host<span class=o>=</span>x86-linux
+make -j
+
+cp tcpdump-<span class=nv>$TCPDUMP</span>/tcpdump ../
+</code></pre></td></tr></table></div></div><p>編好之後丟進 VM</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>adb push tcpdump /system/xbin/tcpdump
+</code></pre></td></tr></table></div></div><p>聽封包：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>tcpdump -vv -i any -s <span class=m>0</span> -w /data/local/tmp/dump.pcap
+</code></pre></td></tr></table></div></div><p>發現會跟 <code>adspam.2021.ctfcompetition.com 1337</code> 溝通，並且送了很 base64 的東西出去，但解出來不是明文：</p><p><img src=img/2.png alt></p><h4 id=靜態分析>靜態分析</h4><p>在 <code>ad/spam/NativeAdapter.java</code> 看到有 load <code>libnative-lib.so</code> 進來，所以把 librart 丟 IDA：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-java data-lang=java><span class=kn>package</span> <span class=nn>ad.spam</span><span class=o>;</span>
+
+<span class=kd>public</span> <span class=kd>class</span> <span class=nc>NativeAdapter</span> <span class=o>{</span>
+    <span class=kd>static</span> <span class=o>{</span>
+        <span class=n>System</span><span class=o>.</span><span class=na>loadLibrary</span><span class=o>(</span><span class=s>&#34;native-lib&#34;</span><span class=o>);</span>
+    <span class=o>}</span>
+
+    <span class=kd>public</span> <span class=kd>static</span> <span class=kd>native</span> <span class=kt>byte</span><span class=o>[]</span> <span class=nf>declicstr</span><span class=o>(</span><span class=kt>byte</span><span class=o>[]</span> <span class=n>bArr</span><span class=o>);</span>
+
+    <span class=kd>public</span> <span class=kd>static</span> <span class=kd>native</span> <span class=kt>byte</span><span class=o>[]</span> <span class=nf>decrypt</span><span class=o>(</span><span class=kt>byte</span><span class=o>[]</span> <span class=n>bArr</span><span class=o>);</span>
+
+    <span class=kd>public</span> <span class=kd>static</span> <span class=kd>native</span> <span class=kt>byte</span><span class=o>[]</span> <span class=nf>encrypt</span><span class=o>(</span><span class=kt>byte</span><span class=o>[]</span> <span class=n>bArr</span><span class=o>);</span>
+
+    <span class=kd>public</span> <span class=kd>static</span> <span class=kd>native</span> <span class=kt>boolean</span> <span class=nf>oktorun</span><span class=o>();</span>
+
+    <span class=kd>public</span> <span class=kd>static</span> <span class=kd>native</span> <span class=n>String</span> <span class=nf>transform</span><span class=o>(</span><span class=kt>byte</span><span class=o>[]</span> <span class=n>bArr</span><span class=o>);</span>
+<span class=o>}</span>
+</code></pre></td></tr></table></div></div><p>順帶一提 load library 的方法有兩種，用第二種的話就要自己處理架構問題：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-java data-lang=java><span class=n>System</span><span class=o>.</span><span class=na>loadLibrary</span><span class=o>(</span><span class=s>&#34;calc&#34;</span><span class=o>);</span>
+<span class=n>System</span><span class=o>.</span><span class=na>load</span><span class=o>(</span><span class=s>&#34;lib/armeabi/libcalc.so&#34;</span><span class=o>)</span>
+</code></pre></td></tr></table></div></div><p>但無論使用哪種方式，library load 進來之後會呼叫 <code>JNI_OnLoad</code>，並且要使用 library function 的話，宣告方式如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-java data-lang=java><span class=kd>public</span> <span class=kd>native</span> <span class=n>String</span> <span class=nf>natvieFunction</span><span class=o>(</span><span class=kt>int</span> <span class=n>var0</span><span class=o>);</span>
+</code></pre></td></tr></table></div></div><p>而 function linking 有分兩種方式：</p><p><strong>1. Dynamic Linking：使用 JNI Native Method Name Resolving</strong></p><p>比如說 class <code>com.android.interesting.Stuff</code> 有個 function</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-java data-lang=java><span class=kd>public</span> <span class=kd>native</span> <span class=n>String</span> <span class=nf>doThingsInNativeLibrary</span><span class=o>(</span><span class=kt>int</span> <span class=n>var0</span><span class=o>);</span>
+</code></pre></td></tr></table></div></div><p>在 library 內的名稱要設定為 <code>Java_com_android_interesting_Stuff_doThingsInNativeLibrary</code></p><p><strong>2. Static Linking：使用 <code>RegisterNatives</code> API</strong></p><p>API 長這樣，需要 class instance, function name, function pointer 還有 <a href=https://docs.oracle.com/javase/7/docs/technotes/guides/jni/spec/types.html>JNI Type Signatures</a></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-java data-lang=java><span class=n>jint</span> <span class=nf>RegisterNatives</span><span class=o>(</span><span class=n>JNIEnv</span> <span class=o>*</span><span class=n>env</span><span class=o>,</span> <span class=n>jclass</span> <span class=n>clazz</span><span class=o>,</span> <span class=kd>const</span> <span class=n>JNINativeMethod</span> <span class=o>*</span><span class=n>methods</span><span class=o>,</span> <span class=n>jint</span> <span class=n>nMethods</span><span class=o>);</span>
+</code></pre></td></tr></table></div></div><hr><p>實際逆向的時候 <a href=https://docs.oracle.com/javase/7/docs/technotes/guides/jni/spec/functions.html>JNI Functions</a> 會是 <code>JNIEnv + offset</code> 的方式呈現，不過 IDA 支援度很好，把 type 修正回 <code>JNIEnv*</code> 就可以了</p><p>找到相關 function 之後逆一逆，這邊就簡單說明結果：</p><ul><li><code>rick_decode_445A0</code>：用 <code>'cFUgdW9ZIGV2aUcgYW5ub0cgcmV2ZU4='</code> 做 xor decode（base64 解碼後是倒過來的 rick roll <code>pU uoY eviG annoG reveN</code> = =）</li><li><code>declicstr</code>：拿來 RSA pubkey 來解密</li><li><code>decrypt</code>：<code>AES/ECB/PKCS5Padding</code> 解密</li><li><code>encrypt</code>：<code>AES/ECB/PKCS5Padding</code> 加密</li><li><code>oktorun</code>：沒認真看，可能是 anti-debug，檢查有沒有用 <code>frida.server</code> 之類的</li><li><code>transform</code>：把 byte array 拿去 <code>rick_decode_445A0</code></li></ul><blockquote><p>Java 加解密用 python 實作實在不習慣 QQ，這邊簡單紀錄一下</p><p><code>declicstr()</code></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-java data-lang=java><span class=kt>byte</span><span class=o>[]</span> <span class=nf>declicstr</span><span class=o>(</span><span class=kt>byte</span><span class=o>[]</span> <span class=n>enc_lic</span><span class=o>)</span> <span class=o>{</span>
+    <span class=n>X509EncodedKeySpec</span> <span class=n>keySpec</span> <span class=o>=</span> <span class=k>new</span> <span class=n>X509EncodedKeySpec</span><span class=o>(</span><span class=n>encodedPubKey</span><span class=o>);</span>
+    <span class=n>KeyFactory</span> <span class=n>keyFactory</span> <span class=o>=</span> <span class=n>KeyFactory</span><span class=o>.</span><span class=na>getInstance</span><span class=o>(</span><span class=s>&#34;RSA&#34;</span><span class=o>);</span>
+    <span class=n>PublicKey</span> <span class=n>RSA_pubkey</span> <span class=o>=</span> <span class=n>keyFactory</span><span class=o>.</span><span class=na>generatePublic</span><span class=o>(</span><span class=n>keySpec</span><span class=o>);</span>
+    <span class=n>Cipher</span> <span class=n>cipher</span> <span class=o>=</span> <span class=n>Cipher</span><span class=o>.</span><span class=na>getInstance</span><span class=o>(</span><span class=s>&#34;RSA&#34;</span><span class=o>);</span>
+    <span class=n>cipher</span><span class=o>.</span><span class=na>init</span><span class=o>(</span><span class=n>Cipher</span><span class=o>.</span><span class=na>DECRYPT_MODE</span><span class=o>,</span> <span class=n>RSA_pubkey</span><span class=o>);</span>
+    <span class=k>return</span> <span class=n>cipher</span><span class=o>.</span><span class=na>doFinal</span><span class=o>(</span><span class=n>enc_lic</span><span class=o>);</span>
+<span class=o>}</span>
+</code></pre></td></tr></table></div></div><p>轉換成：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=k>def</span> <span class=nf>declicstr</span><span class=p>(</span><span class=n>encodedPubKey</span><span class=p>):</span>
+    <span class=n>key</span> <span class=o>=</span> <span class=n>RSA</span><span class=o>.</span><span class=n>import_key</span><span class=p>(</span><span class=n>encodedPubKey</span><span class=p>)</span>
+    <span class=n>res</span> <span class=o>=</span> <span class=nb>pow</span><span class=p>(</span><span class=nb>int</span><span class=o>.</span><span class=n>from_bytes</span><span class=p>(</span><span class=n>secret</span><span class=p>,</span> <span class=s1>&#39;big&#39;</span><span class=p>),</span> <span class=n>key</span><span class=o>.</span><span class=n>e</span><span class=p>,</span> <span class=n>key</span><span class=o>.</span><span class=n>n</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div></blockquote><p>如此一來能解密（AES）封包內容了，發送的內容：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-json data-lang=json><span class=p>{</span>
+  <span class=nt>&#34;name&#34;</span><span class=p>:</span> <span class=s2>&#34;1337_hacker&#34;</span><span class=p>,</span>
+  <span class=nt>&#34;is_admin&#34;</span><span class=p>:</span> <span class=mi>0</span><span class=p>,</span>
+  <span class=nt>&#34;device_info&#34;</span><span class=p>:</span> <span class=p>{</span>
+    <span class=nt>&#34;os_version&#34;</span><span class=p>:</span> <span class=s2>&#34;3.10.0+&#34;</span><span class=p>,</span>
+    <span class=nt>&#34;api_level&#34;</span><span class=p>:</span> <span class=mi>24</span><span class=p>,</span>
+    <span class=nt>&#34;device&#34;</span><span class=p>:</span> <span class=s2>&#34;generic_x86&#34;</span>
+  <span class=p>},</span>
+  <span class=nt>&#34;license&#34;</span><span class=p>:</span> <span class=s2>&#34;QIknTsIjeUEF9yJjeZ\\/kPPfTlSm8vzMU4LWjzfSXvN+OSqBu3iNgZJgeW7fc8oltH9MprO9nI8vxgsjO\\/VA4t7YuNm16a7elPVAHqD4dXtzngnZPpsbek3Rc\\/We\\/WQ5YxXHgUt7YJ6tcd4wH3fhduC9tl\\/E5elwJL\\/YAcbD4mT8=::o9kjqYWCBKMgodl1JvDiscUeRjh9Ip9HcC7tHskoYqNQfAPE0XvSAKBSOFgleNHzVY9BVkfxmutgn\\/kVXUs3yl\\/qAurc4jokg0eA\\/v3flnnkWxqTOh4vv0yfr7PGXqwHk4qUFK1SldZ4VsLhd8PAb0aHj22E5b4U5jeJ16z187E=::gpDbCb0BmUZfdKVIZgF08lQ80K9SeUsRadZG+UUjE7wI1NRZ1evLk2GQ3sqskGHFKlPg8cTR2Xy69WedNu4QLboOWm\\/w13ocOvHwCoiQ1ZdmibgnhMQBznqpjpBnL083YMRYskcUX68R2PFaXY3taV7MoG1DyQWFRfdr\\/CnLyS8=::ZBLhwMu0DbgpUANm2ukYldrppJERiH1Tgp02CRB5I4dDP8n4+ZCv33ScspELtgAKHhiwIVksQVsnwDLsQRi6nqq9nrIwqSHMR0TwOe6UKTpAegbH53FXtriopPHfLuI2M45SzJ88GFjXy7wfOOjwDYe4KKO9KU8+LGD15Au73EM=::Hygv+bTtsnI9IBf44GkvoF38r3g5zBB7uyYT7PTlbjhCdgYRwRayutI3vY+n66xM7GOFgUFVIBI5+OBDnvazLNttjGomPED\\/OXlImndWvrZxYcaKaE3vYGPezorV0xwPahGGq\\/DWafPKdYxLxwICq1GXKYNAckCZIqfpGbJRRwg=::GARMZAX7fQN7i7Wnp4J6HxMTLe9+VM\\/wGJs+zN6b9IOmynh2gIkGjmssfOA9KdYydqBLEOJymayH8HeyrtInhhQNR3el8A5n8GMEMkyF1gUFAiSEPyhNeWWOj2IAHGNNwccmF7QywdfOUGjsTNFbrW6Yl5QLLAmMbA95qF0IERk=::YWlx8Cok1x\\/3ZsW9JKIsKj9UpBaCNkXSPiVXUrNX1IDZE0B8iNr3iliOr90TW0BvsIaFEwvDTlcESXJ8kLc3iZq0fm1lgujfM7Z156VdxEPjr9LplcEZ9ZVhYGNtVyGIRcouUDJHu3FVfXQ1XesaNlNHOb50hADprsw3RnTAGbU=::I3dsx2vSfXxZ1\\/QlMbwYPRFEZBtOuB8qLEY8cqFVtYjMluNWSkbHAYB+kwCBEv3yuoOjkdQEfqq4pS+K0ka1+pFDyss8sSbV3OiZdpRf40SS\\/pZxw2duJr9uDd1DdX8mST7fdjqj0V1a2ZBMpqaEI2gFlCwzXlfZBC47LKNiM+8=::ow7r5VJMGfSf0odNKxzBpUtSJdj8gHdt+Z7Xu54MAdsnUParSjrtRI4yJYzcW4toOFmDdSs5SERR289yohYI5hHSWLElv\\/44O+g4M08F5qpwCmOp5otW32qRG1RnhqR95evH44nOyK24UnpvWlebNwVhniSu4A7znjluGRrao\\/U=::TeGqGWv8ZmsY\\/rFq1puW9N+01TWTKJm8qzUuY\\/7JUCPDJ1AR6Y3XsPb73FuSVHPL63sjiuCTiKTRSUDzBE0VBfo59rtOKI05k64Jrz88nODD7BiK7ssacsOr2dAFGQKgBaWV2jitSAdxtCmh9sDpYsfs0\\/vXBBfVLqfVZDfAVGQ=::Al3QWY+nNFoLezt+rSdbWmqp7iZ+rR9pnM35IJNZ63bLQeM3CUvULVczhrM3toXNLCY7xmAT4jg+u0uDAjanaKMB+T1Tmym7aaCqwCfHYVFn5nw+tw54e13CLxj7OO+e847+XH8DtK\\/BiA+n03vPnt\\/cEDPvIM59sPsjHThJvpk=::VOGr60qxiO1r0YlKnrIWbQu7UhBmtBeNw2NDQnoNU3H1mjVEs\\/ji3AYuEGc2HGKINByq7Mpb4mWKD2oH5ii\\/UZDpxbzCFlJrjvjEG25c9Hhf2fiQHvRXmJd8iA8YdffBii3csCjaydLFSX6Vn7XPg+\\/PF\\/TdM1zUiLTJZX4LXRw=::ELL9maLDpdmmEgaT76qtw9IugtaQX2r7V7QVqMKXQcbwq7o0dvaO3+yMt6m5K5Milm4JSNwX\\/810YUaoAsHNuaIavuLRsxbP3b6KnKxaKz3EDgyhye2en3U1EZouiLljBB0bKz8rAtyGdolWDdNoKjvLhv7x2edc05HQZOt3aiA=::&#34;</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>server 回傳資料：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-json data-lang=json><span class=p>{</span>
+  <span class=nt>&#34;cmd&#34;</span><span class=p>:</span> <span class=mi>-1</span><span class=p>,</span>
+  <span class=nt>&#34;data&#34;</span><span class=p>:</span> <span class=s2>&#34;Extra data: line 1 column 2417 (char 2416)&#34;</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>看來 <code>data</code> 是顯示通知時的訊息，嘗試改 <code>name</code>, <code>is_admin</code> 會回傳這類訊息，網址應該是隨機的：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-json data-lang=json><span class=p>{</span>
+  <span class=nt>&#34;cmd&#34;</span><span class=p>:</span> <span class=mi>2</span><span class=p>,</span>
+  <span class=nt>&#34;data&#34;</span><span class=p>:</span> <span class=s2>&#34;https://www.youtube.com/watch?v=6mNzitWIiuc&#34;</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>程式核心邏輯在 <code>ad/spam/MainActivity.java</code> 跟 <code>a/a/f.java</code>，可以知道要把 <code>res/law/lic</code> 每行取出來 base64 decode，然後 <code>declicstr</code></p><p><code>res/raw/lic</code> 長這樣：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-s data-lang=s><span class=n>QIknTsIjeUEF9yJjeZ</span><span class=o>/</span><span class=n>kPPfTlSm8vzMU4LWjzfSXvN</span><span class=o>+</span><span class=n>OSqBu3iNgZJgeW7fc8oltH9MprO9nI8vxgsjO</span><span class=o>/</span><span class=n>VA4t7YuNm16a7elPVAHqD4dXtzngnZPpsbek3Rc</span><span class=o>/</span><span class=n>We</span><span class=o>/</span><span class=n>WQ5YxXHgUt7YJ6tcd4wH3fhduC9tl</span><span class=o>/</span><span class=n>E5elwJL</span><span class=o>/</span><span class=n>YAcbD4mT8</span><span class=o>=</span>
+<span class=n>o9kjqYWCBKMgodl1JvDiscUeRjh9Ip9HcC7tHskoYqNQfAPE0XvSAKBSOFgleNHzVY9BVkfxmutgn</span><span class=o>/</span><span class=n>kVXUs3yl</span><span class=o>/</span><span class=n>qAurc4jokg0eA</span><span class=o>/</span><span class=n>v3flnnkWxqTOh4vv0yfr7PGXqwHk4qUFK1SldZ4VsLhd8PAb0aHj22E5b4U5jeJ16z187E</span><span class=o>=</span>
+<span class=n>gpDbCb0BmUZfdKVIZgF08lQ80K9SeUsRadZG</span><span class=o>+</span><span class=n>UUjE7wI1NRZ1evLk2GQ3sqskGHFKlPg8cTR2Xy69WedNu4QLboOWm</span><span class=o>/</span><span class=n>w13ocOvHwCoiQ1ZdmibgnhMQBznqpjpBnL083YMRYskcUX68R2PFaXY3taV7MoG1DyQWFRfdr</span><span class=o>/</span><span class=n>CnLyS8</span><span class=o>=</span>
+<span class=n>ZBLhwMu0DbgpUANm2ukYldrppJERiH1Tgp02CRB5I4dDP8n4</span><span class=o>+</span><span class=n>ZCv33ScspELtgAKHhiwIVksQVsnwDLsQRi6nqq9nrIwqSHMR0TwOe6UKTpAegbH53FXtriopPHfLuI2M45SzJ88GFjXy7wfOOjwDYe4KKO9KU8</span><span class=o>+</span><span class=n>LGD15Au73EM</span><span class=o>=</span>
+<span class=n>Hygv</span><span class=o>+</span><span class=n>bTtsnI9IBf44GkvoF38r3g5zBB7uyYT7PTlbjhCdgYRwRayutI3vY</span><span class=o>+</span><span class=n>n66xM7GOFgUFVIBI5</span><span class=o>+</span><span class=n>OBDnvazLNttjGomPED</span><span class=o>/</span><span class=n>OXlImndWvrZxYcaKaE3vYGPezorV0xwPahGGq</span><span class=o>/</span><span class=n>DWafPKdYxLxwICq1GXKYNAckCZIqfpGbJRRwg</span><span class=o>=</span>
+<span class=n>GARMZAX7fQN7i7Wnp4J6HxMTLe9</span><span class=o>+</span><span class=n>VM</span><span class=o>/</span><span class=n>wGJs</span><span class=o>+</span><span class=n>zN6b9IOmynh2gIkGjmssfOA9KdYydqBLEOJymayH8HeyrtInhhQNR3el8A5n8GMEMkyF1gUFAiSEPyhNeWWOj2IAHGNNwccmF7QywdfOUGjsTNFbrW6Yl5QLLAmMbA95qF0IERk</span><span class=o>=</span>
+<span class=n>YWlx8Cok1x</span><span class=o>/</span><span class=m>3</span><span class=n>ZsW9JKIsKj9UpBaCNkXSPiVXUrNX1IDZE0B8iNr3iliOr90TW0BvsIaFEwvDTlcESXJ8kLc3iZq0fm1lgujfM7Z156VdxEPjr9LplcEZ9ZVhYGNtVyGIRcouUDJHu3FVfXQ1XesaNlNHOb50hADprsw3RnTAGbU</span><span class=o>=</span>
+<span class=n>I3dsx2vSfXxZ1</span><span class=o>/</span><span class=n>QlMbwYPRFEZBtOuB8qLEY8cqFVtYjMluNWSkbHAYB</span><span class=o>+</span><span class=n>kwCBEv3yuoOjkdQEfqq4pS</span><span class=o>+</span><span class=n>K0ka1</span><span class=o>+</span><span class=n>pFDyss8sSbV3OiZdpRf40SS</span><span class=o>/</span><span class=n>pZxw2duJr9uDd1DdX8mST7fdjqj0V1a2ZBMpqaEI2gFlCwzXlfZBC47LKNiM</span><span class=m>+8</span><span class=o>=</span>
+<span class=n>ow7r5VJMGfSf0odNKxzBpUtSJdj8gHdt</span><span class=o>+</span><span class=n>Z7Xu54MAdsnUParSjrtRI4yJYzcW4toOFmDdSs5SERR289yohYI5hHSWLElv</span><span class=o>/</span><span class=m>44</span><span class=n>O</span><span class=o>+</span><span class=n>g4M08F5qpwCmOp5otW32qRG1RnhqR95evH44nOyK24UnpvWlebNwVhniSu4A7znjluGRrao</span><span class=o>/</span><span class=n>U</span><span class=o>=</span>
+<span class=n>TeGqGWv8ZmsY</span><span class=o>/</span><span class=n>rFq1puW9N</span><span class=m>+01</span><span class=n>TWTKJm8qzUuY</span><span class=o>/</span><span class=m>7</span><span class=n>JUCPDJ1AR6Y3XsPb73FuSVHPL63sjiuCTiKTRSUDzBE0VBfo59rtOKI05k64Jrz88nODD7BiK7ssacsOr2dAFGQKgBaWV2jitSAdxtCmh9sDpYsfs0</span><span class=o>/</span><span class=n>vXBBfVLqfVZDfAVGQ</span><span class=o>=</span>
+<span class=n>Al3QWY</span><span class=o>+</span><span class=n>nNFoLezt</span><span class=o>+</span><span class=n>rSdbWmqp7iZ</span><span class=o>+</span><span class=n>rR9pnM35IJNZ63bLQeM3CUvULVczhrM3toXNLCY7xmAT4jg</span><span class=o>+</span><span class=n>u0uDAjanaKMB</span><span class=o>+</span><span class=n>T1Tmym7aaCqwCfHYVFn5nw</span><span class=o>+</span><span class=n>tw54e13CLxj7OO</span><span class=o>+</span><span class=n>e847</span><span class=o>+</span><span class=n>XH8DtK</span><span class=o>/</span><span class=n>BiA</span><span class=o>+</span><span class=n>n03vPnt</span><span class=o>/</span><span class=n>cEDPvIM59sPsjHThJvpk</span><span class=o>=</span>
+<span class=n>VOGr60qxiO1r0YlKnrIWbQu7UhBmtBeNw2NDQnoNU3H1mjVEs</span><span class=o>/</span><span class=n>ji3AYuEGc2HGKINByq7Mpb4mWKD2oH5ii</span><span class=o>/</span><span class=n>UZDpxbzCFlJrjvjEG25c9Hhf2fiQHvRXmJd8iA8YdffBii3csCjaydLFSX6Vn7XPg</span><span class=o>+/</span><span class=n>PF</span><span class=o>/</span><span class=n>TdM1zUiLTJZX4LXRw</span><span class=o>=</span>
+<span class=n>ELL9maLDpdmmEgaT76qtw9IugtaQX2r7V7QVqMKXQcbwq7o0dvaO3</span><span class=o>+</span><span class=n>yMt6m5K5Milm4JSNwX</span><span class=o>/</span><span class=m>810</span><span class=n>YUaoAsHNuaIavuLRsxbP3b6KnKxaKz3EDgyhye2en3U1EZouiLljBB0bKz8rAtyGdolWDdNoKjvLhv7x2edc05HQZOt3aiA</span><span class=o>=</span>
+</code></pre></td></tr></table></div></div><p>每行 license 會解成 4 bytes 資料，串起來長這樣：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=sa>b</span><span class=s1>&#39;</span><span class=se>\x0b</span><span class=s1>1337_hacker$798b7dd4-d171-11eb-5149-1fa59603ced5</span><span class=se>\x01</span><span class=s1>0</span><span class=se>\x00</span><span class=s1>&#39;</span>
+</code></pre></td></tr></table></div></div><p>這邊感覺要用通靈的？總之發現它是由長度跟資料組成：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-s data-lang=s><span class=n>[</span><span class=o>+</span><span class=n>]</span> <span class=n>Decrypted</span> <span class=n>lic</span><span class=o>:</span> <span class=n>b</span><span class=s>&#39;\x0b1337_hacker$798b7dd4-d171-11eb-5149-1fa59603ced5\x010\x00&#39;</span>
+<span class=n>[</span><span class=o>+</span><span class=n>]</span> <span class=n>Block</span><span class=o>:</span> <span class=m>11</span><span class=p>,</span> <span class=n>b</span><span class=s>&#39;1337_hacker&#39;</span>
+<span class=n>[</span><span class=o>+</span><span class=n>]</span> <span class=n>Block</span><span class=o>:</span> <span class=m>36</span><span class=p>,</span> <span class=n>b</span><span class=s>&#39;798b7dd4-d171-11eb-5149-1fa59603ced5&#39;</span>
+<span class=n>[</span><span class=o>+</span><span class=n>]</span> <span class=n>Block</span><span class=o>:</span>  <span class=m>1</span><span class=p>,</span> <span class=n>b</span><span class=s>&#39;0&#39;</span>
+<span class=n>[</span><span class=o>+</span><span class=n>]</span> <span class=n>Terminate</span>
+</code></pre></td></tr></table></div></div><p>看起來三組分別代表 <code>name</code>, 某個 ID 跟 <code>is_admin</code>，所以能利用現有的 license 片段把 <code>is_admin</code> 的值改成非 0</p><p>好像要黑箱測試 server 規則，在嘗試時有收到這個回傳訊息，所以能確定 <code>is_admin</code> 要是一個十進位數字</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=sa>b</span><span class=s1>&#39;{&#34;cmd&#34;: -1, &#34;data&#34;: &#34;invalid literal for int() with base 10: b</span><span class=se>\&#39;</span><span class=s1>49596059605960596059605960596059605960596059605</span><span class=se>\\\\</span><span class=s1>x010</span><span class=se>\&#39;</span><span class=s1>&#34;}&#39;</span>
+</code></pre></td></tr></table></div></div><p>我最後構造出來的 license 長這樣，讓第三個 block 是十進位數字就好，後面有沒有符合格式好像不影響，甚至內容跟 payload 的資料不一樣也沒關係，頗奇妙</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-s data-lang=s><span class=n>[</span><span class=o>+</span><span class=n>]</span> <span class=n>Decrypted</span> <span class=n>lic</span><span class=o>:</span> <span class=n>b</span><span class=s>&#39;\x0b1337_hacker$798b7dd4-d171-11eb-5149-1fa59603ced51495960596059605960596059605960596059605960596059605\x010\x00&#39;</span>
+<span class=n>[</span><span class=o>+</span><span class=n>]</span> <span class=n>Block</span><span class=o>:</span> <span class=m>11</span><span class=p>,</span> <span class=n>b</span><span class=s>&#39;1337_hacker&#39;</span>
+<span class=n>[</span><span class=o>+</span><span class=n>]</span> <span class=n>Block</span><span class=o>:</span> <span class=m>36</span><span class=p>,</span> <span class=n>b</span><span class=s>&#39;798b7dd4-d171-11eb-5149-1fa59603ced5&#39;</span>
+<span class=n>[</span><span class=o>+</span><span class=n>]</span> <span class=n>Block</span><span class=o>:</span> <span class=m>49</span><span class=p>,</span> <span class=n>b</span><span class=s>&#39;4959605960596059605960596059605960596059605960596&#39;</span>
+<span class=n>[</span><span class=o>+</span><span class=n>]</span> <span class=n>Block</span><span class=o>:</span> <span class=m>48</span><span class=p>,</span> <span class=n>b</span><span class=s>&#39;5\x010\x00&#39;</span>
+<span class=n>[</span><span class=o>+</span><span class=n>]</span> <span class=n>Terminate</span>
+</code></pre></td></tr></table></div></div><p>最後的腳本：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span><span class=lnt>61
+</span><span class=lnt>62
+</span><span class=lnt>63
+</span><span class=lnt>64
+</span><span class=lnt>65
+</span><span class=lnt>66
+</span><span class=lnt>67
+</span><span class=lnt>68
+</span><span class=lnt>69
+</span><span class=lnt>70
+</span><span class=lnt>71
+</span><span class=lnt>72
+</span><span class=lnt>73
+</span><span class=lnt>74
+</span><span class=lnt>75
+</span><span class=lnt>76
+</span><span class=lnt>77
+</span><span class=lnt>78
+</span><span class=lnt>79
+</span><span class=lnt>80
+</span><span class=lnt>81
+</span><span class=lnt>82
+</span><span class=lnt>83
+</span><span class=lnt>84
+</span><span class=lnt>85
+</span><span class=lnt>86
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=kn>from</span> <span class=nn>Crypto.PublicKey</span> <span class=kn>import</span> <span class=n>RSA</span>
+<span class=kn>from</span> <span class=nn>Crypto.Cipher</span> <span class=kn>import</span> <span class=n>AES</span>
+<span class=kn>from</span> <span class=nn>base64</span> <span class=kn>import</span> <span class=n>b64decode</span>
+<span class=kn>from</span> <span class=nn>base64</span> <span class=kn>import</span> <span class=n>b64encode</span>
+<span class=kn>from</span> <span class=nn>pwn</span> <span class=kn>import</span> <span class=o>*</span>
+<span class=kn>from</span> <span class=nn>binascii</span> <span class=kn>import</span> <span class=n>unhexlify</span>
+
+<span class=n>encodedPubKey</span> <span class=o>=</span> <span class=sa>b</span><span class=s1>&#39;0</span><span class=se>\x81\x9f</span><span class=s1>0</span><span class=se>\r\x06\t</span><span class=s1>*</span><span class=se>\x86</span><span class=s1>H</span><span class=se>\x86\xf7\r\x01\x01\x01\x05\x00\x03\x81\x8d\x00</span><span class=s1>0</span><span class=se>\x81\x89\x02\x81\x81\x00\xb0\x01\xbf</span><span class=s1>1</span><span class=se>\xdb\xc6\xa2</span><span class=s1>G</span><span class=se>\xca\xcc\xa8\xd2</span><span class=s1>yU</span><span class=se>\x07</span><span class=s1> </span><span class=se>\xa0\xbf\x93</span><span class=s1>WC^FU,e</span><span class=se>\xe5</span><span class=s1>6</span><span class=se>\xce</span><span class=s1>qz</span><span class=se>\xb6\t\x9d</span><span class=s1>J</span><span class=se>\xaf\xc7\x9f\xfd\x19\xe4</span><span class=s1>dD</span><span class=se>\x84</span><span class=s1>kv</span><span class=se>\x13</span><span class=s1>6</span><span class=se>\x8e\xd6\xbf</span><span class=s1>G</span><span class=se>\x86</span><span class=s1>q3i</span><span class=se>\x1f</span><span class=s1>5</span><span class=se>\xea\xb8\xe9\xe5</span><span class=s1>6</span><span class=se>\x88</span><span class=s1>&#34;</span><span class=se>\xee\xcc</span><span class=s1>s</span><span class=se>\xc4\x00\xd8\&#39;</span><span class=s1>&#34;</span><span class=se>\xa8\xf3\x96\xd2</span><span class=s1>!</span><span class=se>\xfe\xfe</span><span class=s1>ET7</span><span class=se>\xfa</span><span class=s1>KY</span><span class=se>\xb0</span><span class=s1>d</span><span class=se>\\\xeb</span><span class=s1>]</span><span class=se>\x1e</span><span class=s1>B</span><span class=se>\xdd\x97\xeb\xa8\x18</span><span class=s1>+7DR</span><span class=se>\xaf\xc4\x1a\xc1\x9b\xb4</span><span class=s1>Y</span><span class=se>\xb0\xd0</span><span class=s1>-</span><span class=se>\xbc\xd5\xe9</span><span class=s1>;|</span><span class=se>\xfb</span><span class=s1>P</span><span class=se>\xcc\xe8\xa8\xae</span><span class=s1>M</span><span class=se>\xdd\x06\xc1</span><span class=s1>w</span><span class=se>\x02\x03\x01\x00\x01</span><span class=s1>&#39;</span>
+<span class=n>keyPub</span> <span class=o>=</span> <span class=n>RSA</span><span class=o>.</span><span class=n>import_key</span><span class=p>(</span><span class=n>encodedPubKey</span><span class=p>)</span>
+<span class=n>AES_key</span> <span class=o>=</span> <span class=s2>&#34;eaW~IFhnvlIoneLl&#34;</span>
+<span class=n>license</span> <span class=o>=</span> <span class=p>[</span>
+    <span class=s2>&#34;QIknTsIjeUEF9yJjeZ/kPPfTlSm8vzMU4LWjzfSXvN+OSqBu3iNgZJgeW7fc8oltH9MprO9nI8vxgsjO/VA4t7YuNm16a7elPVAHqD4dXtzngnZPpsbek3Rc/We/WQ5YxXHgUt7YJ6tcd4wH3fhduC9tl/E5elwJL/YAcbD4mT8=&#34;</span><span class=p>,</span>
+    <span class=s2>&#34;o9kjqYWCBKMgodl1JvDiscUeRjh9Ip9HcC7tHskoYqNQfAPE0XvSAKBSOFgleNHzVY9BVkfxmutgn/kVXUs3yl/qAurc4jokg0eA/v3flnnkWxqTOh4vv0yfr7PGXqwHk4qUFK1SldZ4VsLhd8PAb0aHj22E5b4U5jeJ16z187E=&#34;</span><span class=p>,</span>
+    <span class=s2>&#34;gpDbCb0BmUZfdKVIZgF08lQ80K9SeUsRadZG+UUjE7wI1NRZ1evLk2GQ3sqskGHFKlPg8cTR2Xy69WedNu4QLboOWm/w13ocOvHwCoiQ1ZdmibgnhMQBznqpjpBnL083YMRYskcUX68R2PFaXY3taV7MoG1DyQWFRfdr/CnLyS8=&#34;</span><span class=p>,</span>
+    <span class=s2>&#34;ZBLhwMu0DbgpUANm2ukYldrppJERiH1Tgp02CRB5I4dDP8n4+ZCv33ScspELtgAKHhiwIVksQVsnwDLsQRi6nqq9nrIwqSHMR0TwOe6UKTpAegbH53FXtriopPHfLuI2M45SzJ88GFjXy7wfOOjwDYe4KKO9KU8+LGD15Au73EM=&#34;</span><span class=p>,</span>
+    <span class=s2>&#34;Hygv+bTtsnI9IBf44GkvoF38r3g5zBB7uyYT7PTlbjhCdgYRwRayutI3vY+n66xM7GOFgUFVIBI5+OBDnvazLNttjGomPED/OXlImndWvrZxYcaKaE3vYGPezorV0xwPahGGq/DWafPKdYxLxwICq1GXKYNAckCZIqfpGbJRRwg=&#34;</span><span class=p>,</span>
+    <span class=s2>&#34;GARMZAX7fQN7i7Wnp4J6HxMTLe9+VM/wGJs+zN6b9IOmynh2gIkGjmssfOA9KdYydqBLEOJymayH8HeyrtInhhQNR3el8A5n8GMEMkyF1gUFAiSEPyhNeWWOj2IAHGNNwccmF7QywdfOUGjsTNFbrW6Yl5QLLAmMbA95qF0IERk=&#34;</span><span class=p>,</span>
+    <span class=s2>&#34;YWlx8Cok1x/3ZsW9JKIsKj9UpBaCNkXSPiVXUrNX1IDZE0B8iNr3iliOr90TW0BvsIaFEwvDTlcESXJ8kLc3iZq0fm1lgujfM7Z156VdxEPjr9LplcEZ9ZVhYGNtVyGIRcouUDJHu3FVfXQ1XesaNlNHOb50hADprsw3RnTAGbU=&#34;</span><span class=p>,</span>
+    <span class=s2>&#34;I3dsx2vSfXxZ1/QlMbwYPRFEZBtOuB8qLEY8cqFVtYjMluNWSkbHAYB+kwCBEv3yuoOjkdQEfqq4pS+K0ka1+pFDyss8sSbV3OiZdpRf40SS/pZxw2duJr9uDd1DdX8mST7fdjqj0V1a2ZBMpqaEI2gFlCwzXlfZBC47LKNiM+8=&#34;</span><span class=p>,</span>
+    <span class=s2>&#34;ow7r5VJMGfSf0odNKxzBpUtSJdj8gHdt+Z7Xu54MAdsnUParSjrtRI4yJYzcW4toOFmDdSs5SERR289yohYI5hHSWLElv/44O+g4M08F5qpwCmOp5otW32qRG1RnhqR95evH44nOyK24UnpvWlebNwVhniSu4A7znjluGRrao/U=&#34;</span><span class=p>,</span>
+    <span class=s2>&#34;TeGqGWv8ZmsY/rFq1puW9N+01TWTKJm8qzUuY/7JUCPDJ1AR6Y3XsPb73FuSVHPL63sjiuCTiKTRSUDzBE0VBfo59rtOKI05k64Jrz88nODD7BiK7ssacsOr2dAFGQKgBaWV2jitSAdxtCmh9sDpYsfs0/vXBBfVLqfVZDfAVGQ=&#34;</span><span class=p>,</span>
+    <span class=s2>&#34;Al3QWY+nNFoLezt+rSdbWmqp7iZ+rR9pnM35IJNZ63bLQeM3CUvULVczhrM3toXNLCY7xmAT4jg+u0uDAjanaKMB+T1Tmym7aaCqwCfHYVFn5nw+tw54e13CLxj7OO+e847+XH8DtK/BiA+n03vPnt/cEDPvIM59sPsjHThJvpk=&#34;</span><span class=p>,</span>
+    <span class=s2>&#34;VOGr60qxiO1r0YlKnrIWbQu7UhBmtBeNw2NDQnoNU3H1mjVEs/ji3AYuEGc2HGKINByq7Mpb4mWKD2oH5ii/UZDpxbzCFlJrjvjEG25c9Hhf2fiQHvRXmJd8iA8YdffBii3csCjaydLFSX6Vn7XPg+/PF/TdM1zUiLTJZX4LXRw=&#34;</span><span class=p>,</span>
+    <span class=s2>&#34;ELL9maLDpdmmEgaT76qtw9IugtaQX2r7V7QVqMKXQcbwq7o0dvaO3+yMt6m5K5Milm4JSNwX/810YUaoAsHNuaIavuLRsxbP3b6KnKxaKz3EDgyhye2en3U1EZouiLljBB0bKz8rAtyGdolWDdNoKjvLhv7x2edc05HQZOt3aiA=&#34;</span><span class=p>]</span>
+<span class=n>new_lic_idx</span> <span class=o>=</span> <span class=nb>list</span><span class=p>(</span><span class=nb>map</span><span class=p>(</span><span class=k>lambda</span> <span class=n>_</span><span class=p>:</span> <span class=n>_</span><span class=p>[</span><span class=mi>0</span><span class=p>],</span> <span class=nb>enumerate</span><span class=p>(</span><span class=n>license</span><span class=p>)))</span>
+<span class=n>payload_format</span> <span class=o>=</span> <span class=s1>&#39;{{&#34;name&#34;:&#34;{name}&#34;,&#34;is_admin&#34;:{is_admin},&#34;device_info&#34;:{{&#34;os_version&#34;:&#34;3.10.0+&#34;,&#34;api_level&#34;:24,&#34;device&#34;:&#34;generic_x86&#34;}},&#34;license&#34;:&#34;{license}&#34;}}&#39;</span>
+
+
+<span class=k>def</span> <span class=nf>declicstr</span><span class=p>(</span><span class=n>key</span><span class=p>,</span> <span class=n>secret</span><span class=p>):</span>
+    <span class=n>res</span> <span class=o>=</span> <span class=nb>pow</span><span class=p>(</span><span class=nb>int</span><span class=o>.</span><span class=n>from_bytes</span><span class=p>(</span><span class=n>secret</span><span class=p>,</span> <span class=s1>&#39;big&#39;</span><span class=p>),</span> <span class=n>key</span><span class=o>.</span><span class=n>e</span><span class=p>,</span> <span class=n>key</span><span class=o>.</span><span class=n>n</span><span class=p>)</span>
+    <span class=k>return</span> <span class=n>unhexlify</span><span class=p>(</span><span class=nb>hex</span><span class=p>(</span><span class=n>res</span><span class=p>)[</span><span class=mi>2</span><span class=p>:]</span><span class=o>.</span><span class=n>rjust</span><span class=p>(</span><span class=mi>8</span><span class=p>,</span> <span class=s1>&#39;0&#39;</span><span class=p>))</span>
+
+
+<span class=n>BLOCK_SIZE</span> <span class=o>=</span> <span class=mi>16</span>  <span class=c1># Bytes</span>
+<span class=k>def</span> <span class=nf>pad</span><span class=p>(</span><span class=n>s</span><span class=p>):</span> <span class=k>return</span> <span class=n>s</span> <span class=o>+</span> <span class=p>(</span><span class=n>BLOCK_SIZE</span> <span class=o>-</span> <span class=nb>len</span><span class=p>(</span><span class=n>s</span><span class=p>)</span> <span class=o>%</span> <span class=n>BLOCK_SIZE</span><span class=p>)</span> <span class=o>*</span> \
+    <span class=nb>chr</span><span class=p>(</span><span class=n>BLOCK_SIZE</span> <span class=o>-</span> <span class=nb>len</span><span class=p>(</span><span class=n>s</span><span class=p>)</span> <span class=o>%</span> <span class=n>BLOCK_SIZE</span><span class=p>)</span>
+
+
+<span class=k>def</span> <span class=nf>unpad</span><span class=p>(</span><span class=n>s</span><span class=p>):</span> <span class=k>return</span> <span class=n>s</span><span class=p>[:</span><span class=o>-</span><span class=nb>ord</span><span class=p>(</span><span class=n>s</span><span class=p>[</span><span class=nb>len</span><span class=p>(</span><span class=n>s</span><span class=p>)</span> <span class=o>-</span> <span class=mi>1</span><span class=p>:])]</span>
+
+
+<span class=k>def</span> <span class=nf>decrypt</span><span class=p>(</span><span class=n>key</span><span class=p>,</span> <span class=n>enc</span><span class=p>):</span>
+    <span class=n>enc</span> <span class=o>=</span> <span class=n>b64decode</span><span class=p>(</span><span class=n>enc</span><span class=p>)</span>
+    <span class=n>cipher</span> <span class=o>=</span> <span class=n>AES</span><span class=o>.</span><span class=n>new</span><span class=p>(</span><span class=n>key</span><span class=o>.</span><span class=n>encode</span><span class=p>(),</span> <span class=n>AES</span><span class=o>.</span><span class=n>MODE_ECB</span><span class=p>)</span>
+    <span class=k>return</span> <span class=n>unpad</span><span class=p>(</span><span class=n>cipher</span><span class=o>.</span><span class=n>decrypt</span><span class=p>(</span><span class=n>enc</span><span class=p>))</span>
+
+
+<span class=k>def</span> <span class=nf>encrypt</span><span class=p>(</span><span class=n>key</span><span class=p>,</span> <span class=n>raw</span><span class=p>):</span>
+    <span class=n>raw</span> <span class=o>=</span> <span class=n>pad</span><span class=p>(</span><span class=n>raw</span><span class=p>)</span>
+    <span class=n>cipher</span> <span class=o>=</span> <span class=n>AES</span><span class=o>.</span><span class=n>new</span><span class=p>(</span><span class=n>key</span><span class=o>.</span><span class=n>encode</span><span class=p>(),</span> <span class=n>AES</span><span class=o>.</span><span class=n>MODE_ECB</span><span class=p>)</span>
+    <span class=k>return</span> <span class=n>b64encode</span><span class=p>(</span><span class=n>cipher</span><span class=o>.</span><span class=n>encrypt</span><span class=p>(</span><span class=n>raw</span><span class=o>.</span><span class=n>encode</span><span class=p>()))</span>
+
+
+<span class=k>def</span> <span class=nf>send_payload</span><span class=p>(</span><span class=n>payload</span><span class=p>):</span>
+    <span class=n>payload</span> <span class=o>=</span> <span class=n>encrypt</span><span class=p>(</span><span class=n>AES_key</span><span class=p>,</span> <span class=n>payload</span><span class=p>)</span>
+    <span class=n>r</span> <span class=o>=</span> <span class=n>remote</span><span class=p>(</span><span class=s1>&#39;adspam.2021.ctfcompetition.com&#39;</span><span class=p>,</span> <span class=mi>1337</span><span class=p>)</span>
+    <span class=n>r</span><span class=o>.</span><span class=n>sendlineafter</span><span class=p>(</span><span class=s1>&#39;== proof-of-work: disabled ==</span><span class=se>\n</span><span class=s1>&#39;</span><span class=p>,</span> <span class=n>payload</span><span class=p>)</span>
+    <span class=n>recv</span> <span class=o>=</span> <span class=n>r</span><span class=o>.</span><span class=n>recvline</span><span class=p>()</span>
+    <span class=n>r</span><span class=o>.</span><span class=n>close</span><span class=p>()</span>
+    <span class=k>return</span> <span class=n>decrypt</span><span class=p>(</span><span class=n>AES_key</span><span class=p>,</span> <span class=n>recv</span><span class=p>)</span>
+
+
+<span class=k>def</span> <span class=nf>show_lic</span><span class=p>(</span><span class=n>license</span><span class=p>):</span>
+    <span class=n>full_lic</span> <span class=o>=</span> <span class=sa>b</span><span class=s1>&#39;&#39;</span>
+    <span class=k>for</span> <span class=n>lic</span> <span class=ow>in</span> <span class=n>license</span><span class=p>:</span>
+        <span class=n>full_lic</span> <span class=o>+=</span> <span class=n>declicstr</span><span class=p>(</span><span class=n>keyPub</span><span class=p>,</span> <span class=n>b64decode</span><span class=p>(</span><span class=n>lic</span><span class=p>))</span>
+
+    <span class=k>print</span><span class=p>(</span><span class=n>f</span><span class=s2>&#34;[+] Decrypted lic: {full_lic}&#34;</span><span class=p>)</span>
+    <span class=k>while</span> <span class=nb>len</span><span class=p>(</span><span class=n>full_lic</span><span class=p>)</span> <span class=o>&gt;</span> <span class=mi>0</span> <span class=ow>and</span> <span class=n>full_lic</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=o>!=</span> <span class=mi>0</span><span class=p>:</span>
+        <span class=n>size</span> <span class=o>=</span> <span class=n>full_lic</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span>
+        <span class=n>data</span> <span class=o>=</span> <span class=n>full_lic</span><span class=p>[</span><span class=mi>1</span><span class=p>:</span><span class=n>size</span><span class=o>+</span><span class=mi>1</span><span class=p>]</span>
+        <span class=n>full_lic</span> <span class=o>=</span> <span class=n>full_lic</span><span class=p>[</span><span class=n>size</span><span class=o>+</span><span class=mi>1</span><span class=p>:]</span>
+        <span class=k>print</span><span class=p>(</span><span class=n>f</span><span class=s2>&#34;[+] Block: {str(size).rjust(2, &#39; &#39;)}, {data}&#34;</span><span class=p>)</span>
+    <span class=k>print</span><span class=p>(</span><span class=n>f</span><span class=s2>&#34;[+] Terminate&#34;</span><span class=p>)</span>
+
+
+<span class=n>show_lic</span><span class=p>(</span><span class=n>license</span><span class=p>)</span>
+<span class=n>new_lic_idx</span> <span class=o>=</span> <span class=n>new_lic_idx</span><span class=p>[:</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span> <span class=o>+</span> <span class=p>[</span><span class=mi>8</span><span class=p>]</span> <span class=o>+</span> <span class=p>[</span><span class=mi>10</span><span class=p>]</span> <span class=o>*</span> <span class=p>(</span><span class=mh>0x31</span> <span class=o>&gt;&gt;</span> <span class=mi>2</span><span class=p>)</span> <span class=o>+</span> <span class=n>new_lic_idx</span><span class=p>[</span><span class=o>-</span><span class=mi>1</span><span class=p>:]</span>
+<span class=n>new_lic_list</span> <span class=o>=</span> <span class=nb>list</span><span class=p>(</span><span class=nb>map</span><span class=p>(</span><span class=k>lambda</span> <span class=n>_</span><span class=p>:</span> <span class=n>license</span><span class=p>[</span><span class=n>_</span><span class=p>],</span> <span class=n>new_lic_idx</span><span class=p>))</span>
+<span class=n>new_lic</span> <span class=o>=</span> <span class=s1>&#39;&#39;</span><span class=o>.</span><span class=n>join</span><span class=p>(</span><span class=nb>map</span><span class=p>(</span><span class=k>lambda</span> <span class=n>_</span><span class=p>:</span> <span class=n>_</span> <span class=o>+</span> <span class=s2>&#34;::&#34;</span><span class=p>,</span> <span class=n>new_lic_list</span><span class=p>))</span>
+<span class=n>payload</span> <span class=o>=</span> <span class=n>payload_format</span><span class=o>.</span><span class=n>format</span><span class=p>(</span>
+    <span class=n>name</span><span class=o>=</span><span class=s1>&#39;1337_hacker&#39;</span><span class=p>,</span> <span class=n>is_admin</span><span class=o>=</span><span class=s1>&#39;0&#39;</span><span class=p>,</span> <span class=n>license</span><span class=o>=</span><span class=n>new_lic</span><span class=p>)</span>
+<span class=n>show_lic</span><span class=p>(</span><span class=n>new_lic_list</span><span class=p>)</span>
+
+<span class=n>recv</span> <span class=o>=</span> <span class=n>send_payload</span><span class=p>(</span><span class=n>payload</span><span class=p>)</span>
+<span class=k>print</span><span class=p>(</span><span class=n>recv</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><h3 id=flag>Flag</h3><p><code>CTF{n0w_u_kn0w_h0w_n0t_t0_l1c3n53_ur_b0t}</code></p><blockquote><p>意外的沒說到很難</p></blockquote><h3 id=reference>Reference</h3><ul><li><a href=https://litotom.com/android-8-0-oreo-notification-channels/>Android 8.0 Oreo 一定得實作的通知頻道Notification channels</a></li><li><a href=https://stackoverflow.com/questions/51886516/how-to-compile-tcpdump-for-android-x86-and-x86-64>How to compile tcpdump for android x86 and x86_64</a></li><li><a href=https://github.com/maddiestone/AndroidAppRE/blob/master/reversing_native_libs.md>Reverse Engineering Android Apps - Native Libraries</a></li><li><a href=https://github.com/nononovak/googlectf-writeups/tree/main/2021/reversing/adspam>nononovak/googlectf-writeups</a></li><li><a href=https://www.zybuluo.com/cxm-2016/note/566623>JNI完全指南(十)——JavaVM与JNIEnv</a></li><li><a href=https://evilpan.com/2020/10/07/jni-helper/>安卓逆向之自动化JNI静态分析</a></li><li><a href="https://hackmd.io/@Rance/Byp2oH1AM?type=view">SSE 矩陣運算原理</a></li><li><a href=https://www.andreafortuna.org/2018/05/28/how-to-install-and-run-tcpdump-on-android-devices/>How to install (and run) tcpdump on Android devices</a></li></ul></div><div class=post-footer><div class=info><span class=separator><a class=category href=/blog/categories/ctf/>CTF</a></span>
+<span class=separator><a class=tag href=/blog/tags/ctf/>CTF</a><a class=tag href=/blog/tags/ais3/>AIS3</a><a class=tag href=/blog/tags/reverse/>Reverse</a><a class=tag href=/blog/tags/jni/>jni</a><a class=tag href=/blog/tags/apk/>apk</a></span></div></div><div id=fb_comments_container><h2>comments</h2><div id=gitalk-container></div><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.min.css integrity="sha512-0hsIlRjJbiUWaKMhXXNDmjWI2qPvUlhNBLHMhqeF5jIma+bedec27N5FoT2JEeHz5TUmOGCsm1Y89EsX/P0wOg==" crossorigin=anonymous referrerpolicy=no-referrer><script src=https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.min.js integrity="sha512-EcTCcXV46teiNwe0VcnM5A038tcY+BaQYO4nW6Gh2i7v4/HjBVg7xx3+JBLl9WofDds//INJAiEGAtdgr8PWyA==" crossorigin=anonymous referrerpolicy=no-referrer></script><script>const gitalk=new Gitalk({clientID:'2ab39a69f03aa9ed4fa4',clientSecret:'177e45f7cb94b63a131778c57a72cd0a59798296',repo:'blog',owner:'artis24106',admin:['artis24106'],id:location.pathname,distractionFreeMode:false,});(function(){if(['localhost','127.0.0.1'].indexOf(window.location.hostname)!=-1){document.getElementById('gitalk-container').innerHTML='Gitalk comments not available by default when the website is previewed locally.';return;}
+gitalk.render('gitalk-container');})();</script></div></div></div></div></main></div><footer class="footer footer--base"><div class=by_farbox><ul class=footer__list><li class=footer__item>&copy;
+artis24106
+2021</li></ul></div></footer><script type=text/javascript src=/blog/js/medium-zoom.min.bdc7b23aff63497a79433b3920b03e2473399d90ad4c2d87cf7c08d33d61966f.js integrity="sha256-vceyOv9jSXp5Qzs5ILA+JHM5nZCtTC2Hz3wI0z1hlm8=" crossorigin=anonymous></script></body></html>
